@@ -19,49 +19,57 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#FDFBF7]/90 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"
+      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-[2rem] px-6 md:px-8 py-3 w-[95%] max-w-5xl flex justify-between items-center ${
+        isScrolled 
+          ? "top-4 bg-[#FDFBF7]/60 backdrop-blur-md border border-[#0F2E18]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)]" 
+          : "top-6 bg-transparent border border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className="text-2xl font-serif font-bold text-[#0F2E18]">
-          Jianshan.
-        </a>
+      <a href="#" className={`text-2xl font-serif font-bold transition-colors ${
+        isScrolled ? "text-[#0F2E18]" : "text-[#FDFBF7]"
+      }`}>
+        Jianshan.
+      </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-[#0F2E18] font-medium hover:text-[#1A4D2E] transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+      {/* Desktop Nav */}
+      <nav className="hidden md:flex items-center gap-8">
+        {links.map((link) => (
           <a
-            href="#apply"
-            className="px-5 py-2 rounded-full bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E] transition-colors font-medium text-sm"
+            key={link.name}
+            href={link.href}
+            className={`font-medium transition-colors ${
+              isScrolled ? "text-[#0F2E18] hover:text-[#1A4D2E]" : "text-[#FDFBF7] hover:text-[#FDFBF7]/70"
+            }`}
           >
-            Apply Now
+            {link.name}
           </a>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-[#0F2E18]"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        ))}
+        <a
+          href="#apply"
+          className={`px-5 py-2 rounded-full transition-colors font-medium text-sm ${
+             isScrolled 
+               ? "bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E]" 
+               : "bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#FDFBF7]/90"
+          }`}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          Apply Now
+        </a>
+      </nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        className={isScrolled ? "text-[#0F2E18]" : "text-[#FDFBF7]"}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
 
       {/* Mobile Nav */}
       {isMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 right-0 bg-[#FDFBF7] shadow-lg md:hidden p-4 flex flex-col gap-4 border-t border-[#0F2E18]/10"
+           initial={{ opacity: 0, y: -20, scale: 0.95 }}
+           animate={{ opacity: 1, y: 0, scale: 1 }}
+           className="absolute top-16 left-0 right-0 bg-[#FDFBF7] shadow-lg md:hidden p-4 flex flex-col gap-4 border border-[#0F2E18]/10 rounded-2xl"
         >
           {links.map((link) => (
             <a
