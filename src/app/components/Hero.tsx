@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ArrowRight, Users } from "lucide-react";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import ImageTrail from "./ImageTrail";
 
 export default function Hero() {
