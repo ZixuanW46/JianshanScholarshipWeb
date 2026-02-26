@@ -33,7 +33,9 @@ export default function App() {
         <SectionTransition fromColor="#0A0A0A" toColor="#F9FAFB" />
         <ScholarshipInfo />
         <Options2026 />
+        <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
         <ApplicationProcess />
+        <SectionTransition fromColor="#0A0A0A" toColor="#1A4D2E" />
         <CTA />
         <FAQ />
         <SectionTransition fromColor="#FDFBF7" toColor="#1A1A1A" />
