@@ -1,4 +1,5 @@
 import { ExpandingPanelAccordion } from "./ui/ExpandingPanelAccordion";
+import { ChinaTripLinkBlock } from "./ChinaTripLinkBlock";
 
 export default function ChinaTrip() {
   const tripPanels = [
@@ -27,13 +28,24 @@ export default function ChinaTrip() {
 
   return (
     <section id="china-trip" className="bg-[#FDFBF7] relative py-32 overflow-hidden z-10 w-full">
-      <div className="mb-16 px-6 md:px-12 lg:px-24 mx-auto max-w-[1400px]">
-        <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#0F2E18] mb-6 text-left">
-          Part Two: <br />Capy China Trip
-        </h2>
-        <div className="h-1 w-24 bg-[#1A4D2E] mb-8" />
+      <div className="mb-20 px-6 md:px-12 lg:px-24 mx-auto max-w-[1400px]">
+        <div className="flex items-center gap-6 mb-8">
+          <div className="h-[1px] w-12 bg-[#0F2E18]/30" />
+          <span className="text-[#0F2E18]/60 tracking-[0.2em] font-sans text-xs md:text-sm font-semibold uppercase">
+            The Jianshan Experience
+          </span>
+        </div>
 
-        <p className="text-xl text-[#0F2E18]/80 max-w-2xl font-light text-left">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl flex flex-col gap-1 md:gap-2 text-left">
+          <span className="font-sans font-bold text-[#0F2E18] tracking-tighter">
+            Part Two: China Trip
+          </span>
+          <span className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-[#D85C3C] tracking-tight pr-4">
+            where the journey begins.
+          </span>
+        </h2>
+
+        <p className="text-xl text-[#0F2E18]/80 max-w-2xl font-light text-left mt-10">
           The best immersive and authentic China experience you can expect.
           You have time to self-explore while we as a family, have your back!
         </p>
@@ -42,6 +54,9 @@ export default function ChinaTrip() {
       <div className="w-full">
         <ExpandingPanelAccordion panels={tripPanels} />
       </div>
+
+      <ChinaTripLinkBlock />
     </section>
   );
 }
+

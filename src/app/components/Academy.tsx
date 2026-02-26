@@ -1,4 +1,5 @@
 import { ExpandingPanelAccordion } from "./ui/ExpandingPanelAccordion";
+import { AcademyLinkBlock } from "./AcademyLinkBlock";
 
 export default function Academy() {
   const academyPanels = [
@@ -21,17 +22,29 @@ export default function Academy() {
   return (
     <section id="academy" className="bg-[#1A1A1A] relative py-32 overflow-hidden z-10 w-full">
       {/* Intro text */}
-      <div className="mb-16 px-6 md:px-12 lg:px-24 mx-auto max-w-[1400px]">
-        <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#FDFBF7] mb-6 text-left">
-          Part One: <br />Jianshan Academy
+      <div className="mb-20 px-6 md:px-12 lg:px-24 mx-auto max-w-[1400px]">
+        <div className="flex items-center gap-6 mb-8">
+          <div className="h-[1px] w-12 bg-[#FDFBF7]/40" />
+          <span className="text-[#FDFBF7]/60 tracking-[0.2em] font-sans text-xs md:text-sm font-semibold uppercase">
+            The Jianshan Experience
+          </span>
+        </div>
+
+        <h2 className="text-5xl md:text-7xl lg:text-8xl flex flex-col gap-1 md:gap-2 text-left">
+          <span className="font-sans font-bold text-[#FDFBF7] tracking-tighter">
+            Part One: Academy
+          </span>
+          <span className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-[#D85C3C] tracking-tight pr-4">
+            where minds connect.
+          </span>
         </h2>
-        <div className="h-1 w-24 bg-[#E8F3E8] opacity-50" />
       </div>
 
       <div className="w-full">
         <ExpandingPanelAccordion panels={academyPanels} />
       </div>
+
+      <AcademyLinkBlock />
     </section>
   );
 }
-
