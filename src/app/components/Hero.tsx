@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?q=80&w=2000&auto=format&fit=crop"
+          src="/hero_pic.webp"
           alt="Dark Forest"
           className="w-full h-full object-cover opacity-60"
         />

@@ -13,14 +13,12 @@ export default function Footer() {
           <div className="flex gap-16 md:gap-24 text-sm font-mono items-start">
             <div className="flex flex-col gap-5">
               <span className="text-[#1A4D2E] uppercase tracking-widest font-bold mb-2">Explore</span>
-              <a href="#about" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">About</a>
-              <a href="#academy" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Academy</a>
+              <a href="#academy" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Jianshan Academy</a>
               <a href="#china-trip" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">China Trip</a>
             </div>
             <div className="flex flex-col gap-5">
               <span className="text-[#1A4D2E] uppercase tracking-widest font-bold mb-2">Connect</span>
               <a href="#" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Instagram</a>
-              <a href="#" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">LinkedIn</a>
               <a href="#" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Contact</a>
             </div>
           </div>

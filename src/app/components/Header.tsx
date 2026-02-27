@@ -23,7 +23,7 @@ export default function Header() {
   // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1000) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -62,7 +62,7 @@ export default function Header() {
             {/* Left section: Logo */}
             <a
               href="#"
-              className={`flex items-center gap-2 md:gap-3 text-[1.05rem] min-[380px]:text-lg md:text-2xl font-serif font-medium transition-colors shrink-0 ${isScrolled || isMobileMenuOpen ? "text-[#0F2E18]" : "text-[#FDFBF7]"
+              className={`flex items-center gap-2 md:gap-3 text-[1.05rem] min-[380px]:text-lg md:text-xl font-serif font-medium transition-colors shrink-0 ${isScrolled || isMobileMenuOpen ? "text-[#0F2E18]" : "text-[#FDFBF7]"
                 }`}
               style={
                 {
@@ -75,7 +75,7 @@ export default function Header() {
             </a>
 
             {/* Middle section: Navigation (desktop only) */}
-            <nav className="hidden md:flex items-center justify-center gap-10">
+            <nav className="hidden min-[1000px]:flex items-center justify-center gap-10">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
@@ -97,7 +97,7 @@ export default function Header() {
               {/* Apply Now button (desktop only) */}
               <a
                 href="#apply"
-                className={`hidden md:inline-flex px-5 py-2 rounded-full transition-colors font-medium text-sm whitespace-nowrap ${isScrolled
+                className={`hidden min-[1000px]:inline-flex px-5 py-2 rounded-full transition-colors font-medium text-sm whitespace-nowrap ${isScrolled
                   ? "bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E]"
                   : "bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#FDFBF7]/90"
                   }`}
@@ -108,7 +108,7 @@ export default function Header() {
               {/* Hamburger button (mobile only) */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`md:hidden flex flex-col justify-center items-center w-9 h-9 shrink-0 rounded-full transition-colors ${isScrolled || isMobileMenuOpen ? "hover:bg-[#0F2E18]/10" : "hover:bg-[#FDFBF7]/10"}`}
+                className={`min-[1000px]:hidden flex flex-col justify-center items-center w-9 h-9 shrink-0 rounded-full transition-colors ${isScrolled || isMobileMenuOpen ? "hover:bg-[#0F2E18]/10" : "hover:bg-[#FDFBF7]/10"}`}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -137,7 +137,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 min-[1000px]:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -147,7 +147,7 @@ export default function Header() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: -10 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-x-0 top-24 z-50 md:hidden"
+              className="fixed inset-x-0 top-24 z-50 min-[1000px]:hidden"
             >
               <motion.nav
                 className="mx-auto w-full max-w-[1400px] px-6 md:px-12 lg:px-24"

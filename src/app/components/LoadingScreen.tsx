@@ -2,41 +2,67 @@ import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const IMAGES = [
-    "/polaroid/polaroid-01.jpg",
-    "/polaroid/polaroid-02.jpg",
-    "/polaroid/polaroid-03.jpg",
-    "/polaroid/polaroid-04.jpg",
-    "/polaroid/polaroid-05.jpg",
-    "/polaroid/polaroid-06.jpg",
+    "/polaroid/polaroid-01.webp",
+    "/polaroid/polaroid-02.webp",
+    "/polaroid/polaroid-03.webp",
+    "/polaroid/polaroid-04.webp",
+    "/polaroid/polaroid-05.webp",
+    "/polaroid/polaroid-06.webp",
 ];
+
+const MIN_LOADING_MS = 2000;
+const MAX_WAIT_MS = 12000;
 
 const LoadingScreen: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [loadedIndices, setLoadedIndices] = useState<number[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        let mounted = true;
+        const loaded = new Set<number>();
+
+        IMAGES.forEach((src, index) => {
+            const img = new Image();
+            img.decoding = "async";
+            img.onload = () => {
+                loaded.add(index);
+                if (!mounted) return;
+                const nextLoaded = Array.from(loaded).sort((a, b) => a - b);
+                setLoadedIndices(nextLoaded);
+                setCurrentImageIndex((prev) => (loaded.has(prev) ? prev : nextLoaded[0]));
+            };
+            img.src = src;
+        });
+
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    useEffect(() => {
         // Lock scroll during loading
         document.body.style.overflow = "hidden";
-
-        // Cycle images rapidly
-        const intervalId = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % IMAGES.length);
-        }, 150); // Change image every 150ms
 
         // Fade out the dark overlay over the loading duration to make images get brighter
         if (overlayRef.current) {
             gsap.fromTo(
                 overlayRef.current,
                 { opacity: 0.95 },
-                { opacity: 0, duration: 2.5, ease: "power2.out" }
+                { opacity: 0, duration: MIN_LOADING_MS / 1000, ease: "power2.out" }
             );
         }
 
-        // End loading instantly after 2.5s and render the normal page
-        const timeoutId = setTimeout(() => {
-            clearInterval(intervalId); // Stop cycling
+        let isMinTimeElapsed = false;
+        let isPageReady = false;
+        let hasStartedExit = false;
+
+        const endLoading = () => {
+            if (hasStartedExit) return;
+            if (!isMinTimeElapsed || !isPageReady) return;
+            hasStartedExit = true;
 
             if (containerRef.current) {
                 gsap.to(containerRef.current, {
@@ -48,15 +74,60 @@ const LoadingScreen: React.FC = () => {
                         document.body.style.overflow = ""; // Unlock scroll
                     },
                 });
+                return;
             }
-        }, 2500);
+
+            setIsLoading(false);
+            document.body.style.overflow = "";
+        };
+
+        const onPageReady = () => {
+            isPageReady = true;
+            endLoading();
+        };
+
+        const minTimerId = window.setTimeout(() => {
+            isMinTimeElapsed = true;
+            endLoading();
+        }, MIN_LOADING_MS);
+
+        // Wait for the page resources to finish loading.
+        if (document.readyState === "complete") {
+            onPageReady();
+        } else {
+            window.addEventListener("load", onPageReady, { once: true });
+        }
+
+        // Fallback: never block forever if a resource hangs.
+        const fallbackTimerId = window.setTimeout(() => {
+            onPageReady();
+        }, MAX_WAIT_MS);
 
         return () => {
-            clearInterval(intervalId);
-            clearTimeout(timeoutId);
+            window.clearTimeout(minTimerId);
+            window.clearTimeout(fallbackTimerId);
+            window.removeEventListener("load", onPageReady);
             document.body.style.overflow = "";
         };
     }, []);
+
+    useEffect(() => {
+        if (!isLoading || loadedIndices.length === 0) return;
+
+        const intervalId = window.setInterval(() => {
+            setCurrentImageIndex((prev) => {
+                const currentPos = loadedIndices.indexOf(prev);
+                const nextPos = currentPos >= 0
+                    ? (currentPos + 1) % loadedIndices.length
+                    : 0;
+                return loadedIndices[nextPos];
+            });
+        }, 150);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [isLoading, loadedIndices]);
 
     if (!isLoading) return null;
 
@@ -80,7 +151,7 @@ const LoadingScreen: React.FC = () => {
                         key={src}
                         src={src}
                         alt={`Loading Frame ${index + 1}`}
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-75 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-75 ${index === currentImageIndex && loadedIndices.includes(index) ? "opacity-100" : "opacity-0"
                             }`}
                     />
                 ))}

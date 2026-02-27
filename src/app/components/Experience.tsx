@@ -64,12 +64,12 @@ export default function Experience() {
         ease: "power2.out" // Use out ease for quicker early movement
       });
 
-      // Fade in the top label at the end
+      // Fade in the top label shortly after the sentence starts assembling
       tl.from(".exp-label", {
         opacity: 0,
         y: 20,
         duration: 0.5,
-      }, ">-0.5");
+      }, 0.2);
 
     }, containerRef);
 

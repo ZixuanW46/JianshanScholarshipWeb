@@ -10,11 +10,11 @@ export default function Contact() {
     // Parallax effect for the background / content reveal
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end end"]
+        offset: ["start end", "end 75%"]
     });
 
     const y = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.5, 1]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 0.65], [0, 0.5, 1]);
 
     return (
         <section
@@ -42,7 +42,7 @@ export default function Contact() {
 
                     <div className="flex flex-col gap-6">
                         <a
-                            href="https://instagram.com/camcapysoc"
+                            href="https://www.instagram.com/camcapysoc"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex items-center justify-between p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm"
@@ -79,45 +79,47 @@ export default function Contact() {
 
                 {/* Right Side: Giant QR Code */}
                 <div className="flex justify-center items-center">
-                    <div className="relative group perspective-[1000px]">
+                    <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        className="relative group perspective-[1000px]"
+                    >
                         {/* Decorative scan frame */}
-                        <div className="absolute -inset-8 border border-white/10 rounded-[3rem] opacity-50 block" />
+                        <motion.div
+                            animate={{
+                                opacity: [0.2, 0.8, 0.2],
+                                scale: [0.95, 1.05, 0.95]
+                            }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute -inset-8 border-2 border-[#8AC1A6]/40 rounded-[3rem] block"
+                        />
 
-                        <div className="relative w-64 h-64 md:w-80 md:h-80 bg-white p-4 rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(138,193,166,0.15)] group-hover:shadow-[0_0_120px_rgba(138,193,166,0.25)] transition-shadow duration-500">
+                        <motion.div
+                            animate={{
+                                boxShadow: [
+                                    "0 0 40px rgba(138,193,166,0.1)",
+                                    "0 0 100px rgba(138,193,166,0.6)",
+                                    "0 0 40px rgba(138,193,166,0.1)"
+                                ]
+                            }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="relative w-64 h-64 md:w-80 md:h-80 bg-white p-4 rounded-3xl overflow-hidden"
+                        >
                             {/* Inner Corners */}
                             <div className="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-[#1A1A1A] rounded-tl-xl" />
                             <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-[#1A1A1A] rounded-tr-xl" />
                             <div className="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-[#1A1A1A] rounded-bl-xl" />
                             <div className="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#1A1A1A] rounded-br-xl" />
 
-                            {/* QR Code Placeholder - Wait, we don't have a component for this yet, so using a stylized block */}
-                            {/* For a real QR code you'd use next/image here */}
-                            <div className="w-full h-full bg-[#1A1A1A] rounded-2xl flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-x-0 h-[200%] bg-gradient-to-b from-transparent via-white/10 to-transparent top-[-100%] animate-[scan_3s_ease-in-out_infinite]" />
-                                <div className="text-white/20 text-center px-6 font-mono text-sm leading-relaxed">
-                                    [ Insert QR Code Here ]<br />
-                                    <span className="text-[10px] uppercase mt-4 block text-[#8AC1A6]">Scan with phone</span>
-                                </div>
-
-                                {/* Faux QR Grid lines */}
-                                <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-2 p-6 opacity-20">
-                                    {Array.from({ length: 36 }).map((_, i) => (
-                                        <div key={i} className={"bg-white rounded-[2px] " + (Math.random() > 0.5 ? 'opacity-100' : 'opacity-0')} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <img
+                                src="/ins_qr.png"
+                                alt="CAMCapy Instagram QR code"
+                                className="w-full h-full rounded-2xl object-contain"
+                            />
+                        </motion.div>
+                    </motion.div>
                 </div>
             </motion.div>
-
-            <style dangerouslySetInnerHTML={{
-                __html: `
-            @keyframes scan {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(80%); }
-                }
-            `}} />
         </section>
     );
 }

@@ -18,7 +18,7 @@ const floatingCards = [
         id: 1,
         title: "We really made the most of our time here...",
         date: "08.2025",
-        imageUrl: "/polaroid/polaroid-01.jpg",
+        imageUrl: "/polaroid/polaroid-01.webp",
         position: "left",
         offsetX: "-left-12 lg:-left-4", // Slightly overflowing screen on the left
         rotation: "-rotate-6",
@@ -28,7 +28,7 @@ const floatingCards = [
         id: 2,
         title: "It felt quietly life-changing, a trip I’ll be thinking about for a long time to come.",
         date: "07.2025",
-        imageUrl: "/polaroid/polaroid-02.jpg",
+        imageUrl: "/polaroid/polaroid-02.webp",
         position: "right",
         offsetX: "-right-6 lg:right-10",
         rotation: "rotate-3",
@@ -38,7 +38,7 @@ const floatingCards = [
         id: 3,
         title: "I went to teach but came out learning just as much.",
         date: "12.08.2024",
-        imageUrl: "/polaroid/polaroid-03.jpg",
+        imageUrl: "/polaroid/polaroid-03.webp",
         position: "left",
         offsetX: "left-10 lg:left-24", // More centered
         rotation: "rotate-2",
@@ -48,7 +48,7 @@ const floatingCards = [
         id: 4,
         title: "I still miss it so much and, clearly, the only remedy is to return there as soon as possible.",
         date: "07.2025",
-        imageUrl: "/polaroid/polaroid-04.jpg",
+        imageUrl: "/polaroid/polaroid-04.webp",
         position: "right",
         offsetX: "-right-16 lg:-right-8", // Overflowing on the right
         rotation: "-rotate-4",
@@ -58,7 +58,7 @@ const floatingCards = [
         id: 5,
         title: "It was a once in a lifetime kind of trip which brought so many new experiences and friendships into my life.",
         date: "07.2025",
-        imageUrl: "/polaroid/polaroid-05.jpg",
+        imageUrl: "/polaroid/polaroid-05.webp",
         position: "left",
         offsetX: "-left-8 lg:left-8",
         rotation: "-rotate-2",
@@ -68,7 +68,7 @@ const floatingCards = [
         id: 6,
         title: "I love Cam Capy 🫶",
         date: "08.2025",
-        imageUrl: "/polaroid/polaroid-06.jpg",
+        imageUrl: "/polaroid/polaroid-06.webp",
         position: "right",
         offsetX: "right-12 lg:right-32", // More inset
         rotation: "rotate-6",

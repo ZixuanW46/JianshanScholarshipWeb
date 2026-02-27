@@ -1,5 +1,6 @@
 import { ExpandingPanelAccordion } from "./ui/ExpandingPanelAccordion";
 import { AcademyLinkBlock } from "./AcademyLinkBlock";
+import { Pointer } from "lucide-react";
 
 export default function Academy() {
   const academyPanels = [
@@ -7,15 +8,15 @@ export default function Academy() {
       id: "exploration",
       title: "Academic Exploration",
       subtitle: "Passion & Perspective",
-      description: "Share your passion and perspective to inspire a new generation of students. We don't set constraints, students can explore whatever and however they want. In Jianshan Academy, even raw knowledge itself is secondary.",
-      imageUrl: "https://images.unsplash.com/photo-1557734864-c78b6dfef1b1?q=80&w=1080&auto=format&fit=crop"
+      description: "Share your passion and understanding of subjects you love, and pass that spark on to these kids. Think back to your favourite teacher growing up — the one who made you fall in love with a subject. **Now you have the chance to be that person for someone else.** A small moment of inspiration today could shape a child's path for years to come.",
+      imageUrl: "/teaching.webp"
     },
     {
       id: "exchange",
       title: "Cultural Exchange",
       subtitle: "Real Connections",
-      description: "Share your cultural background while the students share theirs. We know the best way to learn about a culture is from real people. In Jianshan Academy, you meet people with different backgrounds. They can be your Cambridge peers, Chinese students, and even cool Chinese content creators!",
-      imageUrl: "https://images.unsplash.com/photo-1758270705657-f28eec1a5694?q=80&w=1080&auto=format&fit=crop"
+      description: "This isn't a one-way street. You'll share your own cultural background with the students, and in return, you'll live alongside locals day and night — the most authentic way to experience a culture. **It's a genuine, two-way exchange that no textbook or tourist trip could ever replicate.**",
+      imageUrl: "/cultural.webp"
     }
   ];
 
@@ -32,7 +33,9 @@ export default function Academy() {
 
         <h2 className="text-5xl md:text-7xl lg:text-8xl flex flex-col gap-1 md:gap-2 text-left">
           <span className="font-sans font-bold text-[#FDFBF7] tracking-tighter">
-            Part One: Academy
+            Part One:{" "}
+            <br className="md:hidden" />
+            <span>Jianshan Academy</span>
           </span>
           <span className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-[#D85C3C] tracking-tight pr-4">
             where minds connect.
@@ -41,6 +44,10 @@ export default function Academy() {
       </div>
 
       <div className="w-full">
+        <div className="md:hidden flex items-center justify-center gap-4 mb-6 px-6 text-[#FDFBF7]/60">
+          <Pointer size={16} className="animate-pulse -rotate-12" />
+          <span className="text-[10px] uppercase tracking-[0.2em] font-mono">Tap panels to expand</span>
+        </div>
         <ExpandingPanelAccordion panels={academyPanels} />
       </div>
 

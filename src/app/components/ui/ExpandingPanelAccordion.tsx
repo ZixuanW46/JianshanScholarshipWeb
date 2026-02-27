@@ -13,9 +13,58 @@ interface ExpandingPanelAccordionProps {
     panels: AccordionPanelData[];
 }
 
+function parseHighlights(text: string) {
+    if (!text.includes('**')) return text;
+
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return (
+        <>
+            {parts.map((part, i) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                    return (
+                        <span key={i} className="text-[#FDFBF7] font-medium drop-shadow-md">
+                            {part.slice(2, -2)}
+                        </span>
+                    );
+                }
+                return <span key={i}>{part}</span>;
+            })}
+        </>
+    );
+}
+
+function truncateForMobile(text: string, maxLength: number) {
+    const cleanText = text.replace(/\*\*/g, '');
+    if (cleanText.length <= maxLength) return text;
+
+    let currentCleanLength = 0;
+    let cutoffIndex = text.length;
+    let insideHighlights = false;
+
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === '*' && text[i + 1] === '*') {
+            insideHighlights = !insideHighlights;
+            i++;
+            continue;
+        }
+        currentCleanLength++;
+        if (currentCleanLength === maxLength) {
+            cutoffIndex = i + 1;
+            break;
+        }
+    }
+
+    let truncated = text.slice(0, cutoffIndex).trimEnd();
+    if (insideHighlights) {
+        truncated += '**';
+    }
+    return truncated;
+}
+
 export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps) {
     // activePanel is null initially so all panels share equal width (flex: 1)
     const [activePanel, setActivePanel] = useState<string | null>(null);
+    const [expandedDescriptions, setExpandedDescriptions] = useState<Record<string, boolean>>({});
     const containerRef = useRef<HTMLDivElement>(null);
     const [isDesktop, setIsDesktop] = useState(false);
 
@@ -76,6 +125,7 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
             {panels.map((panel, index) => {
                 // Evaluate active status - if activePanel is null, all are inactive (shows vertical text, equal width)
                 const isActive = activePanel === panel.id;
+                const isDescriptionExpanded = expandedDescriptions[panel.id] ?? false;
 
                 return (
                     <div
@@ -86,6 +136,11 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
                         }}
                         onMouseEnter={() => {
                             if (isDesktop) setActivePanel(panel.id);
+                        }}
+                        onClick={() => {
+                            if (!isDesktop) {
+                                setActivePanel(activePanel === panel.id ? null : panel.id);
+                            }
                         }}
                     >
                         {/* Background Image */}
@@ -129,16 +184,41 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
                                 className={`relative flex flex-col justify-end p-6 md:p-10 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}
                             >
                                 <div className="font-mono text-xs md:text-sm mb-3 text-[#FDFBF7]/80 tracking-[0.2em] uppercase origin-left">
-                                    {panel.title || `Section ${String(index + 1).padStart(2, '0')}`}
+                                    {panel.subtitle || `Section ${String(index + 1).padStart(2, '0')}`}
                                 </div>
 
                                 <h3 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-4 md:mb-6 leading-tight max-w-2xl drop-shadow-md">
                                     {panel.title}
                                 </h3>
 
-                                <p className="text-base md:text-xl text-[#FDFBF7]/90 max-w-2xl mb-6 md:mb-10 font-light leading-relaxed drop-shadow-sm line-clamp-3 md:line-clamp-none">
-                                    {panel.description}
-                                </p>
+                                <div className="max-w-4xl mb-4 md:mb-10">
+                                    {!isDesktop && !isDescriptionExpanded ? (
+                                        <p className="text-base text-[#FDFBF7]/90 font-light leading-relaxed drop-shadow-sm">
+                                            {parseHighlights(truncateForMobile(panel.description, 150))}
+                                            {panel.description.replace(/\*\*/g, '').length > 150 && (
+                                                <>
+                                                    ...{" "}
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setExpandedDescriptions((prev) => ({
+                                                                ...prev,
+                                                                [panel.id]: true
+                                                            }));
+                                                        }}
+                                                        className="inline text-xs tracking-[0.2em] uppercase font-mono text-[#C4F1B3] hover:text-[#E0FFD5] transition-colors align-baseline"
+                                                    >
+                                                        more
+                                                    </button>
+                                                </>
+                                            )}
+                                        </p>
+                                    ) : (
+                                        <p className="text-base md:text-xl text-[#FDFBF7]/90 font-light leading-relaxed drop-shadow-sm line-clamp-none">
+                                            {parseHighlights(panel.description)}
+                                        </p>
+                                    )}
+                                </div>
 
                                 <div>
                                     <button className="flex items-center gap-3 text-xs md:text-sm tracking-[0.2em] uppercase font-mono group/btn bg-[#FDFBF7]/10 hover:bg-[#FDFBF7]/20 px-6 py-4 rounded-full backdrop-blur-md transition-all border border-[#FDFBF7]/30 text-[#FDFBF7]">
