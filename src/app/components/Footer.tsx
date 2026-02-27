@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[#FDFBF7]">Jianshan<br />Scholarship</h2>
             <p className="text-[#FDFBF7]/60 text-lg font-light leading-relaxed">
-              Empowering the next generation of global thinkers through adventure, discovery, and family.
+              Empowering the next generation of global thinkers through adventure, discovery, and real connections.
             </p>
           </div>
 

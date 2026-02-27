@@ -35,9 +35,15 @@ export default function App() {
         <Options2026 />
         <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
         <ApplicationProcess />
-        <SectionTransition fromColor="#0A0A0A" toColor="#1A4D2E" />
         <CTA />
-        <SectionTransition fromColor="#1A4D2E" toColor="#FDFBF7" />
+        <SectionTransition
+          fromColor="#1A4D2E"
+          toColor="#FDFBF7"
+          fromNoiseOpacity={0.12}
+          fromGlowColor="#2E8B57"
+          fromGlowOpacity={0.18}
+          fromGlowSize="85%"
+        />
         <FAQ />
         <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
         <Contact />
@@ -46,4 +52,3 @@ export default function App() {
     </div>
   );
 }
-

@@ -12,12 +12,20 @@ interface SectionTransitionProps {
     fromColor: string;
     toColor: string;
     className?: string;
+    fromNoiseOpacity?: number;
+    fromGlowColor?: string;
+    fromGlowOpacity?: number;
+    fromGlowSize?: string;
 }
 
 const SectionTransition: React.FC<SectionTransitionProps> = ({
     fromColor,
     toColor,
     className = '',
+    fromNoiseOpacity = 0,
+    fromGlowColor = '#8AC1A6',
+    fromGlowOpacity = 0,
+    fromGlowSize = '70%',
 }) => {
     // Multi-stop mask for smooth eased fade (ease-out curve)
     const maskImage = `linear-gradient(to bottom,
@@ -45,13 +53,35 @@ const SectionTransition: React.FC<SectionTransitionProps> = ({
             style={{ backgroundColor: toColor }}
         >
             <div
-                className="absolute inset-0"
+                className="absolute inset-0 overflow-hidden"
                 style={{
                     backgroundColor: fromColor,
                     maskImage,
                     WebkitMaskImage: maskImage,
                 }}
-            />
+            >
+                {fromGlowOpacity > 0 && (
+                    <div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] pointer-events-none"
+                        style={{
+                            width: fromGlowSize,
+                            height: fromGlowSize,
+                            backgroundColor: fromGlowColor,
+                            opacity: fromGlowOpacity,
+                        }}
+                    />
+                )}
+                {fromNoiseOpacity > 0 && (
+                    <div
+                        className="absolute inset-0 pointer-events-none mix-blend-overlay"
+                        style={{
+                            opacity: fromNoiseOpacity,
+                            backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')",
+                            backgroundSize: '320px 320px',
+                        }}
+                    />
+                )}
+            </div>
         </div>
     );
 };

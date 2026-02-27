@@ -53,6 +53,9 @@ export default function CTA() {
             className="w-full bg-[#1A4D2E] py-32 md:py-40 relative flex items-center justify-center overflow-hidden"
             onMouseMove={handleSectionMouseMove}
         >
+            {/* Keep top fade to blend with previous dark section */}
+            <div className="absolute inset-x-0 top-0 h-40 md:h-56 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/65 to-transparent pointer-events-none z-[1]" />
+
             {/* Custom airplane cursor follower */}
             <AnimatePresence>
                 {stubHover && (

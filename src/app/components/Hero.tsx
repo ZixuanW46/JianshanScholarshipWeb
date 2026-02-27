@@ -56,8 +56,8 @@ export default function Hero() {
             Return inspired.
           </h2>
 
-          <p className="hero-stagger text-xl md:text-2xl text-[#FDFBF7]/70 mb-12 font-light max-w-xl">
-            A fully-funded journey from Cambridge into the heart of China —— adventure, discovery and real connections.
+          <p className="hero-stagger text-xl md:text-2xl text-[#FDFBF7]/70 mb-12 font-light max-w-3xl">
+            From Cambridge to China: A fully-funded opportunity for Cambridge minds to seek adventure, discovery, and real connections.
           </p>
 
           <div className="hero-stagger flex flex-col sm:flex-row items-start gap-4">
@@ -89,7 +89,7 @@ export default function Hero() {
               <div className="absolute inset-[1px] rounded-full bg-[#0a2010] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Meet the Scholars
+                Meet Past Scholars
                 <Users
                   size={20}
                   className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_2px_8px_rgba(253,251,247,0.6)]"
