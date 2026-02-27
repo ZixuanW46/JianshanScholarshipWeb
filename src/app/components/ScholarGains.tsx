@@ -16,8 +16,9 @@ const phrasesData = [
 const floatingCards = [
     {
         id: 1,
-        title: "Cashing in on The Creator Economy",
-        date: "17.09.2024",
+        title: "We really made the most of our time here...",
+        date: "08.2025",
+        imageUrl: "/polaroid/polaroid-01.jpg",
         position: "left",
         offsetX: "-left-12 lg:-left-4", // Slightly overflowing screen on the left
         rotation: "-rotate-6",
@@ -25,8 +26,9 @@ const floatingCards = [
     },
     {
         id: 2,
-        title: "Bridging dreams of new generations",
-        date: "23.12.2024",
+        title: "It felt quietly life-changing, a trip I’ll be thinking about for a long time to come.",
+        date: "07.2025",
+        imageUrl: "/polaroid/polaroid-02.jpg",
         position: "right",
         offsetX: "-right-6 lg:right-10",
         rotation: "rotate-3",
@@ -34,8 +36,9 @@ const floatingCards = [
     },
     {
         id: 3,
-        title: "A community that extends beyond",
+        title: "I went to teach but came out learning just as much.",
         date: "12.08.2024",
+        imageUrl: "/polaroid/polaroid-03.jpg",
         position: "left",
         offsetX: "left-10 lg:left-24", // More centered
         rotation: "rotate-2",
@@ -43,8 +46,9 @@ const floatingCards = [
     },
     {
         id: 4,
-        title: "Academic immersion at its finest",
-        date: "05.07.2024",
+        title: "I still miss it so much and, clearly, the only remedy is to return there as soon as possible.",
+        date: "07.2025",
+        imageUrl: "/polaroid/polaroid-04.jpg",
         position: "right",
         offsetX: "-right-16 lg:-right-8", // Overflowing on the right
         rotation: "-rotate-4",
@@ -52,8 +56,9 @@ const floatingCards = [
     },
     {
         id: 5,
-        title: "Representing Cambridge globally",
-        date: "20.01.2024",
+        title: "It was a once in a lifetime kind of trip which brought so many new experiences and friendships into my life.",
+        date: "07.2025",
+        imageUrl: "/polaroid/polaroid-05.jpg",
         position: "left",
         offsetX: "-left-8 lg:left-8",
         rotation: "-rotate-2",
@@ -61,8 +66,9 @@ const floatingCards = [
     },
     {
         id: 6,
-        title: "The Jianshan Experience 2026",
-        date: "14.02.2025",
+        title: "I love Cam Capy 🫶",
+        date: "08.2025",
+        imageUrl: "/polaroid/polaroid-06.jpg",
         position: "right",
         offsetX: "right-12 lg:right-32", // More inset
         rotation: "rotate-6",
@@ -292,8 +298,13 @@ export default function ScholarGains() {
                                 boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 100px rgba(255,255,255,0.05)"
                             }}
                         >
-                            {/* Image Placeholder (Polaroid screen) */}
-                            <div className="w-full aspect-square bg-[#111] mb-3 relative overflow-hidden border border-black/5">
+                            {/* Polaroid photo area (keeps existing size/aspect ratio) */}
+                            <div className="w-full aspect-square mb-3 relative overflow-hidden border border-black/5">
+                                <img
+                                    src={card.imageUrl}
+                                    alt={card.title}
+                                    className="w-full h-full object-cover"
+                                />
                                 <div className="absolute inset-0 bg-white/5" />
                             </div>
 
@@ -330,8 +341,13 @@ export default function ScholarGains() {
                                     borderRadius: '2px'
                                 }}
                             >
-                                {/* Image Placeholder */}
-                                <div className="w-full aspect-square bg-[#111] mb-2 relative overflow-hidden border border-black/5">
+                                {/* Polaroid photo area (keeps existing size/aspect ratio) */}
+                                <div className="w-full aspect-square mb-2 relative overflow-hidden border border-black/5">
+                                    <img
+                                        src={card.imageUrl}
+                                        alt={card.title}
+                                        className="w-full h-full object-cover"
+                                    />
                                     <div className="absolute inset-0 bg-white/5" />
                                 </div>
 
@@ -351,7 +367,7 @@ export default function ScholarGains() {
             </div>
 
             {/* Center 3D Flipping Text Area */}
-            <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none px-4 md:px-32 lg:px-64 mt-24 md:mt-8">
+            <div className="absolute top-[1rem] md:top-[3rem] bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] flex items-center justify-center z-20 pointer-events-none px-4 md:px-32 lg:px-64">
                 {phrasesData.map((phrase, i) => (
                     <div key={i} className={`sg-phrase sg-phrase-${i} absolute w-full max-w-[1400px] text-center px-4`}>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans leading-[1.15] text-[#A3A3A3] drop-shadow-xl">
@@ -362,8 +378,8 @@ export default function ScholarGains() {
             </div>
 
             {/* Video Reveal Area */}
-            <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none px-4">
-                <div className="sg-video-wrapper relative w-full max-w-[800px] aspect-[16/9] bg-[#111] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 pointer-events-auto mt-12 md:mt-16">
+            <div className="absolute inset-x-0 top-[4rem] md:top-[5rem] bottom-0 flex items-center justify-center z-30 pointer-events-none px-4">
+                <div className="sg-video-wrapper relative w-full max-w-[800px] aspect-[16/9] bg-[#111] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 pointer-events-auto mt-8 md:mt-12">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] pointer-events-none z-10" />
 
                     <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -379,7 +395,7 @@ export default function ScholarGains() {
             <div className="sg-cta-wrapper absolute bottom-6 md:bottom-12 left-0 w-full flex justify-center z-40 pointer-events-none">
                 {/* Interactive Magnetic Hitbox */}
                 <div
-                    className="relative w-40 h-40 md:w-56 md:h-56 rounded-full flex items-center justify-center cursor-pointer pointer-events-auto group"
+                    className="relative w-32 h-32 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer pointer-events-auto group"
                     onMouseMove={handleMagneticMove}
                     onMouseLeave={handleMagneticLeave}
                 >
@@ -388,11 +404,11 @@ export default function ScholarGains() {
 
                     {/* The Text that moves slightly offset */}
                     <div className="magnetic-text relative z-10 flex flex-col items-center justify-center gap-1 pointer-events-none">
-                        <span className="text-[#FDFBF7] text-base md:text-xl font-serif italic text-center leading-tight tracking-wide transition-all duration-300">
+                        <span className="text-[#FDFBF7] text-sm md:text-lg font-serif italic text-center leading-tight tracking-wide transition-all duration-300">
                             Meet all<br />scholars
                         </span>
                         <svg
-                            className="w-5 h-5 md:w-6 md:h-6 text-[#FDFBF7] opacity-60 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300 mt-2"
+                            className="w-4 h-4 md:w-5 md:h-5 text-[#FDFBF7] opacity-60 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300 mt-1.5"
                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         >
                             <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100dvh] flex items-end justify-start overflow-hidden bg-[#0F2E18] pb-12 md:pb-24 pt-32"
+      className="relative min-h-[100dvh] flex items-end 2xl:items-center justify-start overflow-hidden bg-[#0F2E18] pb-12 md:pb-24 2xl:pb-6 pt-32"
     >
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0">

@@ -24,7 +24,8 @@ export default function CommunitySupportBento() {
                                 Community
                             </span>
                             <h3 className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-[#0F2E18] tracking-tighter leading-[1.1] mb-4">
-                                The coolest travel crew<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A4D2E] to-[#4A7D5E]">out there.</span>
+                                <span className="md:whitespace-nowrap md:text-[0.92em] lg:text-[0.9em]">The coolest travel crew</span><br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A4D2E] to-[#4A7D5E]">out there.</span>
                             </h3>
                         </div>
 

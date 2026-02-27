@@ -13,10 +13,12 @@ import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SectionTransition from "./components/ui/SectionTransition";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function App() {
   return (
     <div className="bg-[#FDFBF7] min-h-screen font-sans selection:bg-[#1A4D2E] selection:text-[#FDFBF7]">
+      <LoadingScreen />
       <Header />
       <main>
         <Hero />
