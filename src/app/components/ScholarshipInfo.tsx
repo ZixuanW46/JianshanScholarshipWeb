@@ -8,7 +8,7 @@ export default function ScholarshipInfo() {
         // NOT using <Section> because its overflow-hidden kills position:sticky.
         // Using a plain <section> tag directly instead.
         <section className="w-full bg-[#FCFBF8] py-32 relative border-b border-black/5">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
                 <div className="flex flex-col md:flex-row gap-16 lg:gap-32 items-start relative">
 
                     {/* Left Column: Sticky — stays pinned while right scrolls past */}

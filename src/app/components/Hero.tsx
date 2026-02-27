@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Cursor Effect */}
       <ImageTrail containerRef={containerRef} />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8" ref={textRef}>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24" ref={textRef}>
         <div className="max-w-5xl">
           <div className="hero-stagger mb-8">
             <span className="inline-block py-1.5 px-4 rounded-full bg-[#FDFBF7]/10 backdrop-blur-md border border-[#FDFBF7]/20 text-[#FDFBF7] text-sm font-medium tracking-widest uppercase">

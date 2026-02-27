@@ -1,5 +1,6 @@
 import { ExpandingPanelAccordion } from "./ui/ExpandingPanelAccordion";
 import { ChinaTripLinkBlock } from "./ChinaTripLinkBlock";
+import CommunitySupportBento from "./CommunitySupportBento";
 
 export default function ChinaTrip() {
   const tripPanels = [
@@ -47,7 +48,6 @@ export default function ChinaTrip() {
 
         <p className="text-xl text-[#0F2E18]/80 max-w-2xl font-light text-left mt-10">
           The best immersive and authentic China experience you can expect.
-          You have time to self-explore while we as a family, have your back!
         </p>
       </div>
 
@@ -56,6 +56,8 @@ export default function ChinaTrip() {
       </div>
 
       <ChinaTripLinkBlock />
+
+      <CommunitySupportBento />
     </section>
   );
 }

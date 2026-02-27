@@ -35,7 +35,7 @@ const Options2026 = () => {
 
     return (
         <section
-            className="py-24 relative bg-[#FDFBF7] overflow-hidden flex flex-col items-center justify-center min-h-[70vh] px-4 sm:px-6 lg:px-8 group"
+            className="py-24 relative bg-[#FDFBF7] overflow-hidden flex flex-col items-center justify-center min-h-[70vh] px-6 md:px-12 lg:px-24 group"
         >
             <div className="max-w-[1400px] mx-auto w-full flex flex-col items-center">
 

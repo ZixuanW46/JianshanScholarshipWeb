@@ -85,7 +85,7 @@ export default function CTA() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#2E8B57]/15 rounded-full blur-[150px] pointer-events-none" />
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.12] mix-blend-overlay pointer-events-none" />
 
-            <div className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 flex flex-col items-center">
+            <div className="relative z-10 w-full max-w-[1400px] px-6 md:px-12 lg:px-24 flex flex-col items-center">
 
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-20">

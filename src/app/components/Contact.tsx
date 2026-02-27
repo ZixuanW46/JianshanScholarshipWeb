@@ -25,7 +25,7 @@ export default function Contact() {
             {/* Parallax Content Container */}
             <motion.div
                 style={{ y, opacity }}
-                className="w-full max-w-[1400px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center relative z-10"
+                className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center relative z-10"
             >
                 {/* Left Side: Text & Links */}
                 <div className="flex flex-col justify-center h-full">

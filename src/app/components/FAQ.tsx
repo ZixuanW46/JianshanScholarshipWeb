@@ -40,7 +40,7 @@ export default function FAQ() {
         <section
             className="w-full bg-[#FDFBF7] py-24 md:py-32 relative z-10"
         >
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
 
                 {/* Header Subtitle & Title */}
                 <motion.div

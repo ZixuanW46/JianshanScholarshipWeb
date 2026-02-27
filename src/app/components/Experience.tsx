@@ -78,7 +78,7 @@ export default function Experience() {
 
   return (
     <Section className="bg-[#E8F3E8] relative z-10 w-full max-w-none p-0 overflow-hidden h-screen" ref={containerRef}>
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-12 w-full max-w-[1400px] mx-auto text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 w-full max-w-[1400px] mx-auto text-center">
 
         <span className="exp-label inline-block mb-8 md:mb-10 text-[#1A4D2E] text-xs md:text-sm uppercase tracking-[0.4em] font-medium border border-[#1A4D2E]/20 px-6 py-2 rounded-full">
           The Jianshan Experience
