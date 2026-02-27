@@ -35,7 +35,7 @@ export default function Academy() {
           <span className="font-sans font-bold text-[#FDFBF7] tracking-tighter">
             Part One:{" "}
             <br className="md:hidden" />
-            <span>Jianshan Academy</span>
+            <span className="whitespace-nowrap">Jianshan&nbsp;Academy</span>
           </span>
           <span className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-[#D85C3C] tracking-tight pr-4">
             where minds connect.
