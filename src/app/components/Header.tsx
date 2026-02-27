@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import JianshanLogo from "./JianshanLogo";
 
 const NAV_LINKS = [
-  { href: "#academy", label: "Academy" },
+  { href: "#academy", label: "Jianshan Academy" },
   { href: "#china-trip", label: "China Trip" },
+  { href: "#scholars", label: "Past Scholars" },
 ];
 
 export default function Header() {
@@ -51,7 +52,7 @@ export default function Header() {
       <motion.header
         className={`fixed inset-x-0 z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen ? "top-4" : "top-6"}`}
       >
-        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-12 lg:px-24">
+        <div className="mx-auto w-full max-w-[1200px] px-6 md:px-12 lg:px-24">
           <div
             className={`rounded-[2rem] px-5 md:pl-8 md:pr-4 py-3 flex items-center justify-between transition-all duration-500 ${isScrolled || isMobileMenuOpen
               ? "bg-[#FDFBF7]/65 backdrop-blur-md border border-[#0F2E18]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
