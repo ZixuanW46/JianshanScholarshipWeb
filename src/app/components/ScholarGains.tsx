@@ -85,10 +85,14 @@ export default function ScholarGains() {
             });
 
             // 2. Floating Cards Initial States (starting off-screen bottom)
-            gsap.set(".sg-floating-card", {
+            gsap.set(".sg-desktop-card", {
                 opacity: 0,
                 y: "100vh",
                 scale: 0.85
+            });
+            gsap.set(".sg-mobile-card", {
+                opacity: 0,
+                scale: 0.65
             });
 
             const tl = gsap.timeline({
@@ -125,13 +129,13 @@ export default function ScholarGains() {
                     });
             });
 
-            // Animate polaroid cards concurrently -> strict linear bottom-to-top traversal
+            // Animate polaroid cards concurrently -> strict linear bottom-to-top traversal (Desktop)
             floatingCards.forEach((card) => {
                 // Spread the start times across the whole timeline length
                 const startTime = card.delayOffset * 1.5;
 
                 // 1. Vertical linear travel across the screen
-                tl.fromTo(`.sg-floating-card-${card.id}`,
+                tl.fromTo(`.sg-desktop-card-${card.id}`,
                     { y: "60vh" }, // Start just below screen
                     {
                         y: "-60vh", // Travel to just above screen
@@ -143,7 +147,7 @@ export default function ScholarGains() {
                 );
 
                 // 2. Quick fade-in and scale up at the beginning of their travel
-                tl.fromTo(`.sg-floating-card-${card.id}`,
+                tl.fromTo(`.sg-desktop-card-${card.id}`,
                     { opacity: 0, scale: 0.85 },
                     {
                         opacity: 1,
@@ -155,11 +159,45 @@ export default function ScholarGains() {
                 );
 
                 // 3. Fade out explicitly near the end of their own travel
-                tl.to(`.sg-floating-card-${card.id}`, {
+                tl.to(`.sg-desktop-card-${card.id}`, {
                     opacity: 0,
                     duration: 2,
                     ease: "power2.inOut"
                 }, startTime + 10); // Fade out 2 units before its travel finishes
+            });
+
+            // Animate polaroid cards concurrently -> Horizontal scroll (Mobile)
+            floatingCards.forEach((card, index) => {
+                const startTime = card.delayOffset * 1.5;
+                const isTop = index % 2 === 0;
+
+                tl.fromTo(`.sg-mobile-card-${card.id}`,
+                    { x: isTop ? "80vw" : "-80vw" },
+                    {
+                        x: isTop ? "-80vw" : "80vw", // Travel horizontally
+                        duration: 12,
+                        ease: "none",
+                        force3D: true,
+                    },
+                    startTime
+                );
+
+                tl.fromTo(`.sg-mobile-card-${card.id}`,
+                    { opacity: 0, scale: 0.65 },
+                    {
+                        opacity: 1,
+                        scale: 0.75,
+                        duration: 2,
+                        ease: "power2.out"
+                    },
+                    startTime
+                );
+
+                tl.to(`.sg-mobile-card-${card.id}`, {
+                    opacity: 0,
+                    duration: 2,
+                    ease: "power2.inOut"
+                }, startTime + 10);
             });
 
             // Reveal video AFTER texts disappear
@@ -243,13 +281,13 @@ export default function ScholarGains() {
                 <div className="w-[1px] h-12 md:h-16 border-l border-dashed border-white/30 mt-2" />
             </div>
 
-            {/* Floating Side Polaroids (Continuously Moving with varied X offsets) */}
+            {/* Desktop Floating Side Polaroids (Continuously Moving with varied Y offsets) */}
             <div className="absolute inset-0 pointer-events-none z-10 hidden md:block">
                 <div className="relative w-full h-full max-w-[1400px] mx-auto">
                     {floatingCards.map((card) => (
                         <div
                             key={card.id}
-                            className={`sg-floating-card sg-floating-card-${card.id} absolute top-1/2 -translate-y-1/2 ${card.offsetX} ${card.rotation} w-[220px] lg:w-[260px] bg-[#FDFBF7] p-3 pb-6 shadow-2xl overflow-hidden hover:z-50 will-change-transform`}
+                            className={`sg-desktop-card sg-desktop-card-${card.id} absolute top-1/2 -translate-y-1/2 ${card.offsetX} ${card.rotation} w-[220px] lg:w-[260px] bg-[#FDFBF7] p-3 pb-6 shadow-2xl overflow-hidden hover:z-50 will-change-transform`}
                             style={{
                                 boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 100px rgba(255,255,255,0.05)"
                             }}
@@ -259,9 +297,9 @@ export default function ScholarGains() {
                                 <div className="absolute inset-0 bg-white/5" />
                             </div>
 
-                            {/* Caption Content (Handwritten style emulation using a readable serif or cursive if available) */}
+                            {/* Caption Content (Handwritten style emulation) */}
                             <div className="px-1 text-center flex flex-col items-center">
-                                <h3 className="text-xs font-serif italic text-black leading-tight mb-1 text-[#1A1A1A]">
+                                <h3 className="text-xs font-serif italic text-[#1A1A1A] leading-tight mb-1">
                                     "{card.title}"
                                 </h3>
                                 <span className="text-[10px] font-sans font-medium tracking-widest text-[#1A1A1A]/40 uppercase">
@@ -273,8 +311,47 @@ export default function ScholarGains() {
                 </div>
             </div>
 
+            {/* Mobile Floating Top/Bottom Polaroids (Horizontal Scroll) */}
+            <div className="absolute inset-0 pointer-events-none z-10 md:hidden overflow-hidden">
+                <div className="relative w-full h-full mx-auto">
+                    {floatingCards.map((card, index) => {
+                        const isTop = index % 2 === 0;
+                        return (
+                            <div
+                                key={card.id}
+                                className={`sg-mobile-card sg-mobile-card-${card.id} absolute left-1/2 ${card.rotation} will-change-transform`}
+                                style={{
+                                    top: isTop ? '22%' : '65%',
+                                    marginLeft: '-90px', // width is 180px -> centers horizontally
+                                    width: '180px',
+                                    boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 100px rgba(255,255,255,0.05)",
+                                    backgroundColor: '#FDFBF7',
+                                    padding: '12px 12px 24px 12px',
+                                    borderRadius: '2px'
+                                }}
+                            >
+                                {/* Image Placeholder */}
+                                <div className="w-full aspect-square bg-[#111] mb-2 relative overflow-hidden border border-black/5">
+                                    <div className="absolute inset-0 bg-white/5" />
+                                </div>
+
+                                {/* Caption Content */}
+                                <div className="px-1 text-center flex flex-col items-center">
+                                    <h3 className="text-[10px] font-serif italic text-[#1A1A1A] leading-tight mb-1">
+                                        "{card.title}"
+                                    </h3>
+                                    <span className="text-[8px] font-sans font-medium tracking-widest text-[#1A1A1A]/40 uppercase">
+                                        {card.date}
+                                    </span>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
             {/* Center 3D Flipping Text Area */}
-            <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none px-4 md:px-32 lg:px-64 mt-8">
+            <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none px-4 md:px-32 lg:px-64 mt-24 md:mt-8">
                 {phrasesData.map((phrase, i) => (
                     <div key={i} className={`sg-phrase sg-phrase-${i} absolute w-full max-w-4xl text-center px-4`}>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans leading-[1.15] text-[#A3A3A3] drop-shadow-xl">
