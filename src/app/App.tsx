@@ -37,8 +37,9 @@ export default function App() {
         <ApplicationProcess />
         <SectionTransition fromColor="#0A0A0A" toColor="#1A4D2E" />
         <CTA />
+        <SectionTransition fromColor="#1A4D2E" toColor="#FDFBF7" />
         <FAQ />
-        <SectionTransition fromColor="#FDFBF7" toColor="#1A1A1A" />
+        <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
         <Contact />
       </main>
       <Footer />

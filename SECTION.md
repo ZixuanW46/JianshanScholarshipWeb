@@ -161,5 +161,5 @@ This document outlines the content structure and UI design requirements for the 
 
 ## 10. Contact Us / Follow Instagram
 **Content:**
-- Follow us on Instagram `@camcapysoc` to learn more about past Jianshan Scholar experiences (+ QR code).
-- Have more questions? Contact us through `camcapy@cambridgesu.co.uk` or DM us on Instagram.
+- Follow our Cambridge partner CAMCapy on Instagram `@camcapysoc` to learn more about past Jianshan Scholar experiences (+ QR code).
+- Have more questions? Contact CAMCapy through `camcapy@cambridgesu.co.uk` or DM on Instagram.

@@ -8,44 +8,62 @@ gsap.registerPlugin(ScrollTrigger);
 
 const timelineSteps = [
     {
-        phase: "1st Round",
-        date: "Closes Mar 27",
-        title: "Initial Application",
-        details: [
-            "We'd love to bring interesting and passionate individuals to Jianshan Academy. Let us know about you.",
-            "Indicate your Jianshan Academy location preference and time availability.",
-            "Select as many date options as possible to increase your chances of admittance.",
-        ],
-    },
-    {
-        phase: "2nd Round",
+        phase: "Step 01",
         date: "Rolling basis",
-        title: "Session Design & Video",
+        title: "Initial Application 📝",
         details: [
-            "Shortlisted candidates show their thoughts on the design of academic sessions.",
-            "Submit a 1-3 min video introducing yourself and your sessions. No fancy editing needed! Just a way for us to see your communication style.",
+            <>We'd love to bring interesting and passionate individuals to Jianshan Academy. The first round is just a <span className="text-white font-medium">short application form</span>.</>,
+            <>It won't take long! We mainly want to learn a bit about your <span className="text-white font-medium">background</span>, your <span className="text-white font-medium">motivations</span>, and what kind of person you are through a few simple questions.</>,
         ],
     },
     {
-        phase: "Result",
-        date: "By Apr 10",
-        title: "Final Confirmation",
+        phase: "Step 02",
+        date: "Rolling basis",
+        title: "Session Design 💡",
         details: [
-            "Successful scholars will receive their official invitation with confirmed camp details.",
-            "The result will be updated in the portal and notified through email.",
+            <>If you're shortlisted, we'll invite you to share some of your initial thoughts on <span className="text-white font-medium">designing an academic session</span>.</>,
+            <>We are really looking for people who have <span className="text-white font-medium">genuine passion</span> and the capability to share their subjects and interests with others.</>,
         ],
     },
     {
-        phase: "Next Steps",
-        date: "Summer 2026",
-        title: "Future Activities",
+        phase: "Step 03",
+        date: "Within 1 mo",
+        title: "Final Confirmation ✨",
         details: [
-            "Past Jianshan scholar gathering and Q&A session.",
-            "Jianshan Scholar 2026 training session (multiple time options).",
-            "Pre-trip gathering.",
+            <>You can expect to hear back from us typically <span className="text-white font-medium">within a month</span> after submitting your application.</>,
+            <>Successful scholars will receive their <span className="text-white font-medium">official invitation</span>, and your confirmed details will be updated in the portal.</>,
+        ],
+    },
+    {
+        phase: "Step 04",
+        date: "May 2026 onwards",
+        title: "Pre-departure 🤝",
+        details: [
+            <>Once confirmed, the journey has already begun! We will organize <span className="text-white font-medium">casual gatherings</span> where you can chat with past Jianshan scholars to hear their stories.</>,
+            <>We'll also host <span className="text-white font-medium">pre-departure briefings</span> and training sessions so you are fully prepared for the upcoming adventure.</>,
         ],
     },
 ];
+
+const postTripStep = {
+    phase: "The Future",
+    date: "Post-Trip onwards",
+    title: "Jianshan Family 🎉",
+    details: [
+        <>The journey doesn't end in China. Back in Cambridge, you officially become part of the <span className="text-white font-medium">Jianshan alumni network</span>.</>,
+        <>We regularly host <span className="text-white font-medium">formal halls, gatherings, and events</span> to keep this amazing community connected and growing.</>,
+    ],
+};
+
+const finalTripStep = {
+    phase: "The Destination",
+    date: "July - August 2026",
+    title: "Your China Trip ✈️",
+    details: [
+        <>This is it! You'll embark on the signature <span className="text-white font-medium drop-shadow-md pb-0.5 border-b border-white/30">18-day immersive journey</span> across multiple incredible Chinese cities.</>,
+        <>Get ready to explore breathtaking landscapes, deep historical roots, and real-life cyberpunk cities with the <span className="text-white font-medium drop-shadow-md">coolest Cambridge crew</span>.</>,
+    ],
+};
 
 export default function ApplicationProcess() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -59,6 +77,10 @@ export default function ApplicationProcess() {
             const scrollContainer = scrollContainerRef.current;
             const scrollWidth = scrollContainer.scrollWidth;
             const viewportWidth = window.innerWidth;
+
+            // We scroll the full container width minus one viewport width.
+            // A 50vw spacer at the end of the container will naturally push the last
+            // card into the center of the screen when we reach the end of this scroll.
             const scrollDistance = scrollWidth - viewportWidth;
 
             // Horizontal Scroll Animation
@@ -167,7 +189,7 @@ export default function ApplicationProcess() {
                     {timelineSteps.map((step, index) => (
                         <div
                             key={index}
-                            className="timeline-card relative w-[320px] md:w-[420px] shrink-0 bg-[#111111]/80 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col gap-6 group hover:border-white/[0.15] transition-colors duration-500 overflow-hidden"
+                            className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-[#111111]/80 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col gap-6 group hover:border-[#8AC1A6]/30 transition-colors duration-500 overflow-hidden"
                         >
                             {/* Inner ambient card glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -199,8 +221,81 @@ export default function ApplicationProcess() {
                         </div>
                     ))}
 
-                    {/* End spacer for smooth scrolling all the way through */}
-                    <div className="w-[30vw] md:w-[50vw] shrink-0" />
+                    {/* Wider spacer before the final distinct card */}
+                    <div className="w-[6vw] md:w-[8vw] shrink-0" />
+
+                    {/* Distinct 5th Card: The China Trip */}
+                    <div className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-gradient-to-br from-[#1A4D2E]/90 to-[#0A2E1A]/90 backdrop-blur-2xl border border-[#E8F3E8]/30 p-8 md:p-12 rounded-[2rem] shadow-[0_0_60px_rgba(26,77,46,0.6)] flex flex-col gap-6 group hover:border-[#E8F3E8]/60 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
+                        {/* Shimmer glare */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#E8F3E8]/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                        <div className="flex flex-col gap-2 relative z-10">
+                            <span className="text-[#E8F3E8] font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase block mb-1">
+                                {finalTripStep.phase}
+                            </span>
+                            <h3 className="text-3xl md:text-4xl lg:text-[2.5rem] font-serif text-white tracking-tight leading-tight drop-shadow-lg">
+                                {finalTripStep.title}
+                            </h3>
+                            <p className="text-[#E8F3E8] font-mono text-xs tracking-wider uppercase mt-1 opacity-80">
+                                {finalTripStep.date}
+                            </p>
+                        </div>
+
+                        <div className="w-full h-px bg-[#E8F3E8]/20 relative z-10" />
+
+                        <div className="flex flex-col gap-4 relative z-10">
+                            {finalTripStep.details.map((detail, dIdx) => (
+                                <p
+                                    key={dIdx}
+                                    className="text-sm md:text-[0.95rem] text-white/80 font-sans font-light leading-relaxed group-hover:text-white transition-colors duration-300"
+                                >
+                                    {detail}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Spacer connecting China Trip to Post Trip */}
+                    <div className="w-[6vw] md:w-[8vw] shrink-0" />
+
+                    {/* Distinct 6th Card: Post-Trip / Cambridge Community */}
+                    <div className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-[#111111]/80 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col gap-6 group hover:border-[#8AC1A6]/30 transition-colors duration-500 overflow-hidden">
+                        {/* Inner ambient card glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                        <div className="flex flex-col gap-2 relative z-10">
+                            <span className="text-[#8AC1A6] font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase block mb-1">
+                                {postTripStep.phase}
+                            </span>
+                            <h3 className="text-3xl md:text-4xl lg:text-[2.5rem] font-serif text-white tracking-tight leading-tight">
+                                {postTripStep.title}
+                            </h3>
+                            <p className="text-white/40 font-mono text-xs tracking-wider uppercase mt-1">
+                                {postTripStep.date}
+                            </p>
+                        </div>
+
+                        <div className="w-full h-px bg-white/[0.08] relative z-10" />
+
+                        <div className="flex flex-col gap-4 relative z-10">
+                            {postTripStep.details.map((detail, dIdx) => (
+                                <p
+                                    key={dIdx}
+                                    className="text-sm md:text-[0.95rem] text-white/50 font-sans font-light leading-relaxed group-hover:text-white/70 transition-colors duration-300"
+                                >
+                                    {detail}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 
+                      End spacer to position the last card in the center of the screen.
+                      Since we scroll by (scrollWidth - 100vw), adding a 50vw spacer at the end 
+                      ensures that when we reach the end of the scroll, the last element is 50vw 
+                      away from the right edge, effectively centering it.
+                    */}
+                    <div className="w-[20vw] shrink-0" />
                 </div>
             </div>
         </section>
