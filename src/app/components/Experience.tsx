@@ -15,13 +15,22 @@ export default function Experience() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // Pin the section while scrolling to play the animation
+      // 1. Pin the section while scrolling
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=150%", // Keep pinned for 1.5x screen height
+        pin: true,
+      });
+
+      // 2. Play the animation
+      // We start it earlier ("top 80%") so by the time the user reaches the section,
+      // the items are already partially visible and assembling. This prevents the "empty screen" feel.
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top top",
-          end: "+=150%", // Keep pinned for 1.5x screen height
-          pin: true,
+          start: "top 80%",
+          end: "+=230%", // 80% (until pin) + 150% (pinned)
           scrub: 1, // Smooth scrub
         }
       });
@@ -31,12 +40,12 @@ export default function Experience() {
 
       // Start state: words are scattered, rotated, and slightly blurry
       gsap.set(wordElements, {
-        x: () => gsap.utils.random(-300, 300),
-        y: () => gsap.utils.random(-200, 200),
-        rotation: () => gsap.utils.random(-45, 45),
+        x: () => gsap.utils.random(-400, 400),
+        y: () => gsap.utils.random(-300, 300),
+        rotation: () => gsap.utils.random(-60, 60),
         opacity: 0,
         scale: () => gsap.utils.random(0.5, 1.5),
-        filter: "blur(4px)"
+        filter: "blur(8px)"
       });
 
       // Timeline animation: bring them all together
@@ -52,7 +61,7 @@ export default function Experience() {
           from: "random" // They come together randomly
         },
         duration: 2,
-        ease: "power3.inOut"
+        ease: "power2.out" // Use out ease for quicker early movement
       });
 
       // Fade in the top label at the end
