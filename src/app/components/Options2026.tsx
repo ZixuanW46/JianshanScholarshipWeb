@@ -37,7 +37,7 @@ const Options2026 = () => {
         <section
             className="py-24 relative bg-[#FDFBF7] overflow-hidden flex flex-col items-center justify-center min-h-[70vh] px-4 sm:px-6 lg:px-8 group"
         >
-            <div className="max-w-6xl mx-auto w-full flex flex-col items-center">
+            <div className="max-w-[1400px] mx-auto w-full flex flex-col items-center">
 
                 {/* Intro Text Group (Stacked above) */}
                 <div className="w-full max-w-3xl mb-16 md:mb-20 text-center">

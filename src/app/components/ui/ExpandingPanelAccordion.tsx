@@ -17,32 +17,44 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
     // activePanel is null initially so all panels share equal width (flex: 1)
     const [activePanel, setActivePanel] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isDesktop, setIsDesktop] = useState(false);
 
     // Custom cursor state for the accordion container
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
+        const mediaQuery = window.matchMedia("(min-width: 768px)");
+        const updateIsDesktop = () => setIsDesktop(mediaQuery.matches);
+
+        updateIsDesktop();
+        mediaQuery.addEventListener("change", updateIsDesktop);
+        return () => mediaQuery.removeEventListener("change", updateIsDesktop);
+    }, []);
+
+    useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             setMousePos({ x: e.clientX, y: e.clientY });
         };
-        if (isHovering) {
+        if (isHovering && isDesktop) {
             window.addEventListener("mousemove", handleMouseMove);
         } else {
             window.removeEventListener("mousemove", handleMouseMove);
         }
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [isHovering]);
+    }, [isHovering, isDesktop]);
 
     return (
         <div
-            className="relative w-full h-[80vh] flex overflow-hidden cursor-none"
-            onMouseEnter={() => setIsHovering(true)}
+            className="relative w-full h-[80vh] flex overflow-hidden cursor-default md:cursor-none"
+            onMouseEnter={() => {
+                if (isDesktop) setIsHovering(true);
+            }}
             onMouseLeave={() => setIsHovering(false)}
             ref={containerRef}
         >
             {/* Custom Cursor */}
-            {isHovering && (
+            {isDesktop && isHovering && (
                 <>
                     {/* Central Dot */}
                     <div
@@ -72,7 +84,9 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
                         style={{
                             flex: isActive ? 4 : 1, // Smoothly grows to 4x width if active, else 1
                         }}
-                        onMouseEnter={() => setActivePanel(panel.id)}
+                        onMouseEnter={() => {
+                            if (isDesktop) setActivePanel(panel.id);
+                        }}
                     >
                         {/* Background Image */}
                         <div
@@ -128,7 +142,7 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
 
                                 <div>
                                     <button className="flex items-center gap-3 text-xs md:text-sm tracking-[0.2em] uppercase font-mono group/btn bg-[#FDFBF7]/10 hover:bg-[#FDFBF7]/20 px-6 py-4 rounded-full backdrop-blur-md transition-all border border-[#FDFBF7]/30 text-[#FDFBF7]">
-                                        Experience <ArrowRight size={16} className="transform group-hover/btn:translate-x-2 transition-transform duration-300" />
+                                        LEARN MORE <ArrowRight size={16} className="transform group-hover/btn:translate-x-2 transition-transform duration-300" />
                                     </button>
                                 </div>
                             </div>

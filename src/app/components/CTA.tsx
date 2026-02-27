@@ -85,7 +85,7 @@ export default function CTA() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#2E8B57]/15 rounded-full blur-[150px] pointer-events-none" />
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.12] mix-blend-overlay pointer-events-none" />
 
-            <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 flex flex-col items-center">
+            <div className="relative z-10 w-full max-w-[1400px] px-4 sm:px-6 flex flex-col items-center">
 
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-20">
@@ -114,7 +114,7 @@ export default function CTA() {
                             rotateY: springY,
                             transformStyle: "preserve-3d",
                         }}
-                        className="w-full max-w-4xl bg-[#0A0A0A]/80 backdrop-blur-3xl rounded-[2rem] border border-white/[0.08] p-1 md:p-1.5 relative shadow-[0_50px_100px_rgba(0,0,0,0.7)] cursor-pointer group overflow-hidden"
+                        className="w-full max-w-[1400px] bg-[#0A0A0A]/80 backdrop-blur-3xl rounded-[2rem] border border-white/[0.08] p-1 md:p-1.5 relative shadow-[0_50px_100px_rgba(0,0,0,0.7)] cursor-pointer group overflow-hidden"
                     >
                         {/* Shimmer glare — scoped inside the card via overflow-hidden above */}
                         <motion.div

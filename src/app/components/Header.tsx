@@ -49,15 +49,15 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-[2rem] px-5 md:px-8 py-3 w-[95%] max-w-5xl flex items-center justify-between ${isScrolled || isMobileMenuOpen
-          ? "top-4 bg-[#FDFBF7]/90 backdrop-blur-md border border-[#0F2E18]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
+        className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-[2rem] px-5 md:pl-8 md:pr-4 py-3 w-[95%] max-w-[1400px] flex items-center justify-between ${isScrolled || isMobileMenuOpen
+          ? "top-4 bg-[#FDFBF7]/65 backdrop-blur-md border border-[#0F2E18]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
           : "top-6 bg-transparent border border-transparent"
           }`}
       >
         {/* Left section: Logo */}
         <a
           href="#"
-          className={`flex items-center gap-2 md:gap-3 text-[1.05rem] min-[380px]:text-lg md:text-2xl font-serif font-bold transition-colors shrink-0 ${isScrolled || isMobileMenuOpen ? "text-[#0F2E18]" : "text-[#FDFBF7]"
+          className={`flex items-center gap-2 md:gap-3 text-[1.05rem] min-[380px]:text-lg md:text-2xl font-serif font-medium transition-colors shrink-0 ${isScrolled || isMobileMenuOpen ? "text-[#0F2E18]" : "text-[#FDFBF7]"
             }`}
           style={
             {
@@ -136,7 +136,7 @@ export default function Header() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: -10 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 md:hidden
+              className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] z-50 md:hidden
                 bg-[#FDFBF7] rounded-3xl border border-[#0F2E18]/10
                 shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden p-6"
             >

@@ -353,7 +353,7 @@ export default function ScholarGains() {
             {/* Center 3D Flipping Text Area */}
             <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none px-4 md:px-32 lg:px-64 mt-24 md:mt-8">
                 {phrasesData.map((phrase, i) => (
-                    <div key={i} className={`sg-phrase sg-phrase-${i} absolute w-full max-w-4xl text-center px-4`}>
+                    <div key={i} className={`sg-phrase sg-phrase-${i} absolute w-full max-w-[1400px] text-center px-4`}>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans leading-[1.15] text-[#A3A3A3] drop-shadow-xl">
                             {phrase}
                         </h2>

@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Cursor Effect */}
       <ImageTrail containerRef={containerRef} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8" ref={textRef}>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8" ref={textRef}>
         <div className="max-w-5xl">
           <div className="hero-stagger mb-8">
             <span className="inline-block py-1.5 px-4 rounded-full bg-[#FDFBF7]/10 backdrop-blur-md border border-[#FDFBF7]/20 text-[#FDFBF7] text-sm font-medium tracking-widest uppercase">
@@ -61,11 +61,40 @@ export default function Hero() {
           </p>
 
           <div className="hero-stagger flex flex-col sm:flex-row items-start gap-4">
-            <Button size="lg" className="w-full sm:w-auto text-lg px-8 bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#E8F3E8] rounded-full">
-              Apply Now <ArrowRight size={20} />
+            <Button
+              size="lg"
+              className="group w-full sm:w-auto text-lg px-8 bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#E8F3E8] rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:px-10"
+            >
+              Apply Now
+              <ArrowRight
+                size={20}
+                className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
+              />
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 border-[#FDFBF7]/30 text-[#FDFBF7] hover:bg-[#FDFBF7]/10 rounded-full">
-              Meet the Scholars <Users size={20} />
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="relative overflow-hidden group w-full sm:w-auto text-lg px-8 border-none text-[#FDFBF7] bg-transparent rounded-full transition-all duration-500"
+            >
+              {/* Default Border */}
+              <div className="absolute inset-0 border border-[#FDFBF7]/30 rounded-full pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+
+              {/* Rotating Shimmer Layer */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden rounded-full">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(253,251,247,0.8)_360deg)]" />
+              </div>
+
+              {/* Inner Cap to create the border effect */}
+              <div className="absolute inset-[1px] rounded-full bg-[#0a2010] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Meet the Scholars
+                <Users
+                  size={20}
+                  className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_2px_8px_rgba(253,251,247,0.6)]"
+                />
+              </span>
             </Button>
           </div>
         </div>

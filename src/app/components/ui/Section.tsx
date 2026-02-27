@@ -13,7 +13,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         className={cn("py-20 md:py-32 w-full relative overflow-hidden", className)}
         {...props}
       >
-        <div className={cn("mx-auto px-4 md:px-8", fullWidth ? "w-full" : "max-w-7xl")}>
+        <div className={cn("mx-auto px-4 md:px-8", fullWidth ? "w-full" : "max-w-[1400px]")}>
           {children}
         </div>
       </section>

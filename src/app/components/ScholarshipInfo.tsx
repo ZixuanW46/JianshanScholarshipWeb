@@ -41,12 +41,18 @@ export default function ScholarshipInfo() {
                                 Everything included in the Capy China Trip package is covered by the scholarship. Your time in China is fully supported.
                             </p>
                             <div className="flex flex-wrap gap-3">
-                                {['Accommodation', 'Domestic Travel', 'Cultural Tours'].map(tag => (
+                                {['Accommodation', 'Domestic Travel', 'Attraction Tickets', 'Local Tours', 'Cultural Activities', 'Professional Guides'].map(tag => (
                                     <span key={tag} className="px-5 py-2.5 rounded-full border border-black/10 text-sm font-medium text-black/70 hover:bg-black/5 transition-colors cursor-default">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
+                            <p className="text-gray-600 font-sans text-[1rem] leading-relaxed max-w-xl mt-8 mb-8 italic">
+                                P.S. Meals are not included. Since scholars have diverse dietary requirements and personal preferences, we keep food choices flexible. The good news: food in China is generally very affordable and offers strong value for money.
+                            </p>
+                            <a href="#" className="inline-flex items-center gap-3 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300">
+                                Learn more <ArrowRight className="w-5 h-5 -rotate-45" />
+                            </a>
                         </div>
 
                         {/* Item 3 */}

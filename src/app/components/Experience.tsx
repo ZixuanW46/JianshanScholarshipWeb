@@ -80,14 +80,14 @@ export default function Experience() {
     <Section className="bg-[#E8F3E8] relative z-10 w-full max-w-none p-0 overflow-hidden h-screen" ref={containerRef}>
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-12 w-full max-w-[1400px] mx-auto text-center">
 
-        <span className="exp-label absolute top-40 min-[380px]:top-44 md:top-32 lg:top-40 inline-block text-[#1A4D2E] text-xs md:text-sm uppercase tracking-[0.4em] font-medium border border-[#1A4D2E]/20 px-6 py-2 rounded-full">
+        <span className="exp-label inline-block mb-8 md:mb-10 text-[#1A4D2E] text-xs md:text-sm uppercase tracking-[0.4em] font-medium border border-[#1A4D2E]/20 px-6 py-2 rounded-full">
           The Jianshan Experience
         </span>
 
         {/* The resulting sentence container */}
         <div
           ref={wordsRef}
-          className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-3 max-w-[90vw] md:max-w-3xl lg:max-w-4xl pt-16 md:pt-0"
+          className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-3 max-w-[90vw] md:max-w-3xl lg:max-w-4xl"
         >
           {words.map((word, i) => (
             <span

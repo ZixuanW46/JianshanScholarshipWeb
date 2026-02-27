@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-[#FDFBF7] pt-20 md:pt-32 pb-8 px-6 md:px-12 rounded-t-[4rem] relative z-20 -mt-24">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-24 gap-16 lg:gap-10">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[#FDFBF7]">Jianshan<br />Scholarship</h2>

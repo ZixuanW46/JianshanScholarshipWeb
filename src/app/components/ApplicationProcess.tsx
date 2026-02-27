@@ -21,14 +21,14 @@ const timelineSteps = [
         date: "Rolling basis",
         title: "Session Design 💡",
         details: [
-            <>If you're shortlisted, we'll invite you to share some of your initial thoughts on <span className="text-white font-medium">designing an academic session</span>.</>,
+            <>If you're shortlisted, we'll invite you to share some of your initial thoughts on <span className="text-white font-medium">designing an academic session</span>. You'll also submit a <span className="text-white font-medium">short 1–3 min video</span> to introduce yourself and your session — no fancy editing needed! Just a way for us to get to know your communication style.</>,
             <>We are really looking for people who have <span className="text-white font-medium">genuine passion</span> and the capability to share their subjects and interests with others.</>,
         ],
     },
     {
         phase: "Step 03",
         date: "Within 1 mo",
-        title: "Final Confirmation ✨",
+        title: "Offer Released ✨",
         details: [
             <>You can expect to hear back from us typically <span className="text-white font-medium">within a month</span> after submitting your application.</>,
             <>Successful scholars will receive their <span className="text-white font-medium">official invitation</span>, and your confirmed details will be updated in the portal.</>,
@@ -58,10 +58,10 @@ const postTripStep = {
 const finalTripStep = {
     phase: "The Destination",
     date: "July - August 2026",
-    title: "Your China Trip ✈️",
+    title: "Your Jianshan Summer ✈️",
     details: [
-        <>This is it! You'll embark on the signature <span className="text-white font-medium drop-shadow-md pb-0.5 border-b border-white/30">18-day immersive journey</span> across multiple incredible Chinese cities.</>,
-        <>Get ready to explore breathtaking landscapes, deep historical roots, and real-life cyberpunk cities with the <span className="text-white font-medium drop-shadow-md">coolest Cambridge crew</span>.</>,
+        <>This is it! You'll lead <span className="text-white font-medium drop-shadow-md pb-0.5 border-b border-white/30">inspiring academic sessions</span> at Jianshan Academy, sharing your passion with a new generation of curious students.</>,
+        <>Then embark on the signature <span className="text-white font-medium drop-shadow-md">immersive China trip</span> — breathtaking landscapes, deep historical roots, and real-life cyberpunk cities with the <span className="text-white font-medium drop-shadow-md">coolest Cambridge crew</span>.</>,
     ],
 };
 
@@ -148,9 +148,10 @@ export default function ApplicationProcess() {
             className="bg-[#0A0A0A] text-[#FDFBF7] h-screen overflow-hidden flex flex-col relative w-full selection:bg-[#E8F3E8] selection:text-[#0A0A0A]"
         >
             {/* Header: Absolute positioned, stays fixed during pin */}
-            <div className="absolute top-24 left-6 md:left-12 lg:left-24 z-30 pointer-events-none">
-                <div className="mb-6">
-                    <span className="inline-block text-[#E8F3E8] text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium border border-[#E8F3E8]/20 bg-[#E8F3E8]/5 px-4 md:px-5 py-2 md:py-2.5 rounded-full backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] whitespace-nowrap">
+            <div className="absolute top-24 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-6 md:px-12 lg:px-24 z-30 pointer-events-none">
+                <div className="mb-6 md:mb-8 flex items-center gap-4 md:gap-6">
+                    <div className="h-[1px] w-10 md:w-12 bg-[#E8F3E8]/35" />
+                    <span className="text-[#E8F3E8]/70 tracking-[0.2em] font-sans text-[10px] md:text-xs font-semibold uppercase whitespace-nowrap">
                         Application Process
                     </span>
                 </div>
@@ -186,14 +187,46 @@ export default function ApplicationProcess() {
                     {/* Spacer to push first card away from left edge of screen */}
                     <div className="w-[10vw] shrink-0" />
 
-                    {timelineSteps.map((step, index) => (
+                    {/* First card: Initial Application */}
+                    <div
+                        className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-[#111111]/80 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col gap-6 group hover:border-[#8AC1A6]/30 transition-colors duration-500 overflow-hidden"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="flex flex-col gap-2 relative z-10">
+                            <span className="text-[#8AC1A6] font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase block mb-1">
+                                {timelineSteps[0].phase}
+                            </span>
+                            <h3 className="text-3xl md:text-4xl lg:text-[2.5rem] font-serif text-white tracking-tight leading-tight">
+                                {timelineSteps[0].title}
+                            </h3>
+                            <p className="text-white/40 font-mono text-xs tracking-wider uppercase mt-1">
+                                {timelineSteps[0].date}
+                            </p>
+                        </div>
+                        <div className="w-full h-px bg-white/[0.08] relative z-10" />
+                        <div className="flex flex-col gap-4 relative z-10">
+                            {timelineSteps[0].details.map((detail, dIdx) => (
+                                <p key={dIdx} className="text-sm md:text-[0.95rem] text-white/50 font-sans font-light leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                                    {detail}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Deadline mini-card */}
+                    <div className="timeline-card relative w-[200px] md:w-[240px] shrink-0 bg-gradient-to-br from-[#4A1A1A]/90 to-[#2E0A0A]/90 backdrop-blur-xl border border-red-400/20 p-6 md:p-8 rounded-[1.5rem] shadow-[0_20px_50px_rgba(74,26,26,0.5)] flex flex-col items-center justify-center gap-3 text-center">
+                        <span className="text-red-300/80 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">Deadline</span>
+                        <p className="text-white font-serif text-xl md:text-2xl tracking-tight leading-snug">March 22<sup>nd</sup></p>
+                        <p className="text-white/50 font-mono text-xs tracking-wider">2026</p>
+                    </div>
+
+                    {/* Remaining timeline cards */}
+                    {timelineSteps.slice(1).map((step, index) => (
                         <div
-                            key={index}
+                            key={index + 1}
                             className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-[#111111]/80 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col gap-6 group hover:border-[#8AC1A6]/30 transition-colors duration-500 overflow-hidden"
                         >
-                            {/* Inner ambient card glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
                             <div className="flex flex-col gap-2 relative z-10">
                                 <span className="text-[#8AC1A6] font-mono text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase block mb-1">
                                     {step.phase}
@@ -205,15 +238,10 @@ export default function ApplicationProcess() {
                                     {step.date}
                                 </p>
                             </div>
-
                             <div className="w-full h-px bg-white/[0.08] relative z-10" />
-
                             <div className="flex flex-col gap-4 relative z-10">
                                 {step.details.map((detail, dIdx) => (
-                                    <p
-                                        key={dIdx}
-                                        className="text-sm md:text-[0.95rem] text-white/50 font-sans font-light leading-relaxed group-hover:text-white/70 transition-colors duration-300"
-                                    >
+                                    <p key={dIdx} className="text-sm md:text-[0.95rem] text-white/50 font-sans font-light leading-relaxed group-hover:text-white/70 transition-colors duration-300">
                                         {detail}
                                     </p>
                                 ))}
@@ -225,7 +253,7 @@ export default function ApplicationProcess() {
                     <div className="w-[6vw] md:w-[8vw] shrink-0" />
 
                     {/* Distinct 5th Card: The China Trip */}
-                    <div className="timeline-card relative w-[340px] md:w-[480px] shrink-0 bg-gradient-to-br from-[#1A4D2E]/90 to-[#0A2E1A]/90 backdrop-blur-2xl border border-[#E8F3E8]/30 p-8 md:p-12 rounded-[2rem] shadow-[0_0_60px_rgba(26,77,46,0.6)] flex flex-col gap-6 group hover:border-[#E8F3E8]/60 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
+                    <div className="timeline-card relative w-[340px] md:w-[560px] shrink-0 bg-gradient-to-br from-[#1A4D2E]/90 to-[#0A2E1A]/90 backdrop-blur-2xl border border-[#E8F3E8]/30 p-8 md:p-12 rounded-[2rem] shadow-[0_0_60px_rgba(26,77,46,0.6)] flex flex-col gap-6 group hover:border-[#E8F3E8]/60 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
                         {/* Shimmer glare */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#E8F3E8]/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -295,7 +323,7 @@ export default function ApplicationProcess() {
                       ensures that when we reach the end of the scroll, the last element is 50vw 
                       away from the right edge, effectively centering it.
                     */}
-                    <div className="w-[20vw] shrink-0" />
+                    <div className="w-[25vw] shrink-0" />
                 </div>
             </div>
         </section>
