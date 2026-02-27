@@ -9,7 +9,7 @@ export default function CommunitySupportBento() {
 
                     {/* Community Block (2/3 width) */}
                     <div
-                        className="group relative flex-[2] bg-[#E8F3E8] rounded-3xl p-8 md:p-12 overflow-hidden flex flex-col justify-between items-start border border-[#1A4D2E]/10"
+                        className="group relative flex-[2] min-w-0 bg-[#E8F3E8] rounded-3xl p-8 md:p-12 overflow-hidden flex flex-col justify-between items-start border border-[#1A4D2E]/10"
                     >
                         {/* Background Pattern effect on hover */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
@@ -23,8 +23,8 @@ export default function CommunitySupportBento() {
                             <span className="text-[#1A4D2E]/80 tracking-[0.2em] font-sans text-xs md:text-sm font-semibold uppercase mb-6 block">
                                 Community
                             </span>
-                            <h3 className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-[#0F2E18] tracking-tighter leading-[1.1] mb-4">
-                                <span className="md:whitespace-nowrap md:text-[0.92em] lg:text-[0.9em]">The coolest travel crew</span><br />
+                            <h3 className="text-[clamp(2rem,5.1vw,4.8rem)] font-sans font-bold text-[#0F2E18] tracking-tighter leading-[1.06] mb-4 max-w-full line-clamp-2">
+                                <span className="text-[0.9em]">The coolest travel crew </span>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A4D2E] to-[#4A7D5E]">out there.</span>
                             </h3>
                         </div>
