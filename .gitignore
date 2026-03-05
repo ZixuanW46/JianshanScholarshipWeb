@@ -6,3 +6,4 @@ dist/
 .env
 .env.*
 !.env.example
+china_trip_handbook_2025.pdf

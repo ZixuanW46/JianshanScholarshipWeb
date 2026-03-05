@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -14,10 +15,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SectionTransition from "./components/ui/SectionTransition";
 import LoadingScreen from "./components/LoadingScreen";
+import AcademyPage from "./components/academy/AcademyPage";
+import ChinaTripPage from "./components/chinatrip/ChinaTripPage";
 
-export default function App() {
+function LandingPage() {
   return (
-    <div className="bg-[#FDFBF7] min-h-screen font-sans selection:bg-[#1A4D2E] selection:text-[#FDFBF7]">
+    <>
       <LoadingScreen />
       <Header />
       <main>
@@ -51,6 +54,18 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="bg-[#FDFBF7] min-h-screen font-sans selection:bg-[#1A4D2E] selection:text-[#FDFBF7]">
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/academy" element={<AcademyPage />} />
+        <Route path="/chinatrip" element={<ChinaTripPage />} />
+      </Routes>
     </div>
   );
 }

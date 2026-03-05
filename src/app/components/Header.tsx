@@ -3,12 +3,13 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "motion/react";
 import type { CSSProperties } from "react";
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import JianshanLogo from "./JianshanLogo";
 
 const NAV_LINKS = [
-  { href: "#academy", label: "Jianshan Academy" },
-  { href: "#china-trip", label: "China Trip" },
-  { href: "#scholars", label: "Past Scholars" },
+  { href: "/academy", label: "Jianshan Academy", isRoute: true },
+  { href: "/chinatrip", label: "China Trip", isRoute: true },
+  { href: "#scholars", label: "Past Scholars", isRoute: false },
 ];
 
 export default function Header() {
@@ -60,8 +61,8 @@ export default function Header() {
               }`}
           >
             {/* Left section: Logo */}
-            <a
-              href="#"
+            <Link
+              to="/"
               className={`flex items-center gap-2 md:gap-3 text-[1.05rem] min-[380px]:text-lg md:text-xl font-serif font-medium transition-colors shrink-0 ${isScrolled || isMobileMenuOpen ? "text-[#0F2E18]" : "text-[#FDFBF7]"
                 }`}
               style={
@@ -72,23 +73,38 @@ export default function Header() {
             >
               <JianshanLogo className="h-6 min-[380px]:h-7 md:h-8 w-auto shrink-0" />
               <span>Jianshan Scholarship</span>
-            </a>
+            </Link>
 
             {/* Middle section: Navigation (desktop only) */}
             <nav className="hidden min-[1000px]:flex items-center justify-center gap-10">
               {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`group relative text-sm font-medium tracking-wide transition-colors whitespace-nowrap ${isScrolled ? "text-[#0F2E18]/80 hover:text-[#0F2E18]" : "text-[#FDFBF7]/80 hover:text-[#FDFBF7]"
-                    }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100 ${isScrolled ? "bg-[#0F2E18]" : "bg-[#FDFBF7]"
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`group relative text-sm font-medium tracking-wide transition-colors whitespace-nowrap ${isScrolled ? "text-[#0F2E18]/80 hover:text-[#0F2E18]" : "text-[#FDFBF7]/80 hover:text-[#FDFBF7]"
                       }`}
-                  />
-                </a>
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100 ${isScrolled ? "bg-[#0F2E18]" : "bg-[#FDFBF7]"
+                        }`}
+                    />
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`group relative text-sm font-medium tracking-wide transition-colors whitespace-nowrap ${isScrolled ? "text-[#0F2E18]/80 hover:text-[#0F2E18]" : "text-[#FDFBF7]/80 hover:text-[#FDFBF7]"
+                      }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100 ${isScrolled ? "bg-[#0F2E18]" : "bg-[#FDFBF7]"
+                        }`}
+                    />
+                  </a>
+                )
               ))}
             </nav>
 
@@ -155,18 +171,36 @@ export default function Header() {
                 <div className="bg-[#FDFBF7] rounded-3xl border border-[#0F2E18]/10 shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden p-6">
                   <div className="flex flex-col gap-1">
                     {NAV_LINKS.map((link, index) => (
-                      <motion.a
-                        key={link.href}
-                        href={link.href}
-                        onClick={handleNavClick}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.05 + 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="py-4 text-[#0F2E18] font-medium text-lg min-[380px]:text-xl
-                      hover:bg-[#0F2E18]/5 active:bg-[#0F2E18]/10 transition-colors rounded-xl px-2"
-                      >
-                        {link.label}
-                      </motion.a>
+                      link.isRoute ? (
+                        <motion.div
+                          key={link.href}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 + 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          <Link
+                            to={link.href}
+                            onClick={handleNavClick}
+                            className="block py-4 text-[#0F2E18] font-medium text-lg min-[380px]:text-xl
+                          hover:bg-[#0F2E18]/5 active:bg-[#0F2E18]/10 transition-colors rounded-xl px-2"
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      ) : (
+                        <motion.a
+                          key={link.href}
+                          href={link.href}
+                          onClick={handleNavClick}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 + 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          className="py-4 text-[#0F2E18] font-medium text-lg min-[380px]:text-xl
+                        hover:bg-[#0F2E18]/5 active:bg-[#0F2E18]/10 transition-colors rounded-xl px-2"
+                        >
+                          {link.label}
+                        </motion.a>
+                      )
                     ))}
 
                     <motion.div
