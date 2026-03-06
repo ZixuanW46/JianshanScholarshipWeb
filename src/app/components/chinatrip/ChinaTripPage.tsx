@@ -32,13 +32,11 @@ export default function ChinaTripPage() {
                 {/* Highlights */}
                 <ChinaTripHighlights />
 
-                {/* Crew and Cities */}
+                {/* Crew */}
                 <ChinaTripCrew />
-                <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
-                <ChinaTripCities />
 
                 {/* Practical Info & Pricing */}
-                <SectionTransition fromColor="#0A0A0A" toColor="#FDFBF7" />
+
                 <ChinaTripPracticalInfo />
                 <SectionTransition fromColor="#FDFBF7" toColor="#0A0A0A" />
                 <ChinaTripPricing />

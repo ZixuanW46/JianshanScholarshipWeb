@@ -1,51 +1,42 @@
-import { Instagram, Mail } from "lucide-react";
+import { Instagram, Mail, ArrowUpRight } from "lucide-react";
 
 export default function AcademyContact() {
     return (
-        <section className="bg-[#FDFBF7] text-[#0A0A0A] py-24 md:py-32">
+        <section className="bg-[#FDFBF7] text-[#0A0A0A] pt-24 pb-48 md:pb-[18rem] relative">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-3xl md:text-4xl font-sans font-bold text-[#0A0A0A] tracking-tight mb-12">
-                    Stay in the loop.
-                </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px]">
-                    {/* Instagram */}
-                    <a
-                        href="https://instagram.com/camcapysoc"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-start gap-5 p-6 rounded-2xl border border-[#0A0A0A]/5 hover:border-[#0A0A0A]/15 hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300"
-                    >
-                        <div className="w-12 h-12 rounded-xl bg-[#0F2E18]/5 flex items-center justify-center shrink-0">
-                            <Instagram size={20} className="text-[#0F2E18]" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                            <h3 className="text-base font-sans font-bold tracking-tight mb-1 group-hover:text-[#0F2E18] transition-colors">
-                                @camcapysoc
-                            </h3>
-                            <p className="text-sm text-[#0A0A0A]/50 font-light leading-relaxed">
-                                Follow for behind-the-scenes, scholar stories, and updates.
-                            </p>
-                        </div>
-                    </a>
-
-                    {/* Email */}
-                    <a
-                        href="mailto:camcapy@cambridgesu.co.uk"
-                        className="group flex items-start gap-5 p-6 rounded-2xl border border-[#0A0A0A]/5 hover:border-[#0A0A0A]/15 hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300"
-                    >
-                        <div className="w-12 h-12 rounded-xl bg-[#0F2E18]/5 flex items-center justify-center shrink-0">
-                            <Mail size={20} className="text-[#0F2E18]" strokeWidth={1.5} />
-                        </div>
-                        <div>
-                            <h3 className="text-base font-sans font-bold tracking-tight mb-1 group-hover:text-[#0F2E18] transition-colors">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
+                    <div className="md:col-span-5">
+                        <h2 className="text-sm tracking-widest font-mono text-[#0A0A0A]/40 uppercase mb-4">
+                            Contact
+                        </h2>
+                        <h3 className="text-4xl lg:text-5xl font-sans font-semibold tracking-tighter text-[#0A0A0A]">
+                            Got questions? <br /> Let's talk.
+                        </h3>
+                    </div>
+                    <div className="md:col-span-6 md:col-start-7 flex flex-col gap-6 pt-2">
+                        <a
+                            href="mailto:camcapy@cambridgesu.co.uk"
+                            className="group block border-b border-[#0A0A0A]/10 pb-6 hover:border-[#1A4D2E] transition-colors"
+                        >
+                            <div className="flex justify-between items-center text-xl font-sans text-[#0A0A0A] group-hover:text-[#1A4D2E] transition-colors">
                                 camcapy@cambridgesu.co.uk
-                            </h3>
-                            <p className="text-sm text-[#0A0A0A]/50 font-light leading-relaxed">
-                                Questions? Reach us anytime.
-                            </p>
-                        </div>
-                    </a>
+                                <ArrowUpRight size={24} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all" />
+                            </div>
+                            <span className="text-sm text-[#0A0A0A]/40 mt-2 block font-mono">EMAIL SUPPORT</span>
+                        </a>
+                        <a
+                            href="https://instagram.com/camcapysoc"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block border-b border-[#0A0A0A]/10 pb-6 hover:border-[#1A4D2E] transition-colors"
+                        >
+                            <div className="flex justify-between items-center text-xl font-sans text-[#0A0A0A] group-hover:text-[#1A4D2E] transition-colors">
+                                @camcapysoc
+                                <ArrowUpRight size={24} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all" />
+                            </div>
+                            <span className="text-sm text-[#0A0A0A]/40 mt-2 block font-mono">FOLLOW US</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

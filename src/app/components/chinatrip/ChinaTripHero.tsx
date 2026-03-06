@@ -41,14 +41,14 @@ export default function ChinaTripHero() {
                     </div>
 
                     <h1 className="ct-hero-stagger text-5xl md:text-7xl lg:text-8xl font-sans font-bold text-[#FDFBF7] tracking-tight leading-[1] mb-2">
-                        Where the Journey
+                        Your Chapter
                     </h1>
                     <h2 className="ct-hero-stagger text-6xl md:text-8xl lg:text-[110px] xl:text-[130px] font-serif italic text-[#FDFBF7] tracking-tight leading-[0.9] mb-10">
-                        Begins.
+                        in China.
                     </h2>
 
                     <p className="ct-hero-stagger text-xl md:text-2xl text-[#FDFBF7]/70 mb-6 font-light max-w-3xl">
-                        11 days. 3 cities. One life-changing adventure.
+                        11 days. 3 cities. The China you've heard about — and the one you haven't.
                     </p>
 
                     <div className="ct-hero-stagger flex flex-wrap items-center gap-3 mb-12">
@@ -62,12 +62,12 @@ export default function ChinaTripHero() {
                         ))}
                     </div>
 
-                    <div className="ct-hero-stagger">
+                    <div className="ct-hero-stagger w-full flex justify-center md:justify-start mt-4 md:mt-0">
                         <button
                             onClick={() => {
                                 document.getElementById("ct-highlights")?.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className="group flex items-center gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
+                            className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
                         >
                             <span className="text-sm tracking-widest uppercase font-medium">Explore</span>
                             <ArrowDown size={18} className="animate-bounce" />

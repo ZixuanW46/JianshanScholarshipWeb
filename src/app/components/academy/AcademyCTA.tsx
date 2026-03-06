@@ -38,13 +38,13 @@ export default function AcademyCTA() {
                 {/* CTA Content */}
                 <div className="text-center">
                     <h2 className="text-5xl md:text-7xl lg:text-8xl font-sans font-bold text-[#FDFBF7] tracking-tighter leading-[1] mb-4">
-                        Your summer
+                        Leave a mark.
                     </h2>
                     <h3 className="text-5xl md:text-7xl lg:text-8xl font-serif italic text-[#FDFBF7] tracking-tight leading-[0.9] mb-8">
-                        starts here.
+                        Shape a mind.
                     </h3>
-                    <p className="text-lg md:text-xl text-[#FDFBF7]/50 font-light max-w-[500px] mx-auto mb-12">
-                        Apply for the Jianshan Scholarship and create something extraordinary this summer.
+                    <p className="text-lg md:text-xl text-[#FDFBF7]/50 font-light max-w-[600px] mx-auto mb-12">
+                        Ignite curiosity, share your passion, <br className="hidden md:block" /> and experience China authentically.
                     </p>
 
                     <Button

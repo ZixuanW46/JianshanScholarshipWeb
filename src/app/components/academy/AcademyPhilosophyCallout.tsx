@@ -6,15 +6,15 @@ export default function AcademyPhilosophyCallout() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2E8B57]/10 rounded-full blur-[120px]" />
             </div>
 
-            <div className="max-w-[900px] mx-auto px-6 md:px-12 lg:px-24 text-center relative z-10">
+            <div className="max-w-[1000px] mx-auto px-6 md:px-12 lg:px-24 text-center relative z-10">
                 <div className="mb-8">
                     <span className="text-[10px] tracking-[0.3em] uppercase text-[#FDFBF7]/30 font-semibold">
                         The Jianshan Promise
                     </span>
                 </div>
 
-                <blockquote className="text-2xl md:text-4xl lg:text-5xl font-serif italic text-[#FDFBF7]/90 leading-snug tracking-tight mb-8">
-                    "It's not just about knowledge — it's about inspiration and perspective. It's not just about English or Mandarin — it's about bonding and exchange."
+                <blockquote className="text-2xl md:text-4xl lg:text-6xl font-serif italic text-[#FDFBF7]/90 leading-snug tracking-tight mb-8">
+                    "Here, every passion finds a home. Every conversation opens a new door."
                 </blockquote>
 
                 <div className="w-12 h-[1px] bg-[#FDFBF7]/20 mx-auto" />

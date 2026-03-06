@@ -1,25 +1,40 @@
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+"use client";
 
-const testimonials = [
-    {
-        quote: "The contrast between the ancient temples in Hangzhou and the absolute futuristic feel of Shanghai was mind-blowing. Our local guides made everything effortless.",
-        name: "Sarah Jenkins",
-        info: "Trinity College · 2024 Participant",
-    },
-    {
-        quote: "I thought I knew what to expect from China, but this trip completely shifted my perspective. The people we met, the food we ate, the scale of the cities... it’s an experience you can't get from a textbook.",
-        name: "David Chen",
-        info: "St John's College · 2024 Participant",
-    },
-    {
-        quote: "Traveling with a crew of other Cambridge students was the best part. We were all experiencing this massive culture shock and adventure together. The community aspect is unmatched.",
-        name: "Emma Williams",
-        info: "King's College · 2024 Participant",
-    },
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const testimonialImages = [
+    "/trip_ins/IMG_6807.jpg",
+    "/trip_ins/IMG_6808.jpg",
+    "/trip_ins/IMG_6809.jpg",
+    "/trip_ins/IMG_6810.jpg",
+    "/trip_ins/IMG_6812.jpg",
+    "/trip_ins/IMG_6813.jpg",
+    "/trip_ins/IMG_6814.jpg",
+    "/trip_ins/IMG_6815.jpg",
+    "/trip_ins/IMG_6816.jpg",
 ];
 
 export default function ChinaTripTestimonials() {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const updateScroll = () => {
+            if (scrollRef.current) {
+                const container = scrollRef.current;
+                const targetChild = container.children[3] as HTMLElement; // [0] is spacer, [1] is 1st image, [2] is 2nd, [3] is 3rd image
+                if (targetChild) {
+                    const scrollPos = targetChild.offsetLeft - (container.clientWidth / 2) + (targetChild.clientWidth / 2);
+                    container.scrollTo({ left: scrollPos, behavior: "instant" });
+                }
+            }
+        };
+
+        updateScroll();
+        const timeout = setTimeout(updateScroll, 50);
+        return () => clearTimeout(timeout);
+    }, []);
+
     return (
         <section className="bg-[#1A4D2E] py-24 md:py-32 relative z-10 overflow-hidden text-[#FDFBF7]">
             {/* Background Texture/Pattern */}
@@ -30,7 +45,8 @@ export default function ChinaTripTestimonials() {
                 }}
             />
 
-            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 border-b border-rose-900 border-opacity-0">
+            {/* Title Container */}
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -45,30 +61,37 @@ export default function ChinaTripTestimonials() {
                         Don't just take <span className="font-serif italic font-normal text-[#D85C3C]">our word</span> for it.
                     </h2>
                 </motion.div>
+            </div>
 
-                {/* Horizontal Scrolling or Grid of Testimonials */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {testimonials.map((t, i) => (
+            {/* Full-width Carousel Container */}
+            <div className="w-full relative z-10">
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                >
+                    {/* Leading spacer to match max-w container alignment */}
+                    <div className="flex-none w-6 md:w-12 lg:w-[max(6rem,calc((100vw-1400px)/2+6rem))]" />
+
+                    {testimonialImages.map((src, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-10 rounded-3xl flex flex-col justify-between"
+                            transition={{ duration: 0.6, delay: (Math.min(i, 5)) * 0.1 }}
+                            className="flex-none snap-center"
                         >
-                            <div>
-                                <Quote className="w-10 h-10 text-[#D85C3C]/40 mb-6" />
-                                <p className="text-lg md:text-xl font-serif italic text-[#FDFBF7]/90 leading-relaxed mb-8">
-                                    "{t.quote}"
-                                </p>
-                            </div>
-                            <div>
-                                <h4 className="font-sans font-bold text-lg tracking-tight mb-1">{t.name}</h4>
-                                <p className="text-xs font-mono tracking-widest uppercase text-[#FDFBF7]/50">{t.info}</p>
-                            </div>
+                            <img
+                                src={src}
+                                alt={`Participant quote ${i + 1}`}
+                                className="h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] w-auto rounded-3xl border border-white/10 shadow-2xl hover:border-white/30 transition-all duration-300 hover:scale-[1.02] object-contain"
+                                loading="lazy"
+                            />
                         </motion.div>
                     ))}
+
+                    {/* Trailing spacer */}
+                    <div className="flex-none w-6 md:w-12 lg:w-[max(6rem,calc((100vw-1400px)/2+6rem))]" />
                 </div>
             </div>
         </section>

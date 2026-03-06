@@ -17,24 +17,18 @@ const events: TimelineEvent[] = [
     },
     {
         step: "02",
-        title: "Early Bird Deadline",
-        date: "TBC",
-        description: "Lock in the discounted early bird price by registering before this date.",
-    },
-    {
-        step: "03",
         title: "Registration Closes",
         date: "TBC",
         description: "Final deadline for all sign-ups. Documentation and initial payments are due.",
     },
     {
-        step: "04",
+        step: "03",
         title: "Pre-trip Briefing",
         date: "TBC",
         description: "An online session covering logistics, packing essentials, and visa preparation.",
     },
     {
-        step: "05",
+        step: "04",
         title: "Departure",
         date: "July – August 2026",
         description: "Your 11-day China adventure officially begins!",
@@ -65,9 +59,9 @@ export default function ChinaTripTimeline() {
                 </motion.div>
 
                 {/* Vertical Timeline */}
-                <div className="relative pl-6 md:pl-0">
+                <div className="relative">
                     {/* Line */}
-                    <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#1A1A1A]/10 -translate-x-1/2 md:translate-x-0" />
+                    <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#1A1A1A]/10 -translate-x-1/2 md:translate-x-0" />
 
                     {events.map((event, i) => (
                         <motion.div
@@ -83,10 +77,10 @@ export default function ChinaTripTimeline() {
                             <div className="hidden md:block w-5/12" />
 
                             {/* Node connecting to line */}
-                            <div className="absolute left-[39px] md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1A4D2E] border-4 border-[#FDFBF7] z-10 shadow-[0_0_0_4px_rgba(26,77,46,0.1)]" />
+                            <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1A4D2E] border-4 border-[#FDFBF7] z-10 shadow-[0_0_0_4px_rgba(26,77,46,0.1)]" />
 
                             {/* Content */}
-                            <div className="w-full md:w-5/12 pl-12 md:pl-0">
+                            <div className="w-full md:w-5/12 pl-14 md:pl-0">
                                 <div className={`flex flex-col ${i % 2 === 0 ? "md:items-start md:text-left" : "md:items-end md:text-right"}`}>
                                     <div className="flex items-center gap-3 mb-2">
                                         <span className="text-xs font-bold tracking-widest text-[#1A4D2E] bg-[#1A4D2E]/10 px-3 py-1 rounded-full uppercase">

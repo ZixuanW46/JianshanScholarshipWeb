@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
+import { ArrowDown } from "lucide-react";
 
 export default function AcademyHero() {
     const textRef = useRef<HTMLDivElement>(null);
@@ -63,17 +62,16 @@ export default function AcademyHero() {
                         ))}
                     </div>
 
-                    <div className="acad-hero-stagger">
-                        <Button
-                            size="lg"
-                            className="group text-lg px-8 bg-[#FDFBF7] text-[#0A0A0A] hover:bg-[#E8F3E8] rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:px-10"
+                    <div className="acad-hero-stagger w-full flex justify-center md:justify-start mt-4 md:mt-0">
+                        <button
+                            onClick={() => {
+                                window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+                            }}
+                            className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
                         >
-                            Apply for Jianshan Scholarship
-                            <ArrowRight
-                                size={20}
-                                className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
-                            />
-                        </Button>
+                            <span className="text-sm tracking-widest uppercase font-medium">Explore</span>
+                            <ArrowDown size={18} className="animate-bounce" />
+                        </button>
                     </div>
                 </div>
             </div>

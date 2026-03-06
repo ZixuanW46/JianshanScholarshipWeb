@@ -1,12 +1,11 @@
 import { Play } from "lucide-react";
 
 const stats = [
-    { value: "27", label: "Cambridge Scholars" },
-    { value: "11", label: "Countries" },
-    { value: "18", label: "Disciplines" },
-    { value: "54", label: "Sessions" },
-    { value: "154", label: "Students" },
-    { value: "10", label: "Days" },
+    { value: "56", label: "Cambridge Scholars" },
+    { value: "21", label: "Countries" },
+    { value: "33", label: "Disciplines" },
+    { value: "112", label: "Unique Courses" },
+    { value: "400+", label: "Students" },
 ];
 
 export default function AcademyVideoIntro() {
@@ -28,7 +27,7 @@ export default function AcademyVideoIntro() {
                 </div>
 
                 {/* Stats Bar */}
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-4 mb-16 max-w-[960px] mx-auto">
+                <div className="grid grid-cols-3 md:grid-cols-5 gap-6 md:gap-4 mb-16 max-w-[960px] mx-auto">
                     {stats.map((stat) => (
                         <div key={stat.label} className="text-center">
                             <div className="text-3xl md:text-4xl font-sans font-bold text-[#FDFBF7] tracking-tight mb-1">
@@ -44,7 +43,7 @@ export default function AcademyVideoIntro() {
                 {/* Body Copy */}
                 <div className="max-w-[700px] mx-auto text-center">
                     <p className="text-lg md:text-xl text-[#FDFBF7]/60 leading-relaxed font-light">
-                        Last summer, 27 Cambridge scholars from across 3 continents came to China and created something extraordinary. 54 sessions across 18 disciplines. 154 students who left with new passions, new friendships, and new ways of seeing the world.
+                        Since the first program in 2024, we have brought 56 Cambridge scholars from 21 countries to China to create something extraordinary — 112 unique courses across 33 disciplines, and 400+ high school students who left with new passions, new friendships, and new ways of seeing the world.
                     </p>
                     <p className="text-lg md:text-xl text-[#FDFBF7]/80 leading-relaxed font-light mt-6">
                         This summer, we're doing it again — only bigger, bolder, and better.
