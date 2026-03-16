@@ -42,7 +42,7 @@ const Options2026 = () => {
                 {/* Intro Text Group (Stacked above) */}
                 <div className="w-full max-w-3xl mb-16 md:mb-20 text-center">
                     <p className="text-xl md:text-2xl font-serif text-[#1A1A1A] leading-relaxed">
-                        Every summer, we host 7-day academies in 3 of the 5 hub cities we operate at. You bring your schedule, and we match you to the optimal location.
+                        Every summer, we host 7-day academies in 1 of the 5 hub cities we operate at.
                     </p>
                 </div>
 
@@ -94,8 +94,68 @@ const Options2026 = () => {
                     </div>
 
                     {/* Result */}
-                    <div className="flex items-center justify-center text-[#1A4D2E] italic font-medium">
-                        Your Jianshan 2026
+                    <div className="flex flex-col items-center justify-center text-center w-full">
+                        <div className="flex items-center justify-center text-[#1A4D2E] italic font-medium">
+                            Your Jianshan Experience
+                        </div>
+                        
+                        {/* 2026 Itinerary Ticket Widget */}
+                        <div className="w-full max-w-3xl flex flex-col md:flex-row bg-white border border-[#1A1A1A]/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow font-sans mt-8 md:mt-12">
+                            {/* Year / Tagline */}
+                            <div className="bg-[#1A4D2E] text-white p-6 md:p-8 flex flex-col justify-center items-center md:items-start min-w-[140px] relative overflow-hidden">
+                                {/* Subtle background texture/pattern */}
+                                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '12px 12px' }}></div>
+                                <span className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase opacity-80 mb-2 z-10">Confirmed</span>
+                                <span className="text-4xl md:text-5xl font-serif italic z-10 leading-none">2026</span>
+                            </div>
+                            
+                            {/* Details Grid */}
+                            <div className="flex-1 flex flex-col sm:flex-row p-6 md:p-8 gap-6 sm:gap-0 relative">
+                                {/* Vertical Divider for desktop */}
+                                <div className="hidden sm:block absolute top-[20%] bottom-[20%] left-1/2 w-px bg-[#1A1A1A]/10"></div>
+                                
+                                {/* Part 1: Academy */}
+                                <div className="flex-1 flex flex-col sm:pr-8 text-left">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className="w-1.5 h-1.5 rounded-full border border-[#1A4D2E]"></div>
+                                        <span className="text-[10px] font-semibold tracking-widest text-[#1A1A1A]/50 uppercase">The Academy</span>
+                                    </div>
+                                    <div className="text-xl md:text-2xl font-serif text-[#1A1A1A] mb-1">
+                                        Hangzhou
+                                    </div>
+                                    <div className="text-sm text-[#1A1A1A]/60 flex items-center gap-1.5 mt-auto pt-3">
+                                        <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        August 2 — 8
+                                    </div>
+                                </div>
+                                
+                                {/* Horizontal Divider for mobile */}
+                                <div className="w-full h-px bg-[#1A1A1A]/5 sm:hidden"></div>
+
+                                {/* Part 2: Trip */}
+                                <div className="flex-1 flex flex-col sm:pl-8 text-left">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#1A4D2E]"></div>
+                                        <span className="text-[10px] font-semibold tracking-widest text-[#1A1A1A]/50 uppercase">The Trip</span>
+                                    </div>
+                                    <div className="text-xl md:text-2xl font-serif text-[#1A1A1A] mb-1">
+                                        HZ <span className="text-[#1A1A1A]/30 font-sans mx-1">→</span> SH <span className="text-[#1A1A1A]/30 font-sans mx-1">→</span> BJ
+                                    </div>
+                                    {/* Small explanation of HZ/SH/BJ */}
+                                    <div className="text-xs text-[#1A1A1A]/40 mb-1 leading-tight">
+                                        Hangzhou, Shanghai, Beijing
+                                    </div>
+                                    <div className="text-sm text-[#1A1A1A]/60 flex items-center gap-1.5 mt-auto pt-1 sm:pt-3">
+                                        <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        August 8 — 18
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

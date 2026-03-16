@@ -34,6 +34,12 @@ interface CityData {
     attractions: Attraction[];
 }
 
+const tripHighlightImage = (fileName: string) =>
+    `/trip_highlights/${encodeURIComponent(fileName.replace(/\.(jpe?g)$/i, ".webp"))}`;
+
+const tripHighlightOriginalImage = (fileName: string) =>
+    `/trip_highlights/${encodeURIComponent(fileName)}`;
+
 const itineraryData: CityData[] = [
     {
         id: "beijing",
@@ -41,15 +47,15 @@ const itineraryData: CityData[] = [
         englishName: "Beijing",
         subtitle: "The Imperial Capital",
         intro: "The historic heart of China. Experience the monumental scale of ancient empires alongside vibrant local traditions.",
-        heroImage: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1920&auto=format&fit=crop",
+        heroImage: tripHighlightImage("Beijing Main.jpg"),
         attractions: [
-            { name: "长城", englishName: "The Great Wall", description: "Trek the ancient sections, marveling at human engineering set against breathtaking mountain vistas.", category: "Nature & Scenery", imageUrl: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1920&auto=format&fit=crop" },
-            { name: "故宫", englishName: "The Forbidden City", description: "Stand inside the heart of 600 years of imperial rule in this sprawling complex of palaces.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1718248336966-70d17f2dbfd7?q=80&w=1080&auto=format&fit=crop" },
-            { name: "天坛", englishName: "Temple of Heaven", description: "An imperial complex of religious buildings where emperors prayed for good harvests.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1583274246988-db452145326c?q=80&w=1080&auto=format&fit=crop" },
-            { name: "京剧", englishName: "Peking Opera", description: "Immerse yourself in traditional Chinese theater, known for its elaborate costumes and distinct vocal styles.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1582294101905-ebbd8397a6e1?q=80&w=1080&auto=format&fit=crop" },
-            { name: "包饺子", englishName: "Dumpling Making", description: "Get hands-on experience making traditional Chinese dumplings, a staple of local life.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=1080&auto=format&fit=crop" },
-            { name: "学太极", englishName: "Tai Chi Masterclass", description: "Learn the ancient martial art of Tai Chi, focusing on slow, deliberate movements.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1080&auto=format&fit=crop" },
-            { name: "胡同游", englishName: "Hutong Tour", description: "Explore the narrow, historic alleyways of old Beijing and glimpse traditional local life.", category: "Local Life", imageUrl: "https://images.unsplash.com/photo-1552554746-92864bdf6bf0?q=80&w=1080&auto=format&fit=crop" },
+            { name: "长城", englishName: "The Great Wall", description: "Trek the ancient sections, marveling at human engineering set against breathtaking mountain vistas.", category: "Nature & Scenery", imageUrl: tripHighlightImage("The Great Wall.jpg") },
+            { name: "故宫", englishName: "The Forbidden City", description: "Stand inside the heart of 600 years of imperial rule in this sprawling complex of palaces.", category: "Culture & Heritage", imageUrl: tripHighlightImage("forbidden city.jpg") },
+            { name: "天坛", englishName: "Temple of Heaven", description: "An imperial complex of religious buildings where emperors prayed for good harvests.", category: "Culture & Heritage", imageUrl: tripHighlightImage("temple of heaven.jpg") },
+            { name: "京剧", englishName: "Peking Opera", description: "Immerse yourself in traditional Chinese theater, known for its elaborate costumes and distinct vocal styles.", category: "Cultural Experience", imageUrl: tripHighlightImage("peking opera.jpg") },
+            { name: "包饺子", englishName: "Dumpling Making", description: "Get hands-on experience making traditional Chinese dumplings, a staple of local life.", category: "Cultural Experience", imageUrl: tripHighlightImage("dumpling making.jpg") },
+            { name: "学太极", englishName: "Tai Chi Masterclass", description: "Learn the ancient martial art of Tai Chi, focusing on slow, deliberate movements.", category: "Cultural Experience", imageUrl: tripHighlightImage("taichi masterclass.jpg") },
+            { name: "胡同游", englishName: "Hutong Tour", description: "Explore the narrow, historic alleyways of old Beijing and glimpse traditional local life.", category: "Local Life", imageUrl: tripHighlightImage("hutong tour.jpg") },
         ]
     },
     {
@@ -58,14 +64,14 @@ const itineraryData: CityData[] = [
         englishName: "Hangzhou",
         subtitle: "The Poetic Paradise",
         intro: "A city of poetry and tea. Discover mist-covered hills, ancient pagodas, and centuries of artistic heritage.",
-        heroImage: "/westlake.webp",
+        heroImage: tripHighlightImage("Hangzhou Main.jpg"),
         attractions: [
             { name: "西湖", englishName: "West Lake", description: "Stroll along the poetic shores that have inspired Chinese artists and writers for over a millennium.", category: "Nature & Scenery", imageUrl: "/westlake.webp" },
-            { name: "灵隐寺", englishName: "Lingyin Temple", description: "A tranquil, 1,700-year-old Buddhist monastery nestled deep in the lush, misty mountains.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?q=80&w=1080&auto=format&fit=crop" },
-            { name: "大运河", englishName: "The Grand Canal", description: "Explore the longest artificial river in the world, a marvel of ancient engineering and trade.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1561053428-fb4eb461dffa?q=80&w=1080&auto=format&fit=crop" },
-            { name: "龙井采茶", englishName: "Longjing Tea Picking", description: "Visit the emerald-green hillside tea fields and experience picking world-famous Longjing green tea.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1601362772596-fdd28b8acc22?q=80&w=1080&auto=format&fit=crop" },
-            { name: "茶叶博物馆", englishName: "National Tea Museum", description: "Dive deep into the history, culture, and varieties of Chinese tea.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1576086430364-bb20ccf3cb29?q=80&w=1080&auto=format&fit=crop" },
-            { name: "竹编", englishName: "Bamboo Weaving", description: "Learn traditional bamboo weaving techniques from local artisans.", category: "Cultural Experience", imageUrl: "https://images.unsplash.com/photo-1618645511304-44ed5b367fc9?q=80&w=1080&auto=format&fit=crop" },
+            { name: "灵隐寺", englishName: "Lingyin Temple", description: "A tranquil, 1,700-year-old Buddhist monastery nestled deep in the lush, misty mountains.", category: "Culture & Heritage", imageUrl: tripHighlightImage("lingyin temple.jpg") },
+            { name: "大运河", englishName: "The Grand Canal", description: "Explore the longest artificial river in the world, a marvel of ancient engineering and trade.", category: "Culture & Heritage", imageUrl: tripHighlightOriginalImage("Hangzhou Grand Canal.jpeg") },
+            { name: "龙井采茶", englishName: "Longjing Tea Picking", description: "Visit the emerald-green hillside tea fields and experience picking world-famous Longjing green tea.", category: "Cultural Experience", imageUrl: tripHighlightImage("Hangzhou Tea Picking.jpg") },
+            { name: "茶叶博物馆", englishName: "National Tea Museum", description: "Dive deep into the history, culture, and varieties of Chinese tea.", category: "Cultural Experience", imageUrl: tripHighlightImage("Hangzhou National Tea Museum.jpg") },
+            { name: "竹编", englishName: "Bamboo Weaving", description: "Learn traditional bamboo weaving techniques from local artisans.", category: "Cultural Experience", imageUrl: tripHighlightImage("Hangzhou Bamboo weaving.jpg") },
         ]
     },
     {
@@ -74,13 +80,13 @@ const itineraryData: CityData[] = [
         englishName: "Shanghai",
         subtitle: "The Future Metropolis",
         intro: "Where the East meets the West, and history meets the future. Experience China's vibrant, cosmopolitan megacity.",
-        heroImage: "/shanghai.webp",
+        heroImage: tripHighlightImage("Shanghai Main.jpg"),
         attractions: [
-            { name: "外滩", englishName: "The Bund", description: "Walk the historic waterfront promenade lined with colonial-era architecture facing the futuristic skyline.", category: "City Landmark", imageUrl: "/shanghai.webp" },
-            { name: "豫园", englishName: "Yu Garden", description: "An extensive Chinese garden dating back to the Ming Dynasty, featuring classical pavilions and ponds.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1542618956-fce11c97aabd?q=80&w=1080&auto=format&fit=crop" },
-            { name: "静安寺", englishName: "Jing'an Temple", description: "A stunning golden Buddhist temple standing in stark contrast to the modern skyscrapers.", category: "Culture & Heritage", imageUrl: "https://images.unsplash.com/photo-1621644781488-842245fba1bb?q=80&w=1080&auto=format&fit=crop" },
-            { name: "田子坊", englishName: "Tianzifang", description: "Wander through an arts and crafts enclave developed from a renovated traditional residential area.", category: "Art & Local Life", imageUrl: "https://images.unsplash.com/photo-1658428172922-c42fe1b82ef4?q=80&w=1080&auto=format&fit=crop" },
-            { name: "高铁体验", englishName: "High-Speed Rail", description: "Experience the sleek efficiency of China's modern infrastructure at unprecedented speeds.", category: "Modern Tech", imageUrl: "https://images.unsplash.com/photo-1522079088629-67980cdb8988?q=80&w=1080&auto=format&fit=crop" },
+            { name: "外滩", englishName: "The Bund", description: "Walk the historic waterfront promenade lined with colonial-era architecture facing the futuristic skyline.", category: "City Landmark", imageUrl: tripHighlightImage("Shanghai Bund.jpg") },
+            { name: "豫园", englishName: "Yu Garden", description: "An extensive Chinese garden dating back to the Ming Dynasty, featuring classical pavilions and ponds.", category: "Culture & Heritage", imageUrl: tripHighlightImage("Yu Garden Shanghai.jpg") },
+            { name: "静安寺", englishName: "Jing'an Temple", description: "A stunning golden Buddhist temple standing in stark contrast to the modern skyscrapers.", category: "Culture & Heritage", imageUrl: tripHighlightImage("Shanghai Jiangan Temple.jpg") },
+            { name: "田子坊", englishName: "Tianzifang", description: "Wander through an arts and crafts enclave developed from a renovated traditional residential area.", category: "Art & Local Life", imageUrl: tripHighlightImage("Shanghai Tianzi Fang.jpg") },
+            { name: "高铁体验", englishName: "High-Speed Rail", description: "Experience the sleek efficiency of China's modern infrastructure at unprecedented speeds.", category: "Modern Tech", imageUrl: tripHighlightImage("Shanghai Highspeed Rail.jpg") },
         ]
     }
 ];
@@ -180,8 +186,8 @@ export default function ChinaTripHighlights() {
                                     {/* Active Line indicator (Horizontal on Mobile, Vertical on Desktop) */}
                                     <div className={`transition-all duration-300 ${isActive ? 'bg-white' : 'bg-white/20 group-hover:bg-white/50'} h-[2px] w-10 md:w-0.5 md:h-12`} />
 
-                                    <div className="flex flex-col items-center md:items-start min-w-0 w-full">
-                                        <span className={`block text-lg sm:text-2xl md:text-5xl font-serif tracking-tight transition-colors duration-300 truncate w-full ${isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'}`}>
+                                    <div className="flex flex-col items-center md:items-start min-w-0 w-full pb-1 md:pb-2">
+                                        <span className={`block w-full text-lg sm:text-2xl md:text-5xl font-serif tracking-tight leading-[1.08] transition-colors duration-300 md:overflow-visible md:whitespace-normal ${isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'}`}>
                                             {c.englishName}
                                         </span>
                                         <span className={`hidden md:block text-sm tracking-[0.2em] font-sans uppercase transition-colors duration-300 ${isActive ? 'text-white/80' : 'text-white/0 group-hover:text-white/40'}`}>

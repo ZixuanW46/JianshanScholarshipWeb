@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CalendarClock } from "lucide-react";
+import { Link } from "react-router";
 
 interface TimelineEvent {
     step: string;
@@ -55,6 +56,13 @@ export default function ChinaTripTimeline() {
                     </h2>
                     <p className="text-[#0A0A0A]/50 font-light text-lg max-w-lg mx-auto">
                         Dates are currently being finalized for the 2026 cohort.
+                    </p>
+                    <p className="mt-4 text-[#0A0A0A]/65 font-light text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                        This timeline is for self-funded registrations, which are offered on a first-come, first-served basis. If you are applying for the Jianshan Scholarship, please see the{" "}
+                        <Link to="/" className="text-[#1A4D2E] underline underline-offset-4 hover:text-[#D85C3C] transition-colors">
+                            home page timeline
+                        </Link>
+                        .
                     </p>
                 </motion.div>
 

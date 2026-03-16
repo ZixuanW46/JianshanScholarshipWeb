@@ -26,10 +26,10 @@ export default function AcademyHero() {
                 <img
                     src="/teaching.webp"
                     alt="Jianshan Academy session"
-                    className="w-full h-full object-cover opacity-40"
+                    className="w-full h-full object-cover opacity-56"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/80 via-[#0A0A0A]/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/72 via-[#0A0A0A]/38 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/58 via-[#0A0A0A]/24 to-transparent pointer-events-none" />
             </div>
 
             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24" ref={textRef}>
@@ -62,18 +62,19 @@ export default function AcademyHero() {
                         ))}
                     </div>
 
-                    <div className="acad-hero-stagger w-full flex justify-center md:justify-start mt-4 md:mt-0">
-                        <button
-                            onClick={() => {
-                                window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-                            }}
-                            className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
-                        >
-                            <span className="text-sm tracking-widest uppercase font-medium">Explore</span>
-                            <ArrowDown size={18} className="animate-bounce" />
-                        </button>
-                    </div>
                 </div>
+            </div>
+
+            <div className="acad-hero-stagger absolute inset-x-0 bottom-8 md:bottom-12 z-10 flex justify-center">
+                <button
+                    onClick={() => {
+                        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+                    }}
+                    className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
+                >
+                    <span className="text-sm tracking-widest uppercase font-medium">Explore</span>
+                    <ArrowDown size={18} className="animate-bounce" />
+                </button>
             </div>
         </section>
     );

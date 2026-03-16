@@ -17,6 +17,7 @@ import SectionTransition from "./components/ui/SectionTransition";
 import LoadingScreen from "./components/LoadingScreen";
 import AcademyPage from "./components/academy/AcademyPage";
 import ChinaTripPage from "./components/chinatrip/ChinaTripPage";
+import PastScholarsPage from "./components/scholars/PastScholarsPage";
 
 function LandingPage() {
   return (
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/academy" element={<AcademyPage />} />
         <Route path="/chinatrip" element={<ChinaTripPage />} />
+        <Route path="/scholars" element={<PastScholarsPage />} />
       </Routes>
     </div>
   );

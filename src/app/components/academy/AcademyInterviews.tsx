@@ -1,4 +1,5 @@
 import { Play, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 
 export default function AcademyInterviews() {
     return (
@@ -33,13 +34,13 @@ export default function AcademyInterviews() {
                 </div>
 
                 {/* Link to past scholars */}
-                <a
-                    href="#scholars"
+                <Link
+                    to="/scholars"
                     className="group inline-flex items-center gap-3 text-[#0F2E18] font-medium hover:gap-5 transition-all duration-300"
                 >
                     Meet more past Jianshan Scholars
                     <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                </Link>
             </div>
         </section>
     );

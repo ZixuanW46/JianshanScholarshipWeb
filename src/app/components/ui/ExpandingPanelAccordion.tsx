@@ -7,6 +7,7 @@ export interface AccordionPanelData {
     subtitle?: string;
     description: string;
     imageUrl: string;
+    learnMoreHref?: string;
 }
 
 interface ExpandingPanelAccordionProps {
@@ -221,9 +222,12 @@ export function ExpandingPanelAccordion({ panels }: ExpandingPanelAccordionProps
                                 </div>
 
                                 <div>
-                                    <button className="flex items-center gap-3 text-xs md:text-sm tracking-[0.2em] uppercase font-mono group/btn bg-[#FDFBF7]/10 hover:bg-[#FDFBF7]/20 px-6 py-4 rounded-full backdrop-blur-md transition-all border border-[#FDFBF7]/30 text-[#FDFBF7]">
+                                    <a
+                                        href={panel.learnMoreHref ?? "#"}
+                                        className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.2em] uppercase font-mono group/btn bg-[#FDFBF7]/10 hover:bg-[#FDFBF7]/20 px-6 py-4 rounded-full backdrop-blur-md transition-all border border-[#FDFBF7]/30 text-[#FDFBF7]"
+                                    >
                                         LEARN MORE <ArrowRight size={16} className="transform group-hover/btn:translate-x-2 transition-transform duration-300" />
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -11,6 +11,8 @@ import {
     DialogDescription,
 } from "../ui/dialog";
 
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+
 export default function ChinaTripCTA() {
     const [showDialog, setShowDialog] = useState(false);
 
@@ -48,7 +50,7 @@ export default function ChinaTripCTA() {
                                 />
                             </Button>
                             <a
-                                href="/"
+                                href={SCHOLARSHIP_APPLICATION_URL}
                                 className="text-[#FDFBF7]/60 hover:text-[#FDFBF7] transition-colors border-b border-white/20 hover:border-white/60 pb-1 text-sm tracking-widest uppercase font-medium"
                             >
                                 Or apply for the Jianshan Scholarship →

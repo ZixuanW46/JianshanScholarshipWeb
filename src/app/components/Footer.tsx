@@ -18,8 +18,15 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-5">
               <span className="text-[#1A4D2E] uppercase tracking-widest font-bold mb-2">Connect</span>
-              <a href="#" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Instagram</a>
-              <a href="#" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Contact</a>
+              <a
+                href="https://www.instagram.com/camcapysoc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors"
+              >
+                Instagram
+              </a>
+              <a href="mailto:camcapy@cambridgesu.co.uk" className="text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors">Contact</a>
             </div>
           </div>
         </div>

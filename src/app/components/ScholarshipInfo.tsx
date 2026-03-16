@@ -48,9 +48,9 @@ export default function ScholarshipInfo() {
                                 ))}
                             </div>
                             <p className="text-gray-600 font-sans text-[1rem] leading-relaxed max-w-xl mt-8 mb-8 italic">
-                                P.S. Meals are not included. Since scholars have diverse dietary requirements and personal preferences, we keep food choices flexible. The good news: food in China is generally very affordable and offers strong value for money.
+                                P.S. Meals are not included. As scholars may have diverse dietary requirements and personal preferences, we keep food arrangements flexible. The good news is that food in China is generally very affordable and offers excellent value for money.
                             </p>
-                            <a href="#" className="inline-flex items-center gap-3 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300">
+                            <a href="/chinatrip" className="inline-flex items-center gap-3 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300">
                                 Learn more <ArrowRight className="w-5 h-5 -rotate-45" />
                             </a>
                         </div>
@@ -60,7 +60,7 @@ export default function ScholarshipInfo() {
                             <span className="text-xs font-mono text-gray-400 mb-6 block tracking-widest">03</span>
                             <h3 className="text-4xl font-sans tracking-tight text-[#1A1A1A] mb-8 font-medium">Flights & Visas</h3>
                             <p className="text-gray-600 font-sans text-[1.1rem] leading-relaxed max-w-xl mb-10">
-                                Scholars are responsible for managing their own return flight ticket and Visa fee if needed.
+                                Scholars are responsible for booking and covering the cost of their own round-trip international flights, as well as any visa fees if required.
                             </p>
                             <a href="#" className="inline-flex items-center gap-3 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300">
                                 Check Visa-free entry <ArrowRight className="w-5 h-5 -rotate-45" />

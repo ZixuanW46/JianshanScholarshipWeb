@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+
 const highlights = [
     "100% Cambridge All-Star Faculty",
     "A/B Dual-Track Curriculum",
@@ -48,14 +50,17 @@ export default function AcademyCTA() {
                     </p>
 
                     <Button
+                        asChild
                         size="lg"
                         className="group text-lg px-10 py-6 bg-[#FDFBF7] text-[#0A0A0A] hover:bg-[#E8F3E8] rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:px-12"
                     >
-                        Apply for Jianshan Scholarship
-                        <ArrowRight
-                            size={20}
-                            className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
-                        />
+                        <a href={SCHOLARSHIP_APPLICATION_URL}>
+                            Apply for Jianshan Scholarship
+                            <ArrowRight
+                                size={20}
+                                className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
+                            />
+                        </a>
                     </Button>
                 </div>
             </div>

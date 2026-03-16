@@ -4,6 +4,8 @@ import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Sparkles, MapPin, Users, Calendar, Award } from 'lucide-react';
 
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+
 export default function CTA() {
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(0);
@@ -169,7 +171,8 @@ export default function CTA() {
                             </div>
 
                             {/* Right Side: CTA Button — custom cursor zone */}
-                            <div
+                            <motion.a
+                                href={SCHOLARSHIP_APPLICATION_URL}
                                 className="w-full md:w-4/12 flex flex-col justify-center items-center p-8 md:p-12 relative bg-[#111111] overflow-hidden group-hover:bg-[#141414] transition-colors duration-500"
                                 style={stubHover ? { cursor: 'none' } : undefined}
                                 onMouseEnter={() => setStubHover(true)}
@@ -199,7 +202,7 @@ export default function CTA() {
                                     <div className="w-1 h-7 bg-white" />
                                     <div className="w-2.5 h-8 bg-white" />
                                 </div>
-                            </div>
+                            </motion.a>
 
                         </div>
                     </motion.div>

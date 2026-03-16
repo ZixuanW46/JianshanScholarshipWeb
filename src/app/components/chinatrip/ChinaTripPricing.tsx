@@ -12,11 +12,13 @@ import {
     DialogDescription,
 } from "../ui/dialog";
 
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+
 const includedItems = [
     "Accommodation (10 nights, twin-sharing)",
     "Attraction tickets & activity fees",
     "Cultural experiences & expert guides",
-    "In-country transportation (Bus & High-speed rail)",
+    "In-country transportation (High-speed rail & Private Coach)",
     "Private coach for all city tours",
     "Breakfast at hotels + select group dinners",
 ];
@@ -137,11 +139,14 @@ export default function ChinaTripPricing() {
                                     </p>
                                 </div>
                                 <Button
+                                    asChild
                                     variant="outline"
                                     className="group w-full sm:w-auto rounded-full border-white/20 text-white hover:bg-white hover:text-[#1A4D2E] transition-colors whitespace-nowrap"
                                 >
-                                    Apply for Scholarship
-                                    <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                                    <a href={SCHOLARSHIP_APPLICATION_URL}>
+                                        Apply for Scholarship
+                                        <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                                    </a>
                                 </Button>
                             </div>
                         </motion.div>

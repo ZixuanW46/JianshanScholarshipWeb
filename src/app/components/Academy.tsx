@@ -9,14 +9,16 @@ export default function Academy() {
       title: "Academic Exploration",
       subtitle: "Passion & Perspective",
       description: "Share your passion and understanding of subjects you love, and pass that spark on to these kids. Think back to your favourite teacher growing up — the one who made you fall in love with a subject. **Now you have the chance to be that person for someone else.** A small moment of inspiration today could shape a child's path for years to come.",
-      imageUrl: "/teaching.webp"
+      imageUrl: "/teaching.webp",
+      learnMoreHref: "/academy"
     },
     {
       id: "exchange",
       title: "Cultural Exchange",
       subtitle: "Real Connections",
       description: "This isn't a one-way street. You'll share your own cultural background with the students, and in return, you'll live alongside locals day and night — the most authentic way to experience a culture. **It's a genuine, two-way exchange that no textbook or tourist trip could ever replicate.**",
-      imageUrl: "/cultural.webp"
+      imageUrl: "/cultural.webp",
+      learnMoreHref: "/academy"
     }
   ];
 

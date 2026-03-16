@@ -6,10 +6,12 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import JianshanLogo from "./JianshanLogo";
 
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+
 const NAV_LINKS = [
   { href: "/academy", label: "Jianshan Academy", isRoute: true },
   { href: "/chinatrip", label: "China Trip", isRoute: true },
-  { href: "#scholars", label: "Past Scholars", isRoute: false },
+  { href: "/scholars", label: "Past Scholars", isRoute: true },
 ];
 
 export default function Header() {
@@ -112,7 +114,7 @@ export default function Header() {
             <div className="flex items-center gap-3 shrink-0">
               {/* Apply Now button (desktop only) */}
               <a
-                href="#apply"
+                href={SCHOLARSHIP_APPLICATION_URL}
                 className={`hidden min-[1000px]:inline-flex px-5 py-2 rounded-full transition-colors font-medium text-sm whitespace-nowrap ${isScrolled
                   ? "bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E]"
                   : "bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#FDFBF7]/90"
@@ -210,7 +212,7 @@ export default function Header() {
                       className="mt-4"
                     >
                       <a
-                        href="#apply"
+                        href={SCHOLARSHIP_APPLICATION_URL}
                         onClick={handleNavClick}
                         className="w-full flex items-center justify-center py-4 rounded-xl bg-[#0F2E18] text-[#FDFBF7]
                       font-medium text-[1.1rem] hover:bg-[#1A4D2E] active:bg-[#1A4D2E]/90 transition-colors"

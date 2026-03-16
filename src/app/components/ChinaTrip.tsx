@@ -10,21 +10,24 @@ export default function ChinaTrip() {
       title: "The Echo of the Ancient",
       subtitle: "Architecture & History",
       description: "Walk through history in centuries-old temples and palaces.",
-      imageUrl: "https://images.unsplash.com/photo-1718248336966-70d17f2dbfd7?q=80&w=1080&auto=format&fit=crop"
+      imageUrl: "https://images.unsplash.com/photo-1718248336966-70d17f2dbfd7?q=80&w=1080&auto=format&fit=crop",
+      learnMoreHref: "/chinatrip"
     },
     {
       id: "landscape",
       title: "Breathtaking Landscapes",
       subtitle: "Geography & Nature",
       description: "From misty mountains to serene rivers, witness nature's art.",
-      imageUrl: "/westlake.webp"
+      imageUrl: "/westlake.webp",
+      learnMoreHref: "/chinatrip"
     },
     {
       id: "cyberpunk",
       title: "The Real-life Cyberpunk",
       subtitle: "Technology & Cities",
       description: "Experience the neon-lit futuristic energy of modern China.",
-      imageUrl: "/shanghai.webp"
+      imageUrl: "/shanghai.webp",
+      learnMoreHref: "/chinatrip"
     }
   ];
 

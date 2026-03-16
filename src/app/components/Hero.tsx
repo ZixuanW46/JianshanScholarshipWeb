@@ -1,8 +1,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ArrowRight, Users } from "lucide-react";
+import { ArrowDown, ArrowRight, Users } from "lucide-react";
+import { Link } from "react-router";
 import { Button } from "./ui/button";
 import ImageTrail from "./ImageTrail";
+
+const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -43,9 +46,12 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24" ref={textRef}>
         <div className="max-w-5xl">
-          <div className="hero-stagger mb-8">
+          <div className="hero-stagger mb-8 flex flex-wrap items-center gap-3">
             <span className="inline-block py-1.5 px-4 rounded-full bg-[#FDFBF7]/10 backdrop-blur-md border border-[#FDFBF7]/20 text-[#FDFBF7] text-sm font-medium tracking-widest uppercase">
               Join the 2026 Cohort
+            </span>
+            <span className="inline-block py-1.5 px-4 rounded-full bg-[#FDFBF7]/10 backdrop-blur-md border border-[#FDFBF7]/20 text-[#FDFBF7] text-sm font-medium tracking-widest uppercase">
+              Presented with CamCAPY
             </span>
           </div>
 
@@ -62,42 +68,60 @@ export default function Hero() {
 
           <div className="hero-stagger flex flex-col sm:flex-row items-start gap-4">
             <Button
+              asChild
               size="lg"
               className="group w-full sm:w-auto text-lg px-8 bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#E8F3E8] rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:px-10"
             >
-              Apply Now
-              <ArrowRight
-                size={20}
-                className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
-              />
+              <a href={SCHOLARSHIP_APPLICATION_URL}>
+                Apply Now
+                <ArrowRight
+                  size={20}
+                  className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
+                />
+              </a>
             </Button>
 
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="relative overflow-hidden group w-full sm:w-auto text-lg px-8 border-none text-[#FDFBF7] bg-transparent rounded-full transition-all duration-500"
             >
-              {/* Default Border */}
-              <div className="absolute inset-0 border border-[#FDFBF7]/30 rounded-full pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+              <Link to="/scholars">
+                {/* Default Border */}
+                <div className="absolute inset-0 border border-[#FDFBF7]/30 rounded-full pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
 
-              {/* Rotating Shimmer Layer */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden rounded-full">
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(253,251,247,0.8)_360deg)]" />
-              </div>
+                {/* Rotating Shimmer Layer */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden rounded-full">
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(253,251,247,0.8)_360deg)]" />
+                </div>
 
-              {/* Inner Cap to create the border effect */}
-              <div className="absolute inset-[1px] rounded-full bg-[#0a2010] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                {/* Inner Cap to create the border effect */}
+                <div className="absolute inset-[1px] rounded-full bg-[#0a2010] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Meet Past Scholars
-                <Users
-                  size={20}
-                  className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_2px_8px_rgba(253,251,247,0.6)]"
-                />
-              </span>
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Meet Past Scholars
+                  <Users
+                    size={20}
+                    className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_2px_8px_rgba(253,251,247,0.6)]"
+                  />
+                </span>
+              </Link>
             </Button>
           </div>
         </div>
+      </div>
+
+      <div className="hero-stagger absolute inset-x-0 bottom-8 md:bottom-12 z-10 flex justify-center">
+        <button
+          onClick={() => {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          }}
+          className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 text-[#FDFBF7]/70 hover:text-[#FDFBF7] transition-colors duration-300"
+        >
+          <span className="text-sm tracking-widest uppercase font-medium">Explore</span>
+          <ArrowDown size={18} className="animate-bounce" />
+        </button>
       </div>
     </section>
   );

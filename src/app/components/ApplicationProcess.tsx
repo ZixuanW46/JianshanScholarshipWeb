@@ -10,7 +10,7 @@ const timelineSteps = [
     {
         phase: "Step 01",
         date: "Rolling basis",
-        title: "Initial Application 📝",
+        title: "Initial Application",
         details: [
             <>We'd love to bring interesting and passionate individuals to Jianshan Academy. The first round is just a <span className="text-white font-medium">short application form</span>.</>,
             <>It won't take long! We mainly want to learn a bit about your <span className="text-white font-medium">background</span>, your <span className="text-white font-medium">motivations</span>, and what kind of person you are through a few simple questions.</>,
@@ -19,7 +19,7 @@ const timelineSteps = [
     {
         phase: "Step 02",
         date: "Rolling basis",
-        title: "Session Design 💡",
+        title: "Session Design",
         details: [
             <>If you're shortlisted, we'll invite you to share some of your initial thoughts on <span className="text-white font-medium">designing an academic session</span>. You'll also submit a <span className="text-white font-medium">short 1–3 min video</span> to introduce yourself and your session — no fancy editing needed! Just a way for us to get to know your communication style.</>,
             <>We are really looking for people who have <span className="text-white font-medium">genuine passion</span> and the capability to share their subjects and interests with others.</>,
@@ -28,7 +28,7 @@ const timelineSteps = [
     {
         phase: "Step 03",
         date: "Within 1 mo",
-        title: "Offer Released ✨",
+        title: "Offer Released",
         details: [
             <>You can expect to hear back from us typically <span className="text-white font-medium">within a month</span> after submitting your application.</>,
             <>Successful scholars will receive their <span className="text-white font-medium">official invitation</span>, and your confirmed details will be updated in the portal.</>,
@@ -37,7 +37,7 @@ const timelineSteps = [
     {
         phase: "Step 04",
         date: "May 2026 onwards",
-        title: "Pre-departure 🤝",
+        title: "Pre-departure",
         details: [
             <>Once confirmed, the journey has already begun! We will organize <span className="text-white font-medium">casual gatherings</span> where you can chat with past Jianshan scholars to hear their stories.</>,
             <>We'll also host <span className="text-white font-medium">pre-departure briefings</span> and training sessions so you are fully prepared for the upcoming adventure.</>,
@@ -48,7 +48,7 @@ const timelineSteps = [
 const postTripStep = {
     phase: "The Future",
     date: "Post-Trip onwards",
-    title: "Jianshan Family 🎉",
+    title: "Jianshan Family",
     details: [
         <>The journey doesn't end in China. Back in Cambridge, you officially become part of the <span className="text-white font-medium">Jianshan alumni network</span>.</>,
         <>We regularly host <span className="text-white font-medium">formal halls, gatherings, and events</span> to keep this amazing community connected and growing.</>,
@@ -58,7 +58,7 @@ const postTripStep = {
 const finalTripStep = {
     phase: "The Destination",
     date: "July - August 2026",
-    title: "Your Jianshan Summer ✈️",
+    title: "Your Jianshan Summer",
     details: [
         <>This is it! You'll lead <span className="text-white font-medium drop-shadow-md pb-0.5 border-b border-white/30">inspiring academic sessions</span> at Jianshan Academy, sharing your passion with a new generation of curious students.</>,
         <>Then embark on the signature <span className="text-white font-medium drop-shadow-md">immersive China trip</span> — breathtaking landscapes, deep historical roots, and real-life cyberpunk cities with the <span className="text-white font-medium drop-shadow-md">coolest Cambridge crew</span>.</>,
@@ -214,10 +214,18 @@ export default function ApplicationProcess() {
                     </div>
 
                     {/* Deadline mini-card */}
-                    <div className="timeline-card relative w-[200px] md:w-[240px] shrink-0 bg-gradient-to-br from-[#4A1A1A]/90 to-[#2E0A0A]/90 backdrop-blur-xl border border-red-400/20 p-6 md:p-8 rounded-[1.5rem] shadow-[0_20px_50px_rgba(74,26,26,0.5)] flex flex-col items-center justify-center gap-3 text-center">
-                        <span className="text-red-300/80 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">Deadline</span>
-                        <p className="text-white font-serif text-xl md:text-2xl tracking-tight leading-snug">March 22<sup>nd</sup></p>
-                        <p className="text-white/50 font-mono text-xs tracking-wider">2026</p>
+                    <div className="timeline-card relative w-[280px] md:w-[340px] shrink-0 bg-gradient-to-br from-[#4A1A1A]/95 via-[#3A1212]/95 to-[#241010]/95 backdrop-blur-xl border border-red-300/25 p-6 md:p-8 rounded-[1.5rem] shadow-[0_20px_50px_rgba(74,26,26,0.5)] flex flex-col items-center justify-center gap-3 text-center overflow-hidden">
+                        <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-red-200/80 to-transparent" />
+                        <span className="text-red-200/90 font-mono text-[10px] md:text-xs tracking-[0.24em] uppercase">Application Deadline</span>
+                        <p className="text-white font-serif text-2xl md:text-[2rem] tracking-tight leading-snug">April 10<sup>th</sup></p>
+                        <p className="text-white/55 font-mono text-xs tracking-wider">2026</p>
+                        <div className="mt-2 h-px w-16 bg-gradient-to-r from-transparent via-amber-100/70 to-transparent" />
+                        <p className="text-[11px] md:text-xs font-mono tracking-[0.18em] uppercase text-amber-100/85">
+                            Rolling Basis
+                        </p>
+                        <p className="max-w-[24ch] text-sm md:text-[0.95rem] leading-relaxed text-white/80">
+                            Applications may close <span className="font-semibold text-amber-100">before April 10th</span> if all spots are filled.
+                        </p>
                     </div>
 
                     {/* Remaining timeline cards */}

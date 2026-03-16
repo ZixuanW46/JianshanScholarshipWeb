@@ -15,7 +15,7 @@ const philosophicalStages = [
   },
   {
     chinese: "见山还是山",
-    english: "Finally, mountains are truly mountains again.",
+    english: "Finally, montains are just mountains.",
   }
 ];
 

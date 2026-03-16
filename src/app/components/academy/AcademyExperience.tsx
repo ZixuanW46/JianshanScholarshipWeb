@@ -136,8 +136,8 @@ function Option1StickyScroll() {
                             key={p.id}
                             onClick={(e) => scrollToPanel(p.id, e)}
                             className={`cursor-pointer transition-all duration-500 ease-out border-l-2 py-2 flex items-start gap-4 ${isActive
-                                    ? 'opacity-100 pl-6 lg:pl-8'
-                                    : 'opacity-40 border-white/10 hover:opacity-80'
+                                ? 'opacity-100 pl-6 lg:pl-8'
+                                : 'opacity-40 border-white/10 hover:opacity-80'
                                 }`}
                             style={{
                                 borderLeftColor: isActive ? p.color : undefined,
@@ -227,60 +227,71 @@ function AcademicPanel() {
             </div>
 
             {/* A/B Types */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-[#111] rounded-3xl p-8 md:p-10 border border-white/5">
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-[#D85C3C]/15 text-[#D85C3C]">
-                            Type A
-                        </span>
-                        <span className="text-sm text-[#FDFBF7]/40">3-hour sessions</span>
-                    </div>
+            <div className="space-y-8">
+                <div className="max-w-[800px]">
                     <h4 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4">
-                        PBL Sessions — <span className="font-serif italic font-normal">Deep Dive</span>
+                        Session Format & Workload
                     </h4>
-                    <p className="text-base text-[#FDFBF7]/60 leading-relaxed font-light mb-8">
-                        Project-based learning sessions where students tackle a real challenge head-on. You guide them through using your discipline's toolkit to solve a concrete problem.
+                    <p className="text-base md:text-lg text-[#FDFBF7]/60 leading-relaxed font-light">
+                        As a scholar, you will design exactly <strong className="text-[#FDFBF7] font-medium">one Type A</strong> and <strong className="text-[#FDFBF7] font-medium">one Type B</strong> session in your discipline. You will deliver these same sessions to different groups of students throughout the camp. Your expected daily teaching time will be around <strong className="text-[#FDFBF7] font-medium">3-4 hours</strong>.
                     </p>
-                    <div className="space-y-4">
-                        <p className="text-[10px] tracking-[0.15em] uppercase text-[#FDFBF7]/30 font-semibold border-b border-white/10 pb-2">Examples</p>
-                        {[
-                            "Engineering — Design a sponge city drainage system.",
-                            "Computer Science — Train an AI emotion agent.",
-                            "History — Curate a lost civilisation museum.",
-                        ].map((ex, i) => (
-                            <p key={i} className="text-sm text-[#FDFBF7]/50 leading-relaxed font-light flex items-start gap-4">
-                                <span className="text-[#D85C3C] mt-1 text-lg leading-none">&bull;</span>
-                                <span>{ex}</span>
-                            </p>
-                        ))}
-                    </div>
                 </div>
 
-                <div className="bg-[#111] rounded-3xl p-8 md:p-10 border border-white/5">
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-[#4A6FA5]/20 text-[#6B90C7]">
-                            Type B
-                        </span>
-                        <span className="text-sm text-[#FDFBF7]/40">1-hour workshops</span>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="bg-[#111] rounded-3xl p-8 md:p-10 border border-white/5">
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-[#D85C3C]/15 text-[#D85C3C]">
+                                Type A
+                            </span>
+                            <span className="text-sm text-[#FDFBF7]/40">2-hour sessions</span>
+                        </div>
+                        <h4 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4">
+                            PBL Sessions — <span className="font-serif italic font-normal">Deep Dive</span>
+                        </h4>
+                        <p className="text-base text-[#FDFBF7]/60 leading-relaxed font-light mb-8">
+                            Project-based learning sessions where students tackle a real challenge head-on. You guide them through using your discipline's toolkit to solve a concrete problem.
+                        </p>
+                        <div className="space-y-4">
+                            <p className="text-[10px] tracking-[0.15em] uppercase text-[#FDFBF7]/30 font-semibold border-b border-white/10 pb-2">Examples</p>
+                            {[
+                                "Engineering — Design a sponge city drainage system.",
+                                "Computer Science — Train an AI emotion agent.",
+                                "History — Curate a lost civilisation museum.",
+                            ].map((ex, i) => (
+                                <p key={i} className="text-sm text-[#FDFBF7]/50 leading-relaxed font-light flex items-start gap-4">
+                                    <span className="text-[#D85C3C] mt-1 text-lg leading-none">&bull;</span>
+                                    <span>{ex}</span>
+                                </p>
+                            ))}
+                        </div>
                     </div>
-                    <h4 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4">
-                        Mind Tool Workshops — <span className="font-serif italic font-normal">Wide Lens</span>
-                    </h4>
-                    <p className="text-base text-[#FDFBF7]/60 leading-relaxed font-light mb-8">
-                        Shorter workshops that teach transferable thinking frameworks — mental models that students can apply across any subject, any context.
-                    </p>
-                    <div className="space-y-4">
-                        <p className="text-[10px] tracking-[0.15em] uppercase text-[#FDFBF7]/30 font-semibold border-b border-white/10 pb-2">Examples</p>
-                        {[
-                            "Economics — Master cost-benefit analysis.",
-                            "Psychology — Apply game theory in scenarios.",
-                            "Philosophy — Practice First Principles thinking.",
-                        ].map((ex, i) => (
-                            <p key={i} className="text-sm text-[#FDFBF7]/50 leading-relaxed font-light flex items-start gap-4">
-                                <span className="text-[#4A6FA5] mt-1 text-lg leading-none">&bull;</span>
-                                <span>{ex}</span>
-                            </p>
-                        ))}
+
+                    <div className="bg-[#111] rounded-3xl p-8 md:p-10 border border-white/5">
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-[#4A6FA5]/20 text-[#6B90C7]">
+                                Type B
+                            </span>
+                            <span className="text-sm text-[#FDFBF7]/40">1-hour workshops</span>
+                        </div>
+                        <h4 className="text-2xl md:text-3xl font-sans font-bold tracking-tight mb-4">
+                            Mind Tool Workshops — <span className="font-serif italic font-normal">Wide Lens</span>
+                        </h4>
+                        <p className="text-base text-[#FDFBF7]/60 leading-relaxed font-light mb-8">
+                            Shorter workshops that teach transferable thinking frameworks — mental models that students can apply across any subject, any context.
+                        </p>
+                        <div className="space-y-4">
+                            <p className="text-[10px] tracking-[0.15em] uppercase text-[#FDFBF7]/30 font-semibold border-b border-white/10 pb-2">Examples</p>
+                            {[
+                                "Economics — Master cost-benefit analysis.",
+                                "Psychology — Apply game theory in scenarios.",
+                                "Philosophy — Practice First Principles thinking.",
+                            ].map((ex, i) => (
+                                <p key={i} className="text-sm text-[#FDFBF7]/50 leading-relaxed font-light flex items-start gap-4">
+                                    <span className="text-[#4A6FA5] mt-1 text-lg leading-none">&bull;</span>
+                                    <span>{ex}</span>
+                                </p>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

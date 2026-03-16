@@ -6,7 +6,7 @@ import ChinaTripHero from "./ChinaTripHero";
 import ChinaTripVideoIntro from "./ChinaTripVideoIntro";
 import ChinaTripHighlights from "./ChinaTripHighlights";
 import ChinaTripCrew from "./ChinaTripCrew";
-import ChinaTripCities from "./ChinaTripCities";
+
 import ChinaTripPracticalInfo from "./ChinaTripPracticalInfo";
 import ChinaTripPricing from "./ChinaTripPricing";
 import ChinaTripTimeline from "./ChinaTripTimeline";
@@ -62,7 +62,7 @@ export default function ChinaTripPage() {
                 />
 
                 {/* FAQ & Contact (Reused components) */}
-                <FAQ />
+                <FAQ variant="trip" />
                 <AcademyContact />
             </main>
             <Footer />
