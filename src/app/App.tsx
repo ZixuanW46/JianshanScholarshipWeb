@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -22,7 +22,6 @@ import PastScholarsPage from "./components/scholars/PastScholarsPage";
 function LandingPage() {
   return (
     <>
-      <LoadingScreen />
       <Header />
       <main>
         <Hero />
@@ -60,8 +59,11 @@ function LandingPage() {
 }
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <div className="bg-[#FDFBF7] min-h-screen font-sans selection:bg-[#1A4D2E] selection:text-[#FDFBF7]">
+      <LoadingScreen key={location.pathname} />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/academy" element={<AcademyPage />} />

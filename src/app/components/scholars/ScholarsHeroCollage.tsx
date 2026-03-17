@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const quotes = [
-    { text: "It changed the way I see the world.", author: "Sarah, '24" },
-    { text: "A collision of ancient history and hyper-modern ambition.", author: "David, '24" },
-    { text: "We walked out of the classroom and stepped into reality.", author: "Emma, '25" },
+    { text: "I went to teach but came out learning just as much.", author: "Nicholas, '25" },
+    { text: "I still miss it so much and, clearly, the only remedy is to return there as soon as possible.", author: "Mara, '25" },
+    { text: "All your friends will hate you because you wont talk about anything else", author: "Jonathan, '25" },
+    { text: "I love Cam Capy 🫶", author: "Qi Shean, '25" },
+    { text: "We really made the most of our time here...", author: "Qinglan, '25" },
+    { text: "It felt quietly life-changing, a trip I'll be thinking about for a long time to come.", author: "Zainab, '25" },
+    { text: "If you want the ultimate side quest, look no further! The Capy China Trip is like no other...", author: "Mika, '25" },
 ];
 
 // Reusing testimonial images for the collage effect

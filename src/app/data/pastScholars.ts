@@ -24,6 +24,7 @@ export interface PastScholar {
     degreeLevel?: ScholarDegreeLevel;
     participationYear?: string;
     profileImage: PastScholarImage;
+    hasCustomProfileImage: boolean;
     quote?: string;
     postDaySessions?: string[];
     nationality?: string;
@@ -50,6 +51,51 @@ const PLACEHOLDER_IMAGE_PATHS = [
     "/trip_ins/IMG_6816.jpg",
 ];
 
+const SCHOLAR_PHOTO_PATHS: Record<string, string> = {
+    abigail: "/scholar_photo/Abigail.jpg",
+    advait: "/scholar_photo/Advait.jpg",
+    affan: "/scholar_photo/Affan.jpg",
+    amy: "/scholar_photo/Amy.jpg",
+    anna: "/scholar_photo/Anna.png",
+    asa: "/scholar_photo/Asa.jpg",
+    carmen: "/scholar_photo/Carmen.jpg",
+    ceiara: "/scholar_photo/Ceiara.jpg",
+    chloe: "/scholar_photo/Chloe.jpg",
+    diana: "/scholar_photo/Diana.jpg",
+    duncan: "/scholar_photo/Duncan.jpg",
+    esther: "/scholar_photo/Esther.jpg",
+    federico: "/scholar_photo/Federico.jpg",
+    harry: "/scholar_photo/Harry.jpg",
+    hertha: "/scholar_photo/Hertha.jpg",
+    ismail: "/scholar_photo/Ismail.jpg",
+    jevon: "/scholar_photo/Jevon.jpg",
+    johann: "/scholar_photo/Johann.jpg",
+    jonathan: "/scholar_photo/Jonathan.jpg",
+    kate: "/scholar_photo/Kate.jpg",
+    liam: "/scholar_photo/Liam.png",
+    lily: "/scholar_photo/Lily.jpg",
+    lucia: "/scholar_photo/Lucia.jpg",
+    mara: "/scholar_photo/Mara.jpg",
+    martina: "/scholar_photo/Martina.jpg",
+    mikhail: "/scholar_photo/Mikhail.jpg",
+    nahyean: "/scholar_photo/Nahyean.jpg",
+    nicholas: "/scholar_photo/Nicholas.png",
+    "qi-shean": "/scholar_photo/Qi Shean.jpg",
+    qinglan: "/scholar_photo/Qinglan.jpg",
+    ryan: "/scholar_photo/Ryan.jpg",
+    shifat: "/scholar_photo/Shifat.png",
+    shivraj: "/scholar_photo/Shivraj.jpg",
+    stephanie: "/scholar_photo/Stephanie.jpg",
+    sultan: "/scholar_photo/Sultan.jpg",
+    szymon: "/scholar_photo/Szymon.jpg",
+    tatiana: "/scholar_photo/Tatiana.jpg",
+    valentina: "/scholar_photo/Valentina.jpg",
+    valentia: "/scholar_photo/Valentina.jpg",
+    vittoria: "/scholar_photo/Vittoria.jpg",
+    yolanda: "/scholar_photo/Yolanda.png",
+    zainab: "/scholar_photo/Zainab.jpg",
+};
+
 function slugify(value: string) {
     return value
         .normalize("NFD")
@@ -59,10 +105,28 @@ function slugify(value: string) {
         .replace(/^-+|-+$/g, "");
 }
 
+function resolveScholarPhotoPath(options: string[]) {
+    for (const option of options) {
+        const key = slugify(option);
+        const photoPath = SCHOLAR_PHOTO_PATHS[key];
+
+        if (photoPath) {
+            return photoPath;
+        }
+    }
+
+    return null;
+}
+
 export const PAST_SCHOLARS: PastScholar[] = ALL_PAST_SCHOLAR_INTAKE.map((record, index) => {
     const metadata = PAST_SCHOLAR_RESOLVED_METADATA[record.teacherGivenName];
     const scholarName = metadata?.displayName ?? metadata?.matchedFullName ?? record.teacherGivenName;
-    const imagePath = PLACEHOLDER_IMAGE_PATHS[index % PLACEHOLDER_IMAGE_PATHS.length];
+    const matchedScholarPhoto = resolveScholarPhotoPath([
+        record.teacherGivenName,
+        scholarName,
+        metadata?.matchedFullName ?? "",
+    ]);
+    const imagePath = matchedScholarPhoto ?? PLACEHOLDER_IMAGE_PATHS[index % PLACEHOLDER_IMAGE_PATHS.length];
     const cohortYear = (metadata?.participationYear ?? "2025") as ScholarCohortYear;
 
     return {
@@ -77,8 +141,9 @@ export const PAST_SCHOLARS: PastScholar[] = ALL_PAST_SCHOLAR_INTAKE.map((record,
         participationYear: metadata?.participationYear,
         profileImage: {
             path: imagePath,
-            alt: `${scholarName} portrait placeholder`,
+            alt: matchedScholarPhoto ? `${scholarName} portrait` : `${scholarName} portrait placeholder`,
         },
+        hasCustomProfileImage: Boolean(matchedScholarPhoto),
         postDaySessions: record.sessionIdeas.map((session) => session.titleEn),
         nationality: metadata?.nationality,
         published: true,

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, X, ArrowRight, Instagram } from "lucide-react";
+import { Check, X, ArrowRight, Instagram, UtensilsCrossed, Plane, FileText } from "lucide-react";
 import { Button } from "../ui/button";
 import {
     Dialog,
@@ -29,6 +29,36 @@ const notIncludedItems = [
     "Daily lunches & most dinners",
     "Personal expenses & souvenirs",
     "Travel insurance",
+];
+
+const additionalInfoList = [
+    {
+        icon: <UtensilsCrossed className="w-5 h-5 text-white/70 group-hover:text-[#D85C3C] transition-colors duration-300" />,
+        title: "Dining",
+        description: (
+            <>
+                China is known for its delicious and affordable cuisine. You can enjoy excellent meals at very reasonable prices. Expect to spend around £4-8 per person for a substantial dinner.
+            </>
+        ),
+    },
+    {
+        icon: <Plane className="w-5 h-5 text-white/70 group-hover:text-[#D85C3C] transition-colors duration-300" />,
+        title: "Flight & Arrival",
+        description: (
+            <>
+                You are responsible for arranging your own flights to and from China. For this year's trip, <strong className="text-[#FDFBF7] font-medium">Jianshan Scholars must arrive in Hangzhou on August 1st</strong>, while <strong className="text-[#FDFBF7] font-medium">self-funded participants arrive on August 8th</strong>. All participants will <strong className="text-[#FDFBF7] font-medium">depart from Beijing on August 18th</strong>. Please research your international flights prices in advance.
+            </>
+        ),
+    },
+    {
+        icon: <FileText className="w-5 h-5 text-white/70 group-hover:text-[#D85C3C] transition-colors duration-300" />,
+        title: "Visa",
+        description: (
+            <>
+                It is your sole responsibility to ensure you have the right to enter China. Please check if you meet <strong className="text-[#FDFBF7] font-medium">visa-free entry requirements</strong> and duration. If not, you must apply for a visa yourself and bear the application costs. We can provide an invitation letter if needed.
+            </>
+        ),
+    }
 ];
 
 export default function ChinaTripPricing() {
@@ -150,8 +180,44 @@ export default function ChinaTripPricing() {
                                 </Button>
                             </div>
                         </motion.div>
-
                     </div>
+
+                    {/* Important Information Cards */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mt-20 md:mt-28 pt-16 md:pt-20 border-t border-white/10"
+                    >
+                        <div className="text-center mb-12 md:mb-16">
+                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-[#FDFBF7] tracking-tight mb-4">
+                                Important Information
+                            </h3>
+                            <p className="text-[#FDFBF7]/60 font-light max-w-2xl mx-auto text-[15px] md:text-base">
+                                Extra details to help you prepare for the journey and understand what's required before you arrive.
+                            </p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                            {additionalInfoList.map((info, i) => (
+                                <div 
+                                    key={i} 
+                                    className="bg-[#111] border border-white/10 rounded-3xl p-8 md:p-10 hover:bg-[#151515] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 group flex flex-col"
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-[#D85C3C]/10 group-hover:border-[#D85C3C]/20 transition-all duration-300">
+                                        {info.icon}
+                                    </div>
+                                    <h4 className="text-xl md:text-2xl font-bold font-sans text-[#FDFBF7] mb-4">
+                                        {info.title}
+                                    </h4>
+                                    <p className="text-[#FDFBF7]/60 font-light leading-relaxed text-[15px] md:text-base flex-1">
+                                        {info.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -163,7 +229,7 @@ export default function ChinaTripPricing() {
                             Registration Coming Soon
                         </DialogTitle>
                         <DialogDescription className="text-[#FDFBF7]/70 text-base font-light mt-3 leading-relaxed">
-                            The 2026 self-funded China Trip registration is not yet open. Follow us on Instagram for the latest updates and announcements!
+                            Registration for the self-funded China Trip will open on March 27 at 12:00 PM. It is not open yet.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="mt-4">

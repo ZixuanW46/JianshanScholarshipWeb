@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Play } from 'lucide-react';
 import { Section } from './ui/Section';
+import YouTubeVideoCard from './ui/YouTubeVideoCard';
+import { Link } from 'react-router';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,6 +76,8 @@ const floatingCards = [
         delayOffset: 7.5
     }
 ];
+
+const SCHOLAR_GAINS_VIDEO_ID = "ruNYftEiTAc";
 
 export default function ScholarGains() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -379,22 +382,23 @@ export default function ScholarGains() {
 
             {/* Video Reveal Area */}
             <div className="absolute inset-x-0 top-[4rem] md:top-[5rem] bottom-0 flex items-center justify-center z-30 pointer-events-none px-4">
-                <div className="sg-video-wrapper relative w-full max-w-[800px] aspect-[16/9] bg-[#111] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 pointer-events-auto mt-8 md:mt-12">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] pointer-events-none z-10" />
-
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                        <button className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-3 hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                            <Play className="w-4 h-4 fill-white text-white" />
-                            <span className="text-xs font-bold tracking-widest uppercase">Play Video</span>
-                        </button>
-                    </div>
-                </div>
+                <YouTubeVideoCard
+                    videoId={SCHOLAR_GAINS_VIDEO_ID}
+                    title="Scholar Stories"
+                    quote='"See what the experience feels like from the inside."'
+                    posterSrc="/video_thumbnail/academy_interview.png"
+                    wrapperClassName="sg-video-wrapper pointer-events-auto mt-8 w-full max-w-[800px] md:mt-12"
+                    buttonClassName="px-5 py-2.5"
+                    titleClassName="text-sm md:text-base"
+                    dialogContentClassName="sm:max-w-[800px]"
+                />
             </div>
 
             {/* Final Magnetic Circle CTA Layered Below Video */}
             <div className="sg-cta-wrapper absolute bottom-6 md:bottom-12 left-0 w-full flex justify-center z-40 pointer-events-none">
                 {/* Interactive Magnetic Hitbox */}
-                <div
+                <Link
+                    to="/scholars"
                     className="relative w-32 h-32 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer pointer-events-auto group"
                     onMouseMove={handleMagneticMove}
                     onMouseLeave={handleMagneticLeave}
@@ -405,7 +409,7 @@ export default function ScholarGains() {
                     {/* The Text that moves slightly offset */}
                     <div className="magnetic-text relative z-10 flex flex-col items-center justify-center gap-1 pointer-events-none">
                         <span className="text-[#FDFBF7] text-sm md:text-lg font-serif italic text-center leading-tight tracking-wide transition-all duration-300">
-                            Meet all<br />scholars
+                            Meet past<br />scholars
                         </span>
                         <svg
                             className="w-4 h-4 md:w-5 md:h-5 text-[#FDFBF7] opacity-60 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300 mt-1.5"
@@ -414,7 +418,7 @@ export default function ScholarGains() {
                             <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                </div>
+                </Link>
             </div>
 
         </Section>

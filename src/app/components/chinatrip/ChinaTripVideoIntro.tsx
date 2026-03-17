@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import YouTubeVideoCard from "../ui/YouTubeVideoCard";
 
 const stats = [
     { value: "11", label: "Days" },
@@ -7,23 +7,21 @@ const stats = [
     { value: "10–20", label: "Per Cohort" },
 ];
 
+const CHINA_TRIP_VIDEO_ID = "YQWtGsSn2tg";
+
 export default function ChinaTripVideoIntro() {
     return (
         <section className="bg-[#0A0A0A] text-[#FDFBF7] py-24 md:py-32">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
                 {/* Video Embed */}
-                <div className="relative w-full max-w-[960px] mx-auto aspect-[16/9] bg-[#111] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)] border border-white/10 mb-16">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] pointer-events-none z-10" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-4">
-                        <button className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-3 hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer">
-                            <Play className="w-5 h-5 fill-white text-white" />
-                            <span className="text-sm font-bold tracking-widest uppercase">Play Video</span>
-                        </button>
-                        <p className="text-sm text-white/40 font-serif italic tracking-wide">
-                            "A glimpse into the Capy China Trip experience."
-                        </p>
-                    </div>
-                </div>
+                <YouTubeVideoCard
+                    videoId={CHINA_TRIP_VIDEO_ID}
+                    title="China Trip Film"
+                    quote='"This is our story. Summer 2024."'
+                    posterSrc="/video_thumbnail/china_trip.jpg"
+                    wrapperClassName="mx-auto mb-16 max-w-[960px]"
+                    dialogContentClassName="sm:max-w-[960px]"
+                />
 
                 {/* Stats Bar */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 mb-16 max-w-[960px] mx-auto">

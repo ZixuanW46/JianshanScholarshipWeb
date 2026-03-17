@@ -95,12 +95,30 @@ export default function ScholarsList({ scholars }: ScholarsListProps) {
                                             <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1.5 border border-[#0A0A0A]/10 text-xs font-serif italic text-[#0A0A0A] shadow-sm">
                                                 Class of '{scholar.year.slice(-2)}
                                             </div>
+                                            {!scholar.hasCustomProfileImage && (
+                                                <div className="absolute top-4 right-4 z-10 bg-[#0A0A0A] px-3 py-1.5 border border-white/10 text-[10px] font-sans tracking-[0.24em] uppercase text-white shadow-sm">
+                                                    Photo Needed
+                                                </div>
+                                            )}
                                             <div className="w-full aspect-[3/4] overflow-hidden bg-[#FDFBF7]">
-                                                <img
-                                                    src={scholar.profileImage.path}
-                                                    alt={scholar.name}
-                                                    className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                                                />
+                                                {scholar.hasCustomProfileImage ? (
+                                                    <img
+                                                        src={scholar.profileImage.path}
+                                                        alt={scholar.name}
+                                                        className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                                                    />
+                                                ) : (
+                                                    <div className="w-full h-full bg-[#050505] text-white flex items-end p-6 md:p-8">
+                                                        <div>
+                                                            <div className="text-[10px] font-sans uppercase tracking-[0.32em] text-white/50 mb-3">
+                                                                Portrait Pending
+                                                            </div>
+                                                            <div className="text-2xl font-serif leading-tight max-w-[12ch]">
+                                                                {scholar.name}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
 

@@ -781,7 +781,7 @@ export const PAST_SCHOLAR_RESOLVED_METADATA: Record<string, PastScholarResolvedM
     },
     Stephanie: {
         matchedFullName: "Stephanie Belz",
-        nationality: "German / Romanian",
+        nationality: "German, Romanian",
         college: "Girton College",
         subject: "History",
         degreeLevel: "undergrad",
@@ -822,7 +822,7 @@ export const PAST_SCHOLAR_RESOLVED_METADATA: Record<string, PastScholarResolvedM
     },
     Chloe: {
         matchedFullName: "Chloe Staller",
-        nationality: "France",
+        nationality: "French",
         college: "Girton College",
         subject: "Development Studies",
         degreeLevel: "master",
@@ -928,6 +928,7 @@ export const PAST_SCHOLAR_RESOLVED_METADATA: Record<string, PastScholarResolvedM
     Zainab: {
         matchedFullName: "Zainab Miah",
         nationality: "British",
+        college: "Newnham College",
         subject: "HSPS",
         degreeLevel: "undergrad",
         participationYear: "2025",

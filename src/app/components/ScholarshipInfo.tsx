@@ -1,9 +1,18 @@
 "use client";
 
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Info } from 'lucide-react';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+} from "./ui/dialog";
 
 export default function ScholarshipInfo() {
+    const [showVisaDialog, setShowVisaDialog] = useState(false);
+
     return (
         // NOT using <Section> because its overflow-hidden kills position:sticky.
         // Using a plain <section> tag directly instead.
@@ -29,7 +38,7 @@ export default function ScholarshipInfo() {
                             <span className="text-xs font-mono text-gray-400 mb-6 block tracking-widest">01</span>
                             <h3 className="text-4xl font-sans tracking-tight text-[#1A1A1A] mb-8 font-medium">Who can apply</h3>
                             <p className="text-gray-600 font-sans text-[1.1rem] leading-relaxed max-w-xl">
-                                Scholarship opens for current Cambridge members (undergrads, postgrads, fellows etc). All majors are welcomed and we aim to include a wide range of subjects!
+                                Scholarship opens for current Cambridge members (undergrads, postgrads, fellows etc) as well as recent Cambridge graduates. All majors are welcomed and we aim to include a wide range of subjects!
                             </p>
                         </div>
 
@@ -58,17 +67,63 @@ export default function ScholarshipInfo() {
                         {/* Item 3 */}
                         <div className="group border-t border-black/10 py-16 transition-colors hover:border-black/30">
                             <span className="text-xs font-mono text-gray-400 mb-6 block tracking-widest">03</span>
-                            <h3 className="text-4xl font-sans tracking-tight text-[#1A1A1A] mb-8 font-medium">Flights & Visas</h3>
-                            <p className="text-gray-600 font-sans text-[1.1rem] leading-relaxed max-w-xl mb-10">
-                                Scholars are responsible for booking and covering the cost of their own round-trip international flights, as well as any visa fees if required.
-                            </p>
-                            <a href="#" className="inline-flex items-center gap-3 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300">
-                                Check Visa-free entry <ArrowRight className="w-5 h-5 -rotate-45" />
-                            </a>
+                            <h3 className="text-4xl font-sans tracking-tight text-[#1A1A1A] mb-8 font-medium">Flights</h3>
+                            <div className="text-gray-600 font-sans text-[1.1rem] leading-relaxed max-w-xl space-y-6">
+                                <p>
+                                    As a Jianshan Scholar, you are responsible for arranging and covering the cost of your round-trip international flights to and from China.
+                                </p>
+                                <p>
+                                    For the 2026 programme, you must <strong className="text-[#1A1A1A] font-medium">arrive in Hangzhou on August 1st</strong> and <strong className="text-[#1A1A1A] font-medium">depart from Beijing on August 18th</strong>.
+                                </p>
+                                <p>
+                                    Please research flight options and prices in advance.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Item 4 */}
+                        <div className="group border-t border-black/10 py-16 transition-colors hover:border-black/30">
+                            <span className="text-xs font-mono text-gray-400 mb-6 block tracking-widest">04</span>
+                            <h3 className="text-4xl font-sans tracking-tight text-[#1A1A1A] mb-8 font-medium">Visas</h3>
+                            <div className="text-gray-600 font-sans text-[1.1rem] leading-relaxed max-w-xl space-y-6 mb-10">
+                                <p>
+                                    It is your sole responsibility to ensure you have the legal right to enter China.
+                                </p>
+                                <p>
+                                    Please check carefully if you meet the <strong className="text-[#1A1A1A] font-medium">visa-free entry requirements</strong> and permitted duration for your nationality. 
+                                </p>
+                                <p>
+                                    If your stay requires a visa, you must apply for one independently and bear the associated application costs. We will gladly provide an official invitation letter to support your application if needed.
+                                </p>
+                            </div>
+                            <button 
+                                onClick={() => setShowVisaDialog(true)}
+                                className="inline-flex items-center gap-2 pb-1 border-b border-black text-[#1A1A1A] font-medium hover:opacity-50 transition-all duration-300"
+                            >
+                                <Info className="w-4 h-4" /> Check Visa-free entry guidelines
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <Dialog open={showVisaDialog} onOpenChange={setShowVisaDialog}>
+                <DialogContent className="max-w-2xl bg-[#FCFBF8] border-black/10 text-[#1A1A1A] rounded-2xl p-8">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-sans font-bold tracking-tight mb-4">
+                            Visa-Free Entry Guidelines
+                        </DialogTitle>
+                        <DialogDescription className="text-gray-600 font-sans text-base leading-relaxed space-y-4">
+                            <p>
+                                China has expanded its visa-free entry policies significantly in recent years, and scholars from a number of countries may be able to enter without a visa. Countries currently included in China's visa-free arrangements include the United Kingdom, France, Germany, Italy, Spain, the Netherlands, Switzerland, Ireland, Hungary, Austria, Belgium, and several others. Nationals of these countries may enter China for a limited period without prior visa application, though the exact conditions and permitted length of stay vary by country.
+                            </p>
+                            <p>
+                                Regardless of your nationality, we strongly recommend that you read the current visa-free policy carefully and confirm whether it applies to your specific situation, as policies can change. If you are not eligible for visa-free entry, please refer to our guidance on the standard visa application process and the support we provide.
+                            </p>
+                        </DialogDescription>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
         </section>
     );
 }

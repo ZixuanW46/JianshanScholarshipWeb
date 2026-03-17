@@ -68,7 +68,7 @@ export default function ChinaTripCTA() {
                             Registration Coming Soon
                         </DialogTitle>
                         <DialogDescription className="text-[#FDFBF7]/70 text-base font-light mt-3 leading-relaxed">
-                            The 2026 self-funded China Trip registration is not yet open. Follow us on Instagram for the latest updates and announcements!
+                            Registration for the self-funded China Trip will open on March 27 at 12:00 PM. It is not open yet.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="mt-4">

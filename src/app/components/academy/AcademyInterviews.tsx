@@ -1,5 +1,8 @@
-import { Play, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import YouTubeVideoCard from "../ui/YouTubeVideoCard";
+
+const ACADEMY_INTERVIEWS_VIDEO_ID = "ruNYftEiTAc";
 
 export default function AcademyInterviews() {
     return (
@@ -23,15 +26,15 @@ export default function AcademyInterviews() {
                 </p>
 
                 {/* Video */}
-                <div className="relative w-full max-w-[960px] aspect-[16/9] bg-[#0A0A0A] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-[#0A0A0A]/10 mb-12">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] pointer-events-none z-10" />
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                        <button className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-3 hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer">
-                            <Play className="w-5 h-5 fill-white text-white" />
-                            <span className="text-sm font-bold tracking-widest uppercase text-white">Play Video</span>
-                        </button>
-                    </div>
-                </div>
+                <YouTubeVideoCard
+                    videoId={ACADEMY_INTERVIEWS_VIDEO_ID}
+                    title="Past Scholar Stories"
+                    quote='"Hear directly from Cambridge scholars who have lived it."'
+                    posterSrc="/video_thumbnail/academy_interview.png"
+                    wrapperClassName="mb-12 max-w-[960px]"
+                    previewClassName="border-[#0A0A0A]/10 shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
+                    dialogContentClassName="sm:max-w-[960px]"
+                />
 
                 {/* Link to past scholars */}
                 <Link

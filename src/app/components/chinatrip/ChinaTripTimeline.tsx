@@ -13,26 +13,50 @@ const events: TimelineEvent[] = [
     {
         step: "01",
         title: "Registration Opens",
-        date: "TBC",
+        date: "March 27, 12:00 PM",
         description: "Sign up on our platform and secure your spot on a first-come, first-served basis.",
     },
     {
         step: "02",
         title: "Registration Closes",
-        date: "TBC",
+        date: "May 1",
         description: "Final deadline for all sign-ups. Documentation and initial payments are due.",
     },
     {
         step: "03",
         title: "Pre-trip Briefing",
-        date: "TBC",
+        date: "July 2026",
         description: "An online session covering logistics, packing essentials, and visa preparation.",
     },
     {
         step: "04",
-        title: "Departure",
-        date: "July – August 2026",
-        description: "Your 11-day China adventure officially begins!",
+        title: "Scholars Arrive",
+        date: "August 1, 2026",
+        description: "Jianshan Scholars should arrive earlier in Hangzhou on August 1.",
+    },
+    {
+        step: "05",
+        title: "Self-funded Participants Arrive",
+        date: "August 8, 2026",
+        description: "Self-funded participants should arrive in Hangzhou on August 8.",
+    },
+    {
+        step: "06",
+        title: "Travel to Shanghai",
+        date: "August 11, 2026",
+        description: "The group will leave Hangzhou and arrive in Shanghai.",
+    },
+    {
+        step: "07",
+        title: "Travel to Beijing",
+        date: "August 14, 2026",
+        description: "The group will leave Shanghai and take the high-speed rail to Beijing.",
+    },
+    {
+        step: "08",
+        title: "Return Flight",
+        date: "August 18, 2026",
+        description: "After the programme and trip, all participants will depart from Beijing on August 18.",
     },
 ];
 
@@ -55,10 +79,10 @@ export default function ChinaTripTimeline() {
                         Your Journey <span className="font-serif italic text-[#D85C3C] font-normal">Timeline</span>
                     </h2>
                     <p className="text-[#0A0A0A]/50 font-light text-lg max-w-lg mx-auto">
-                        Dates are currently being finalized for the 2026 cohort.
+                        Key dates for the 2026 self-funded cohort are now live.
                     </p>
                     <p className="mt-4 text-[#0A0A0A]/65 font-light text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                        This timeline is for self-funded registrations, which are offered on a first-come, first-served basis. If you are applying for the Jianshan Scholarship, please see the{" "}
+                        This timeline is primarily for self-funded participants, which are offered on a first-come, first-served basis. Jianshan Scholars should note that they need to arrive in Hangzhou earlier. If you are applying for the Jianshan Scholarship, please see the{" "}
                         <Link to="/" className="text-[#1A4D2E] underline underline-offset-4 hover:text-[#D85C3C] transition-colors">
                             home page timeline
                         </Link>
