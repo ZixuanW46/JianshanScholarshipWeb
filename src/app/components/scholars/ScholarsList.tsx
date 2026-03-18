@@ -144,7 +144,7 @@ export default function ScholarsList({ scholars }: ScholarsListProps) {
                                                 {scholar.nationality && (
                                                     <div>
                                                         <div className="text-[10px] uppercase tracking-widest font-sans text-[#0A0A0A]/40 mb-1">Nationality</div>
-                                                        <div className="text-sm font-medium text-[#0A0A0A]">{scholar.nationality}</div>
+                                                        <div className="text-base font-medium text-[#0A0A0A]">{scholar.nationality}</div>
                                                     </div>
                                                 )}
                                             </div>

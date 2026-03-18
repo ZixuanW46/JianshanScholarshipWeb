@@ -24,7 +24,14 @@ const homeFaqSections: FAQSection[] = [
         items: [
             {
                 question: "What is the Jianshan Scholarship?",
-                answer: "The Jianshan Scholarship is a fully funded cultural and academic exchange programme run by CamCAPY society in partnership with Jianshan Academy and affiliated partner schools in China. Selected scholars are invited to design and lead teaching or cultural sessions at Jianshan Academy, and to join a guided trip across China to explore the country's history, culture, and people. The scholarship covers all associated costs except for flights.",
+                answer: (
+                    <>
+                        The Jianshan Scholarship is a fully funded cultural and academic exchange programme run by CamCAPY society in partnership with Jianshan Academy and affiliated partner schools in China. Selected scholars are invited to design and lead teaching or cultural sessions at Jianshan Academy, and to join a guided trip across China to explore the country's history, culture, and people. Selected scholars will participate the Capy China Trip with the full package fee waived.
+                        <br />
+                        <br />
+                        During the whole trip, the group will be accompanied by [number of programme leaders to be confirmed] programme leader. For the China trip, the group will also be accompanied by a professional guide during the tours.
+                    </>
+                ),
             },
             {
                 question: "Is this programme run every year?",
@@ -34,21 +41,10 @@ const homeFaqSections: FAQSection[] = [
                 question: "How many scholars are selected each year?",
                 answer: "We select a small cohort of scholars each cycle to ensure a high-quality and intimate experience for everyone. The exact number may vary depending on the year. For the 2026 summer cohort, we will be welcoming one group of 14 scholars.",
             },
-            {
-                question: "Who runs the programme?",
-                answer: (
-                    <>
-                        The programme is organised by CamCAPY society in collaboration with Jianshan Academy and its partner institutions in China. The selection process will be overseen by a joint selection committee drawn from Jianshan, partner schools, CamCAPY, and external experts.
-                        <br />
-                        <br />
-                        During the whole trip, the group will be accompanied by [number of programme leaders to be confirmed] programme leader. For the China trip, the group will also be accompanied by a professional guide during the tours.
-                    </>
-                ),
-            },
         ],
     },
     {
-        title: "Eligibility and Applying",
+        title: "Eligibility and Application Process",
         items: [
             {
                 question: "Who is eligible to apply?",
@@ -59,20 +55,28 @@ const homeFaqSections: FAQSection[] = [
                 answer: "No specific subject is required. In fact, we actively seek scholars from a wide range of disciplines, as subject diversity is essential to the programme's design. That said, we aim to achieve a balance of subjects across the cohort, so the competitiveness of an application may vary depending on the mix of applicants in a given cycle.",
             },
             {
-                question: "What makes a strong application?",
-                answer: "We value two things above all: the quality and originality of your proposed teaching or cultural session, and the personal warmth and openness you would bring to the experience. Strong applicants tend to be enthusiastic about sharing their knowledge, curious about Chinese culture, and genuinely excited to engage with young students. Academic excellence alone is not the deciding factor.",
-            },
-            {
-                question: "What is the application process?",
-                answer: "The process has two rounds. In the first round, you complete an application form on the website in which you outline your background and your proposed teaching or cultural session. Shortlisted candidates are then invited to a video interview in the second round. Further details can be found on the application page of our website.",
-            },
-            {
-                question: "What happens at the video interview?",
-                answer: "The interview is an opportunity for us to get to know you better and to discuss your proposed session in more detail. We want to understand your motivation for applying, your ideas for engaging young students, and what you hope to take away from the experience. There is no need to prepare a formal presentation.",
+                question: "What preparation is needed for the video interview?",
+                answer: "The video interview is an opportunity for us to understand your communication style and the passion behind your application. If you proceed to the 2nd round, you will be invited to submit a short 1-3 minute video. No professional editing or formal presentation is required. The goal is to see how you articulate your ideas and to gauge the personal warmth and energy you would bring to the Jianshan community.",
             },
             {
                 question: "Can I apply as part of a pair or small group?",
-                answer: "The Jianshan Scholarship is an individual programme, and joint applications are not accepted. Each scholar is expected to design and deliver their own independent teaching or cultural session. That said, once the cohort is confirmed, there will be plenty of opportunity to collaborate, share ideas, and support one another throughout both the Jianshan Academy and the China Trip.",
+                answer: "The Jianshan Scholarship is an individual programme. So each application is considered independently, and scholars are expected to design and deliver their own individual teaching or cultural session. That said, once the cohort is confirmed, there will be plenty of opportunity to collaborate, share ideas, and support one another throughout both the Jianshan Academy and the China Trip.",
+            },
+            {
+                question: "What do I need to do once I get an offer?",
+                answer: "Detailed information will be provided in your offer letter if your application is successful. Please note that a deposit of £350 is required within the timeframe specified in your letter to secure your spot. This deposit is held as a commitment to the programme and will be fully refunded to you upon the successful completion of the trip.",
+            },
+            {
+                question: "Is it possible to withdraw after accepting the offer?",
+                answer: "Please understand that logistical arrangements are made immediately after the cohort is confirmed, and withdrawal from the programme creates significant coordination challenges for our partners. For this reason, we are unable to offer a refund of the deposit once you have confirmed your participation. We encourage you to consider your commitment thoroughly before accepting.",
+            },
+            {
+                question: "Is there a waitlist?",
+                answer: "If you are placed on the waitlist, it means your application was of a high standard, but we were unable to offer a spot in the initial round. You will be contacted if a place becomes available due to a withdrawal, and we will also notify all waitlisted applicants once the scholarship spots are fully confirmed.",
+            },
+            {
+                question: "Who should I contact if I have more questions after being accepted?",
+                answer: "Once you have accepted your offer, you will be added to a WhatsApp group where you can reach the programme team and your fellow scholars. You can also contact us via Instagram or email at any time.",
             },
         ],
     },
@@ -85,11 +89,11 @@ const homeFaqSections: FAQSection[] = [
             },
             {
                 question: "Is the scholarship paid in cash?",
-                answer: "No. The scholarship is not paid as a cash sum. Instead, your costs are covered directly, meaning you will not be charged for the items listed above.",
+                answer: "No. The scholarship is not paid as a cash sum. Instead, your costs are covered directly, meaning you will not be charged for Capy China Trip package fee.",
             },
             {
                 question: "Are flights included?",
-                answer: "Flights to and from China are NOT included in the scholarship. You are responsible for booking and funding your own flights. We will share recommended flight options and coordinate group pick-ups from designated airports within certain time windows to make the journey as easy as possible.",
+                answer: "The Capy China Trip package covers all domestic travel, though international transport to and from China is not included. You are responsible for booking and funding your own flights. To ensure a seamless start to your journey, we will coordinate group pick-ups from designated airports within specific time windows. Detailed arrival guidance and flight options will be shared afterwards.",
             },
             {
                 question: "Is travel insurance included?",
@@ -98,11 +102,11 @@ const homeFaqSections: FAQSection[] = [
         ],
     },
     {
-        title: "Jianshan Academy",
+        title: "About Jianshan Academy",
         items: [
             {
                 question: "What age group are the students I will be teaching?",
-                answer: "You will be teaching international high school students aged between 15 and 18 years old.",
+                answer: "You will be teaching international high school students aged mostly between 14 and 18 years old.",
             },
             {
                 question: "What language should my session be delivered in?",
@@ -118,7 +122,7 @@ const homeFaqSections: FAQSection[] = [
             },
             {
                 question: "How much preparation is expected?",
-                answer: "We recommend setting aside a few hours before the trip to design your session and prepare materials. The goal is to make your session engaging and well-structured, but we do not expect a highly formalised or professional teaching package. During the trip itself, simply bring your curiosity and enthusiasm.",
+                answer: "After receiving your offer and confirming your participation, we will provide detailed guidance to support your session design. We recommend setting aside a few hours before the journey to structure your materials; the goal is to create an engaging experience that inspires through your unique perspective rather than a professional teaching package. To ensure the quality and impact of every academic session, the committee will review your materials to provide support and alignment if needed.",
             },
             {
                 question: "Will supporting materials and equipment be provided?",
@@ -130,7 +134,11 @@ const homeFaqSections: FAQSection[] = [
             },
             {
                 question: "Can I propose a session jointly with another scholar?",
-                answer: "While joint applications are not permitted, scholars within the cohort may explore collaborative elements once places have been confirmed, subject to discussion with the programme team.",
+                answer: "To ensure a diverse and balanced academic landscape, each scholar is expected to design and lead two independent academic sessions. However, once the cohort is finalized, scholars are welcome to explore collaborative elements specifically for the sharing sessions, of subjects including colleges, university societies, and culture.",
+            },
+            {
+                question: "Is there a dress code?",
+                answer: "For your teaching sessions at Jianshan Academy, we ask that scholars dress in appropriate attire out of respect for the school environment. For the China Trip, casual and comfortable clothing is perfectly appropriate, though we recommend dressing modestly when visiting temples, heritage sites, or other cultural landmarks. Specific guidance will be shared in your pre-departure information pack.",
             },
             {
                 question: "Will my session be observed or assessed?",
@@ -139,11 +147,15 @@ const homeFaqSections: FAQSection[] = [
         ],
     },
     {
-        title: "The China Trip",
+        title: "About Capy China Trip",
         items: [
             {
                 question: "What does the China Trip itinerary include?",
                 answer: "The trip takes you across multiple cities in China, combining cultural highlights, historical landmarks, and authentic local experiences. All activities are carefully planned and are a core part of the programme. Full details of the itinerary can be found on the China Trip page of our website.",
+            },
+            {
+                question: "Do I need to plan anything myself for the trip?",
+                answer: "Aside from our curated experiences, we have included one free day in both Shanghai and Beijing. Pre-planning and making necessary bookings will help you make the most of your time. You can choose to explore individually, join other groups, or plan as a group with your fellow trip members. We recommend checking the main itinerary in each city to avoid redundancies. While you explore in your own way, we always have your back.",
             },
             {
                 question: "What type of accommodation is provided?",
@@ -162,8 +174,8 @@ const homeFaqSections: FAQSection[] = [
                 answer: "This will depend on your visa status. Please note that we are unable to provide logistical support for any travel beyond the China Trip itinerary.",
             },
             {
-                question: "What currency should I bring, and are bank cards widely accepted?",
-                answer: "We recommend bringing a small amount of local cash for incidentals. Alipay and WeChat Pay are widely accepted across China and can be linked to an international bank card, making day-to-day payments straightforward. We will provide more guidance on this before departure.",
+                question: "Should I bring cash with me, and are bank cards widely accepted?",
+                answer: "We recommend bringing a small amount of local cash for incidentals. However, digital payment is the standard across China. Setting up Alipay or WeChat Pay with a linked international bank card is essential and will work smoothly in most situations. We will provide detailed guidance on this before departure.",
             },
             {
                 question: "What is the food like, and can dietary requirements be accommodated?",
@@ -179,8 +191,8 @@ const homeFaqSections: FAQSection[] = [
                 answer: "We strongly encourage you to confirm your visa requirements before signing up. It is each participant's full responsibility to ensure they have the correct entry and stay permissions for China. If you have any questions, please do not hesitate to contact us.",
             },
             {
-                question: "What visa support do you provide?",
-                answer: "While we are unable to apply for a visa on your behalf, we will provide an official letter of invitation from our partner institutions in China to support your application. We will also share a comprehensive guide covering standard visa application processes for applicants from major jurisdictions.",
+                question: "Will I get support for visa application if needed?",
+                answer: "While many may qualify for visa-free entry, we provide comprehensive support for those who require a formal visa to enter China. We will provide an official letter of invitation from our partner institutions in China to support your application. Please note that it remains your personal responsibility to manage the application process and ensure all documents meet the requirements to secure your entry permissions.",
             },
             {
                 question: "Do I need a visa to enter China?",
@@ -199,43 +211,7 @@ const homeFaqSections: FAQSection[] = [
             },
             {
                 question: "Will I be able to access my usual apps and social media in China?",
-                answer: "Many Western applications, including Google services and social media platforms, are restricted in mainland China. However, VPN services and international eSIM cards function properly and can give you access to your usual apps. We will provide guidance on setting up a VPN and obtaining a suitable eSIM before departure.",
-            },
-            {
-                question: "Will photos be taken during the programme?",
-                answer: "Yes. Photos will be taken throughout both the Jianshan Academy sessions and the China Trip for documentation and promotional purposes. By participating in the programme, you consent to being photographed during group activities. If you have any concerns, please let us know in advance.",
-            },
-            {
-                question: "Is there a dress code?",
-                answer: "For your teaching sessions at Jianshan Academy, we ask that scholars dress in appropriate attire out of respect for the school environment. For the China Trip, casual and comfortable clothing is perfectly appropriate, though we recommend dressing modestly when visiting temples, heritage sites, or other cultural landmarks. Specific guidance will be shared in your pre-departure information pack.",
-            },
-        ],
-    },
-    {
-        title: "Offer and Waitlist",
-        items: [
-            {
-                question: "What happens once I accept my offer?",
-                answer: "Once your place is confirmed, we will collect a deposit of 350 pounds. This deposit is held as a commitment to the programme and will be fully refunded to you upon completion of the trip.",
-            },
-            {
-                question: "What if I have to withdraw after accepting?",
-                answer: "We understand that circumstances can change. If you need to withdraw before the deposit window deadline and can provide evidence of a genuine force majeure event, we will consider refunding your deposit and hope to welcome you on a future trip. After the deposit window deadline, the deposit is non-refundable. Further details will be shared at the time of offer.",
-            },
-            {
-                question: "Is there a waitlist?",
-                answer: (
-                    <>
-                        Yes. Given the limited number of places available and the consistently high quality of applications we receive, we operate a waitlist system. We are committed to bringing the opportunity to explore China to as many people as possible, and the waitlist reflects that commitment.
-                        <br />
-                        <br />
-                        If you are placed on the waitlist, it means your application was of a high standard but a place could not be offered in the initial round. You will be contacted if a place becomes available due to a scholar withdrawing their acceptance. The waitlist will remain open until a set deadline following the initial offer date. [TBC: Waitlist closure deadline to be confirmed.] After this point, remaining waitlisted applicants will be notified that the list has closed.
-                    </>
-                ),
-            },
-            {
-                question: "Who should I contact if I have more questions after being accepted?",
-                answer: "Once you have accepted your offer, you will be added to a WhatsApp group where you can reach the programme team and your fellow scholars. You can also contact us via Instagram or email at any time.",
+                answer: "Many Western applications, including Google services and social media platforms, are restricted in mainland China. However, VPN services and international eSIM cards function properly and can give you access to your usual apps.",
             },
         ],
     },
@@ -248,6 +224,26 @@ const tripFaqSections: FAQSection[] = [
             {
                 question: "What does the China Trip itinerary include?",
                 answer: "The trip takes you across multiple cities in China, combining cultural highlights, historical landmarks, and authentic local experiences. All activities are carefully planned and are a core part of the programme. Full details of the itinerary can be found on the China Trip page of our website.",
+            },
+            {
+                question: "Do I need to plan anything myself for the trip?",
+                answer: "Aside from our curated experiences, we have included one free day in both Shanghai and Beijing. Pre-planning and making necessary bookings will help you make the most of your time. You can choose to explore individually, join other groups, or plan as a group with your fellow trip members. We recommend checking the main itinerary in each city to avoid redundancies. While you explore in your own way, we always have your back.",
+            },
+            {
+                question: "Are flights included?",
+                answer: "The Capy China Trip package covers all domestic travel, though international transport to and from China is not included. You are responsible for booking and funding your own flights. To ensure a seamless start to your journey, we will coordinate group pick-ups from designated airports within specific time windows. Detailed arrival guidance and flight options will be shared afterwards.",
+            },
+            {
+                question: "Is travel insurance included?",
+                answer: "Travel insurance is not included in the package. All participants are advised to arrange their own travel insurance prior to departure.",
+            },
+            {
+                question: "What should I do before signing up?",
+                answer: "We strongly encourage you to confirm your visa requirements before signing up. It is each participant's full responsibility to ensure they have the correct entry and stay permissions for China. If you have any questions, please do not hesitate to contact us.",
+            },
+            {
+                question: "Will I get support for visa application if needed?",
+                answer: "While many may qualify for visa-free entry, we provide comprehensive support for those who require a formal visa to enter China. We will supply the necessary documentation, including your confirmed hotel bookings and itinerary. Please note that it remains your personal responsibility to manage the application process and ensure all documents meet the requirements to secure your entry permissions.",
             },
             {
                 question: "What type of accommodation is provided?",
@@ -266,8 +262,8 @@ const tripFaqSections: FAQSection[] = [
                 answer: "This will depend on your visa status. Please note that we are unable to provide logistical support for any travel beyond the China Trip itinerary.",
             },
             {
-                question: "What currency should I bring, and are bank cards widely accepted?",
-                answer: "We recommend bringing a small amount of local cash for incidentals. Alipay and WeChat Pay are widely accepted across China and can be linked to an international bank card, making day-to-day payments straightforward. We will provide more guidance on this before departure.",
+                question: "Should I bring cash with me, and are bank cards widely accepted?",
+                answer: "We recommend bringing a small amount of local cash for incidentals. However, digital payment is the standard across China. Setting up Alipay or WeChat Pay with a linked international bank card is essential and will work smoothly in most situations. We will provide detailed guidance on this before departure.",
             },
             {
                 question: "What is the food like, and can dietary requirements be accommodated?",
@@ -282,6 +278,7 @@ export default function FAQ({ variant = "home" }: FAQProps) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const sections = variant === "trip" ? tripFaqSections : homeFaqSections;
     const isFlatTripFaq = variant === "trip";
+    const sectionId = variant === "home" ? "faq" : undefined;
 
     let itemOffset = 0;
 
@@ -298,7 +295,7 @@ export default function FAQ({ variant = "home" }: FAQProps) {
     };
 
     return (
-        <section className="w-full bg-[#FDFBF7] py-24 md:py-32 relative z-10">
+        <section id={sectionId} className="w-full scroll-mt-28 bg-[#FDFBF7] py-24 md:py-32 relative z-10">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
