@@ -2,17 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, X, ArrowRight, Instagram, UtensilsCrossed, Plane, FileText } from "lucide-react";
+import { Check, X, ArrowRight, UtensilsCrossed, Plane, FileText } from "lucide-react";
 import { Button } from "../ui/button";
+import SelfFundRegistrationDialog from "./SelfFundRegistrationDialog";
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription,
-} from "../ui/dialog";
-
-const SCHOLARSHIP_APPLICATION_URL = "https://portal.jianshanacademy.com";
+    SCHOLARSHIP_APPLICATION_URL,
+} from "./selfFundRegistration";
+import { useSelfFundRegistrationGate } from "./useSelfFundRegistrationGate";
 
 const includedItems = [
     "Accommodation (10 nights, twin-sharing)",
@@ -63,6 +59,7 @@ const additionalInfoList = [
 
 export default function ChinaTripPricing() {
     const [showDialog, setShowDialog] = useState(false);
+    const { isLocked, opensAtLabel, registrationUrl } = useSelfFundRegistrationGate();
 
     return (
         <>
@@ -96,13 +93,25 @@ export default function ChinaTripPricing() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button
-                                    size="lg"
-                                    className="group text-base px-8 bg-[#D85C3C] hover:bg-[#C44A2D] text-white rounded-full transition-all duration-300 w-full sm:w-auto"
-                                    onClick={() => setShowDialog(true)}
-                                >
-                                    Register Now
-                                </Button>
+                                {isLocked || !registrationUrl ? (
+                                    <Button
+                                        size="lg"
+                                        className="group w-full rounded-full bg-[#D85C3C] px-8 text-base text-white transition-all duration-300 hover:bg-[#C44A2D] sm:w-auto"
+                                        onClick={() => setShowDialog(true)}
+                                    >
+                                        Register Now
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        className="group w-full rounded-full bg-[#D85C3C] px-8 text-base text-white transition-all duration-300 hover:bg-[#C44A2D] sm:w-auto"
+                                    >
+                                        <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
+                                            Register Now
+                                        </a>
+                                    </Button>
+                                )}
                             </div>
                         </motion.div>
 
@@ -221,31 +230,11 @@ export default function ChinaTripPricing() {
                 </div>
             </section>
 
-            {/* Registration Not Yet Open Dialog */}
-            <Dialog open={showDialog} onOpenChange={setShowDialog}>
-                <DialogContent className="bg-[#111] border-white/10 text-[#FDFBF7] max-w-md rounded-2xl">
-                    <DialogHeader>
-                        <DialogTitle className="text-2xl font-sans font-bold tracking-tight text-[#FDFBF7]">
-                            Registration Coming Soon
-                        </DialogTitle>
-                        <DialogDescription className="text-[#FDFBF7]/70 text-base font-light mt-3 leading-relaxed">
-                            Registration for the self-funded China Trip will open on March 27 at 12:00 PM. It is not open yet.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <div className="mt-4">
-                        <a
-                            href="https://www.instagram.com/camcapysoc"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Button className="w-full rounded-full bg-gradient-to-r from-[#833AB4] via-[#C13584] to-[#E1306C] hover:opacity-90 text-white transition-opacity">
-                                <Instagram className="w-5 h-5 mr-2" />
-                                Follow @camcapysoc
-                            </Button>
-                        </a>
-                    </div>
-                </DialogContent>
-            </Dialog>
+            <SelfFundRegistrationDialog
+                open={showDialog}
+                onOpenChange={setShowDialog}
+                opensAtLabel={opensAtLabel}
+            />
         </>
     );
 }
