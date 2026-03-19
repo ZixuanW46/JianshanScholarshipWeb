@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, GraduationCap } from "lucide-react";
+import { Button } from "../ui/button";
+import SelfFundRegistrationButton from "./SelfFundRegistrationButton";
+import { SCHOLARSHIP_APPLICATION_URL } from "./selfFundRegistration";
 
 export default function ChinaTripHero() {
     const textRef = useRef<HTMLDivElement>(null);
@@ -60,6 +63,41 @@ export default function ChinaTripHero() {
                                 {tag}
                             </span>
                         ))}
+                    </div>
+
+                    <div className="ct-hero-stagger flex flex-col sm:flex-row items-start gap-4">
+                        <SelfFundRegistrationButton
+                            label="Register for Capy China Trip"
+                            size="lg"
+                            className="group w-full sm:w-auto rounded-full bg-[#FDFBF7] px-8 text-lg text-[#0A0A0A] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:bg-[#F3EEE6] hover:px-10"
+                        />
+                        <Button
+                            asChild
+                            variant="outline"
+                            size="lg"
+                            className="relative overflow-hidden group w-full sm:w-auto text-lg px-8 border-none text-[#FDFBF7] bg-transparent rounded-full transition-all duration-500"
+                        >
+                            <a href={SCHOLARSHIP_APPLICATION_URL}>
+                                {/* Default Border */}
+                                <div className="absolute inset-0 border border-[#FDFBF7]/30 rounded-full pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+
+                                {/* Rotating Shimmer Layer */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden rounded-full">
+                                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(253,251,247,0.8)_360deg)]" />
+                                </div>
+
+                                {/* Inner Cap to create the border effect */}
+                                <div className="absolute inset-[1px] rounded-full bg-[#0A0A0A]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                                <span className="relative z-10 flex items-center justify-center gap-2">
+                                    Join via Scholarship
+                                    <GraduationCap
+                                        size={20}
+                                        className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_2px_8px_rgba(253,251,247,0.6)]"
+                                    />
+                                </span>
+                            </a>
+                        </Button>
                     </div>
 
                 </div>

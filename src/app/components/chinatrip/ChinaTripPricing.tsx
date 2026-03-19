@@ -59,7 +59,18 @@ const additionalInfoList = [
 
 export default function ChinaTripPricing() {
     const [showDialog, setShowDialog] = useState(false);
-    const { isLocked, opensAtLabel, registrationUrl } = useSelfFundRegistrationGate();
+    const { isLocked, opensAtLabel, registrationUrl, refresh } = useSelfFundRegistrationGate();
+
+    async function handleRegistrationClick() {
+        const nextState = await refresh();
+
+        if (!nextState.isLocked && nextState.registrationUrl) {
+            window.open(nextState.registrationUrl, "_blank", "noopener,noreferrer");
+            return;
+        }
+
+        setShowDialog(true);
+    }
 
     return (
         <>
@@ -97,7 +108,9 @@ export default function ChinaTripPricing() {
                                     <Button
                                         size="lg"
                                         className="group w-full rounded-full bg-[#D85C3C] px-8 text-base text-white transition-all duration-300 hover:bg-[#C44A2D] sm:w-auto"
-                                        onClick={() => setShowDialog(true)}
+                                        onClick={() => {
+                                            void handleRegistrationClick();
+                                        }}
                                     >
                                         Register Now
                                     </Button>

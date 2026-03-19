@@ -18,6 +18,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
+  const shouldHideApplyNow = location.pathname === "/chinatrip";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -113,15 +115,17 @@ export default function Header() {
             {/* Right section */}
             <div className="flex items-center gap-3 shrink-0">
               {/* Apply Now button (desktop only) */}
-              <a
-                href={SCHOLARSHIP_APPLICATION_URL}
-                className={`hidden min-[1000px]:inline-flex px-5 py-2 rounded-full transition-colors font-medium text-sm whitespace-nowrap ${isScrolled
-                  ? "bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E]"
-                  : "bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#FDFBF7]/90"
-                  }`}
-              >
-                Apply Now
-              </a>
+              {shouldHideApplyNow ? null : (
+                <a
+                  href={SCHOLARSHIP_APPLICATION_URL}
+                  className={`hidden min-[1000px]:inline-flex px-5 py-2 rounded-full transition-colors font-medium text-sm whitespace-nowrap ${isScrolled
+                    ? "bg-[#0F2E18] text-[#FDFBF7] hover:bg-[#1A4D2E]"
+                    : "bg-[#FDFBF7] text-[#0F2E18] hover:bg-[#FDFBF7]/90"
+                    }`}
+                >
+                  Apply Now
+                </a>
+              )}
 
               {/* Hamburger button (mobile only) */}
               <button
@@ -205,21 +209,23 @@ export default function Header() {
                       )
                     ))}
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: NAV_LINKS.length * 0.05 + 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="mt-4"
-                    >
-                      <a
-                        href={SCHOLARSHIP_APPLICATION_URL}
-                        onClick={handleNavClick}
-                        className="w-full flex items-center justify-center py-4 rounded-xl bg-[#0F2E18] text-[#FDFBF7]
-                      font-medium text-[1.1rem] hover:bg-[#1A4D2E] active:bg-[#1A4D2E]/90 transition-colors"
+                    {shouldHideApplyNow ? null : (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: NAV_LINKS.length * 0.05 + 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="mt-4"
                       >
-                        Apply Now
-                      </a>
-                    </motion.div>
+                        <a
+                          href={SCHOLARSHIP_APPLICATION_URL}
+                          onClick={handleNavClick}
+                          className="w-full flex items-center justify-center py-4 rounded-xl bg-[#0F2E18] text-[#FDFBF7]
+                        font-medium text-[1.1rem] hover:bg-[#1A4D2E] active:bg-[#1A4D2E]/90 transition-colors"
+                        >
+                          Apply Now
+                        </a>
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </motion.nav>

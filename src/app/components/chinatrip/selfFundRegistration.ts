@@ -12,6 +12,7 @@ export type SelfFundRegistrationGateResponse =
   | {
       locked: true;
       opensAtLabel: string;
+      opensAtIso: string;
     }
   | {
       locked: false;

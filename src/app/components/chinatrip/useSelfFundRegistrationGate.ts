@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   SELF_FUND_OPEN_AT_LABEL,
   SELF_FUND_REGISTRATION_ENDPOINT,
@@ -11,6 +11,7 @@ type GateState = {
   isLoading: boolean;
   isLocked: boolean;
   opensAtLabel: string;
+  opensAtIso: string | null;
   registrationUrl: string | null;
 };
 
@@ -18,18 +19,19 @@ const defaultState: GateState = {
   isLoading: true,
   isLocked: true,
   opensAtLabel: SELF_FUND_OPEN_AT_LABEL,
+  opensAtIso: null,
   registrationUrl: null,
 };
 
 let cachedState: GateState | null = null;
 let inFlightRequest: Promise<GateState> | null = null;
 
-async function loadGateState() {
-  if (cachedState) {
+async function loadGateState(force = false) {
+  if (cachedState && !force) {
     return cachedState;
   }
 
-  if (!inFlightRequest) {
+  if (!inFlightRequest || force) {
     inFlightRequest = fetch(SELF_FUND_REGISTRATION_ENDPOINT, {
       cache: "no-store",
     })
@@ -46,6 +48,7 @@ async function loadGateState() {
             isLoading: false,
             isLocked: true,
             opensAtLabel: data.opensAtLabel,
+            opensAtIso: data.opensAtIso,
             registrationUrl: null,
           };
 
@@ -56,6 +59,7 @@ async function loadGateState() {
           isLoading: false,
           isLocked: false,
           opensAtLabel: SELF_FUND_OPEN_AT_LABEL,
+          opensAtIso: null,
           registrationUrl: data.url,
         };
 
@@ -66,6 +70,7 @@ async function loadGateState() {
           isLoading: false,
           isLocked: true,
           opensAtLabel: SELF_FUND_OPEN_AT_LABEL,
+          opensAtIso: null,
           registrationUrl: null,
         };
 
@@ -83,6 +88,15 @@ export function useSelfFundRegistrationGate() {
   const [gateState, setGateState] = useState<GateState>(
     cachedState ?? defaultState,
   );
+  const refreshTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (refreshTimeoutRef.current) {
+        window.clearTimeout(refreshTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -98,5 +112,36 @@ export function useSelfFundRegistrationGate() {
     };
   }, []);
 
-  return gateState;
+  useEffect(() => {
+    if (refreshTimeoutRef.current) {
+      window.clearTimeout(refreshTimeoutRef.current);
+      refreshTimeoutRef.current = null;
+    }
+
+    if (!gateState.isLocked || !gateState.opensAtIso) {
+      return;
+    }
+
+    const delay = new Date(gateState.opensAtIso).getTime() - Date.now();
+
+    if (delay <= 0) {
+      void loadGateState(true).then(setGateState);
+      return;
+    }
+
+    refreshTimeoutRef.current = window.setTimeout(() => {
+      void loadGateState(true).then(setGateState);
+    }, delay + 250);
+  }, [gateState.isLocked, gateState.opensAtIso]);
+
+  async function refresh() {
+    const nextState = await loadGateState(true);
+    setGateState(nextState);
+    return nextState;
+  }
+
+  return {
+    ...gateState,
+    refresh,
+  };
 }

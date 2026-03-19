@@ -1,6 +1,7 @@
 type LockedResponse = {
   locked: true;
   opensAtLabel: string;
+  opensAtIso: string;
 };
 
 type OpenResponse = {
@@ -81,6 +82,11 @@ function zonedLocalTimeToUtc(localDateTime: string, timeZone: string) {
   return new Date(utcGuess - offset);
 }
 
+function getOpensAtIso(localDateTime: string, timeZone: string) {
+  const openAtUtc = zonedLocalTimeToUtc(localDateTime, timeZone);
+  return openAtUtc ? openAtUtc.toISOString() : null;
+}
+
 export const config = {
   runtime: "nodejs",
 };
@@ -99,11 +105,13 @@ export default function handler(
     process.env.SELF_FUND_OPEN_AT_LOCAL ?? DEFAULT_OPEN_AT_LOCAL;
   const timeZone = process.env.SELF_FUND_TIMEZONE ?? DEFAULT_TIMEZONE;
   const opensAtLabel = DEFAULT_OPEN_AT_LABEL;
+  const opensAtIso = getOpensAtIso(openAtLocal, timeZone);
 
   if (!formUrl) {
     return sendJson(res, {
       locked: true,
       opensAtLabel,
+      opensAtIso: opensAtIso ?? new Date(0).toISOString(),
     });
   }
 
@@ -114,6 +122,7 @@ export default function handler(
       return sendJson(res, {
         locked: true,
         opensAtLabel,
+        opensAtIso: opensAtIso ?? new Date(0).toISOString(),
       });
     }
 
@@ -121,6 +130,7 @@ export default function handler(
       return sendJson(res, {
         locked: true,
         opensAtLabel,
+        opensAtIso: openAtUtc.toISOString(),
       });
     }
 
@@ -132,6 +142,7 @@ export default function handler(
     return sendJson(res, {
       locked: true,
       opensAtLabel,
+      opensAtIso: opensAtIso ?? new Date(0).toISOString(),
     });
   }
 }

@@ -1,18 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
-import SelfFundRegistrationDialog from "./SelfFundRegistrationDialog";
+import SelfFundRegistrationButton from "./SelfFundRegistrationButton";
 import {
     SCHOLARSHIP_APPLICATION_URL,
 } from "./selfFundRegistration";
-import { useSelfFundRegistrationGate } from "./useSelfFundRegistrationGate";
 
 export default function ChinaTripCTA() {
-    const [showDialog, setShowDialog] = useState(false);
-    const { isLocked, opensAtLabel, registrationUrl } = useSelfFundRegistrationGate();
-
     return (
         <>
             <section className="bg-[#0A0A0A] text-[#FDFBF7] py-24 md:py-32 relative overflow-hidden">
@@ -35,33 +28,11 @@ export default function ChinaTripCTA() {
                         </p>
 
                         <div className="flex flex-col items-center justify-center gap-10">
-                            {isLocked || !registrationUrl ? (
-                                <Button
-                                    size="lg"
-                                    className="group w-full rounded-full bg-[#D85C3C] px-10 py-6 text-lg text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:bg-[#C44A2D] hover:px-12 sm:w-auto"
-                                    onClick={() => setShowDialog(true)}
-                                >
-                                    Register for Capy China Trip
-                                    <ArrowRight
-                                        size={20}
-                                        className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
-                                    />
-                                </Button>
-                            ) : (
-                                <Button
-                                    asChild
-                                    size="lg"
-                                    className="group w-full rounded-full bg-[#D85C3C] px-10 py-6 text-lg text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:bg-[#C44A2D] hover:px-12 sm:w-auto"
-                                >
-                                    <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                                        Register for Capy China Trip
-                                        <ArrowRight
-                                            size={20}
-                                            className="transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:scale-110"
-                                        />
-                                    </a>
-                                </Button>
-                            )}
+                            <SelfFundRegistrationButton
+                                label="Register for Capy China Trip"
+                                size="lg"
+                                className="group w-full rounded-full bg-[#D85C3C] px-10 py-6 text-lg text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.03] hover:gap-4 hover:bg-[#C44A2D] hover:px-12 sm:w-auto"
+                            />
                             <a
                                 href={SCHOLARSHIP_APPLICATION_URL}
                                 className="text-[#FDFBF7]/60 hover:text-[#FDFBF7] transition-colors border-b border-white/20 hover:border-white/60 pb-1 text-sm tracking-widest uppercase font-medium"
@@ -72,12 +43,6 @@ export default function ChinaTripCTA() {
                     </div>
                 </div>
             </section>
-
-            <SelfFundRegistrationDialog
-                open={showDialog}
-                onOpenChange={setShowDialog}
-                opensAtLabel={opensAtLabel}
-            />
         </>
     );
 }
